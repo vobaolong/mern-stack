@@ -2,10 +2,8 @@
   width: 100%;
   height: 70px;
   line-height: 70px;
-  position: fixed;
-  z-index: 999;
   background: #fff;
-
+  top: 0;
 }
 
 .nav_wrapper {
@@ -15,11 +13,9 @@
 }
 
 .logo {
-
   display: flex;
   column-gap: 8px;
   align-items: center;
-
 }
 
 .logo img {
@@ -44,6 +40,11 @@
   color: var(--primary-color);
   font-weight: 500;
   cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.nav_item a:hover {
+  color: #6bd5c4;
 }
 
 .nav_icons {
@@ -87,6 +88,7 @@
   cursor: pointer;
 }
 
+
 .mobile_menu {
   font-size: 1.3rem;
   color: var(--primary-color);
@@ -96,4 +98,76 @@
 .nav_active {
   font-weight: 700 !important;
   color: #6bd5c4 !important;
+}
+
+.sticky {
+  width: 100%;
+  height: 70px;
+  line-height: 70px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  box-shadow: 3px 3px 8px -3px #ddd;
+  background: #fff;
+}
+
+@media only screen and (max-width: 768px) {
+  .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 99999;
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 100%;
+    background: #fff;
+    z-index: 100;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu_active {
+    display: block;
+  }
+
+  .mobile_menu {
+    display: block;
+  }
+
+  .logo img {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .logo h1 {
+    font-size: 1rem;
+  }
+
+  .fav_icon i,
+  .cart_icon i {
+    font-size: 1.2rem !important;
+
+  }
+
+  .nav_icons span img {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+
+  .header {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+  }
 }

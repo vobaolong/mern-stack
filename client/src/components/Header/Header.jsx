@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
 import "./Header.css"
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion"
@@ -17,8 +17,31 @@ const nav_links = [
     path: 'cart', display: 'Cart'
   }
 ]
+
 const Header = () => {
-  return <header className="header">
+
+  const headerRef = useRef(null);
+
+  const menuRef = useRef(null);
+
+  //Get the button
+
+  const stickyHeader = () => {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add('sticky');
+      } else {
+        headerRef.current.classList.remove('sticky');
+      }
+    })
+  }
+  useEffect(() => {
+    stickyHeader()
+    return () => window.addEventListener('scroll', stickyHeader)
+  })
+
+  const menuToggle = () => menuRef.current.classList.toggle('menu_active')
+  return <header className="header" ref={headerRef}>
     <Container>
       <Row>
         <div className="nav_wrapper">
@@ -28,11 +51,12 @@ const Header = () => {
               <h1>G10Store</h1>
             </div>
           </div>
-          <div className="navigation">
+          <div className="navigation" ref={menuRef} onClick={menuToggle}>
             <ul className="menu">
               {nav_links.map((item, index) => (
                 <li className="nav_item" key={index}>
                   <NavLink
+                    title={`Go to ${item.display}`}
                     to={item.path}
                     style={{ textDecoration: 'none' }}
                     className={(navClass) => navClass.isActive ? "nav_active" : ""}
@@ -50,18 +74,21 @@ const Header = () => {
               <i class="ri-heart-line"></i>
               <span className="badges">1</span>
             </span>
-            <span className="cart_icon">
+            <span className="cart_icon"
+              title="Cart">
               <i class="ri-shopping-bag-line"></i>
               <span className="badges">1</span>
 
             </span>
             <span>
-              <motion.img whileTap={{ scale: 1.1 }} src={userIcon} alt="" />
-            </span>
-          </div>
+              <motion.img title="Profile"
+                whileTap={{ scale: 1.1 }} src={userIcon} alt="" />
 
-          <div className="mobile_menu">
-            <span><i class="ri-menu-line"></i></span>
+            </span>
+            <div className="mobile_menu">
+              <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
+            </div>
+
           </div>
         </div>
       </Row>

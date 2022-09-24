@@ -28,11 +28,11 @@ const ProductCard = ({ item }) => {
         <div className="product_card-bottom d-flex aligm-items-center justify-content-between p-2">
           <span className="price">${item.price}</span>
           <motion.span
+            title="Add to cart"
             whileTap={{ scale: 1.3 }}>
-            <i className="ri-add-line"></i>
+            <i class="ri-shopping-cart-line"></i>
           </motion.span>
         </div>
-
       </div>
     </Col>
   )
