@@ -40,8 +40,8 @@ const Home = () => {
           <Row>
             <Col lg='6' md='6'>
               <div className="hero_content">
-                <p className="hero_subTitle">Cửa hàng được khách hàng tin dùng năm {year}</p>
-                <h2>G1 Store - Nơi cung cấp sản phẩm laptop, pc chính hãng</h2>
+                <p className="hero_subTitle ">Cửa hàng được khách hàng tin dùng năm {year}</p>
+                <h2 className='text-uppercase'>G1 Store - Nơi cung cấp sản phẩm laptop, pc chính hãng</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque nobis totam maxime dolorem. Deleniti facilis ipsam dolor ipsum nesciunt veniam ut aliquid excepturi sapiente commodi, omnis, itaque quod autem modi!</p>
                 <button
                   className="buy_btn"><Link to='/shop' style={{ textDecoration: 'none', color: 'unset' }}>MUA NGAY</Link></button>
