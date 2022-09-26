@@ -79,3 +79,61 @@
   color: var(--primary-color);
   font-weight: 600;
 }
+
+
+@media only screen and (max-width: 992px) {
+  .hero_content h2 {
+    font-size: 2rem;
+  }
+
+  .section_title {
+    font-size: 1.6rem;
+  }
+
+  .counter_img {
+    display: none;
+  }
+
+  .clock_top-content {
+    text-align: center;
+  }
+
+  .clock_top-content h4 {
+    font-size: .9rem !important;
+  }
+
+  .clock_top-content h3 {
+    font-size: 1rem !important;
+  }
+
+  .count_down {
+    text-align: center;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .hero_content h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero_content p {
+    font-size: 1rem;
+  }
+
+  .buy_btn {
+    font-size: 0.9rem;
+  }
+
+  .section_title {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .hero_content {
+    padding-top: 0;
+    margin-top: 40px;
+  }
+}

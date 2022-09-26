@@ -13,15 +13,10 @@ import hdd2 from "../img/hdd2.png";
 import hdd3 from "../img/hdd3.png";
 import hdd4 from "../img/hdd4.png";
 
-import headphone1 from "../img/headphone1.png"
 import headphone2 from "../img/headphone2.png"
-import headphone3 from "../img/headphone3.png"
-import headphone4 from "../img/headphone4.png"
 
 import popular1 from "../img/headphone1.png"
 import popular2 from "../img/headphone2.png"
-import popular3 from "../img/headphone3.png"
-import popular4 from "../img/headphone4.png"
 
 
 const productData = [
@@ -91,7 +86,7 @@ const productData = [
   },
   {
     id: "04",
-    productName: "Laptop Acer 2020 MGN73SA/A/MGN73SA/MGN73SA ",
+    productName: "Laptop Acer 2020 MGN73SA/MGN73SA ",
     imgUrl: acer,
     category: "Laptop",
     price: 193,
@@ -295,7 +290,7 @@ const productData = [
   {
     id: "13",
     productName: "Tai nghe Bluetooth JBL T45OBT",
-    imgUrl: headphone1,
+    imgUrl: headphone2,
     category: "Headphone",
     price: 163,
     shortDesc:
@@ -341,7 +336,7 @@ const productData = [
   {
     id: "15",
     productName: "Tai nghe Bluetooth JBL T45OBT",
-    imgUrl: headphone3,
+    imgUrl: headphone2,
     category: "Headphone",
     price: 163,
     shortDesc:
@@ -364,7 +359,7 @@ const productData = [
   {
     id: "16",
     productName: "Tai nghe Bluetooth JBL T45OBT",
-    imgUrl: headphone4,
+    imgUrl: headphone2,
     category: "Headphone",
     price: 163,
     shortDesc:
@@ -431,7 +426,7 @@ const productData = [
   {
     id: "19",
     productName: "Tai nghe Bluetooth JBL T45OBT",
-    imgUrl: popular3,
+    imgUrl: popular1,
     category: "Popular",
     price: 163,
     shortDesc:
@@ -453,7 +448,7 @@ const productData = [
   {
     id: "20",
     productName: "Tai nghe Bluetooth JBL T45OBT",
-    imgUrl: popular4,
+    imgUrl: popular1,
     category: "Popular",
     price: 163,
     shortDesc:
