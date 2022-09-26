@@ -1,7 +1,7 @@
 module.exports = function(app) {
     let userCtrl = require('../controller/UserController')
 
-    app.route('/user/getAll').get(userCtrl.get).post(userCtrl.store)
+    app.route('/user').get(userCtrl.getAll).post(userCtrl.create)
 
-    app.route('/product/:productId').get(userCtrl.detail).put(userCtrl.update).delete(userCtrl.delete)
+    app.route('/user/:userId').get(userCtrl.get).put(userCtrl.update).delete(userCtrl.delete)
 }

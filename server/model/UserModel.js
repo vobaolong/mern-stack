@@ -8,8 +8,9 @@ const User = new Schema({
   password: { type: String },
   name: { type: String, default: "#user" + Math.floor(Math.random() * 1000) },
   phone: { type: String, default: '' },
-  email: { type: String },
+  email: { type: String, require: true },
   gender: { type: String, default: '' },
+  image: { type: String, default: ''},
   createAt: { type: Date, default: Date.now },
   updateAt: { type: Date, default: Date.now },
 });

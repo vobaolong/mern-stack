@@ -1,31 +1,27 @@
 const User = require('../model/UserModel')
 
 module.exports = {
+    getAll: (req, res) => {
+        User.find({})
+        .then(users => res.json(users))
+
+    },
+    create: (req, res) => {
+        User.create(req.body)
+        .then(res.json({message: 'Create a new user Successfully!!'}))
+    },
     get: (req, res) => {
-        User.find({}, function(err, users){
-            if (!err) {
-                res.json(users)
-                return
-            }
-            res.status(400).json({message: 'ERROR!!!'})
-        })
-<<<<<<< HEAD
-=======
+        User.findById(req.params.userId)
+        .then(user => res.json(user))
     },
-    detail: (req, res) => {
-
-    },
-
     update: (req, res) => {
-
-    },
-
-    store: (req, res) => {
-
+        User.findByIdAndUpdate(req.params.userId, req.body)
+        .then(res.json({message: 'Update Successfully!!'}))
+        .catch(err => res.json({message:'Update Failed!!!'}))
     },
 
     delete: (req, res) => {
-
->>>>>>> e544daf604b087015e2a398536df04ec66c8c36b
+        User.findByIdAndDelete(req.params.userId, req.body)
+        .then(res.json({message: 'Delete Successfully!!'}))
     }
 }
