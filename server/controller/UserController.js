@@ -10,7 +10,7 @@ module.exports = {
         User.create(req.body)
         .then(res.json({message: 'Create a new user Successfully!!'}))
     },
-    get: (req, res) => {
+    getDetail: (req, res) => {
         User.findById(req.params.userId)
         .then(user => res.json(user))
     },

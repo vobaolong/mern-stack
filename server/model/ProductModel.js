@@ -5,12 +5,12 @@ const ObjectId = Schema.ObjectId;
 
 const Product = new Schema({
   name: { type: String },
-  image: { type: Array },
+  image: { type: String },
   shortDesc: { type: String },
   longDesc: { type: String },
   categoryid: { type: String, require: true },
-  subcategoryid: { type: String, require: true },
   type: { type: Array },
+  price: {type: Number},
   rating: { type: Number, default: 0 },
   sell: {type: Number, default: 0},
   technical: {type: Object, required: true}
