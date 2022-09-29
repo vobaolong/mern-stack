@@ -1,4 +1,4 @@
-import macAir from "../img/macAir.png";
+import macAir from '../img/macAir.png';
 import macPro from "../img/macPro.png";
 import macM1 from "../img/macM1.png";
 import acer from "../img/acer.png";
@@ -25,7 +25,7 @@ const productData = [
     productName: "Laptop APPLE MacBook Air 2020 MGN73SA/A ",
     imgUrl: macAir,
     category: "Laptop",
-    price: 193,
+    price: 19300000,
     shortDesc:
       "Máy tính xách tay/ Laptop MacBook Air 2020 13.3' MGN73SA/A mang đến hiệu năng xử lý mạnh mẽ ẩn bên trong thiết kế sang trọng và tinh tế",
     description:

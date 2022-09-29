@@ -62,7 +62,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col lg='12' className='text-center' >
-              <h2 className="section_title text-uppercase mb-3">Sản phẩm xu hướng</h2>
+              <h2 id='trending' className="section_title text-uppercase mb-3">Sản phẩm xu hướng</h2>
             </Col>
             <ProductList data={trending} />
           </Row>
@@ -95,7 +95,9 @@ const Home = () => {
             </Col>
 
             <Col lg='6' md='6' className='text-end counter_img'>
-              <img src={counter} alt="" />
+              <img src={counter}
+
+                alt="" />
             </Col>
           </Row>
         </Container>
