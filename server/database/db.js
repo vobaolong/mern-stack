@@ -1,9 +1,14 @@
 const mongoose = require('mongoose')
+<<<<<<< HEAD
 
 
 
 async function connect() {
     try {
+=======
+async function connect(){
+    try{
+>>>>>>> 74b02bba427de3c1db00996b952372133dc78837
         await mongoose.connect('mongodb+srv://mernstore:k4x4jKHdhw9N0Kfr@cluster0.wvjjelo.mongodb.net/CNMPM_MERN?retryWrites=true&w=majority');
         console.log('Connect successfully!!!!')
     } catch (error) {
