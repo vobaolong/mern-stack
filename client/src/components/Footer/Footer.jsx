@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const Footer = () => {
 
   const mybutton = document.getElementById("myBtn");
-
   // Cách top 100px thì hiện 
   window.onscroll = () => {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
@@ -35,7 +34,7 @@ const Footer = () => {
               <h4 className="links_title">Top loại sản phẩm</h4>
               <ListGroup className='mb-3'>
                 <ListGroupItem className='ps-0 border-0 d-flex '>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Xu hướng</Link>
+                  <Link to='#trending' style={{ textDecoration: 'none', color: 'unset' }}>Xu hướng</Link>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0'>
@@ -106,7 +105,13 @@ const Footer = () => {
               Copyright &copy; 2022 by G10Store. All Rights Reserved
             </p>
           </Col>
-          <Link to='/' id="myBtn" title='Go to top' style={{ textDecoration: 'none', color: 'unset' }}><i class="ri-arrow-up-s-line"></i></Link>
+          <Link
+            to='/'
+            id="myBtn"
+            title='Go to top'
+            style={{ textDecoration: 'none', color: 'unset' }}>
+            <i class="ri-arrow-up-s-line"></i>
+          </Link>
 
         </Row>
       </Container>
