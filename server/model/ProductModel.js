@@ -16,8 +16,5 @@ const Product = new Schema({
   technical: {type: Object, required: true}
 });
 
-<<<<<<< HEAD
 module.exports = mongoose.model("Product", Product);
-=======
-module.exports = mongoose.model("Product", Product);
->>>>>>> 74b02bba427de3c1db00996b952372133dc78837
+
