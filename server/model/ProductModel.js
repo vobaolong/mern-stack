@@ -5,15 +5,15 @@ const ObjectId = Schema.ObjectId;
 
 const Product = new Schema({
   name: { type: String },
-  categoryid: { type: String },
-  subcategoryid: { type: String },
-  type: {
-    type: Array,
-    Object,
-    config: { type: String },
-    color: { type: String },
-    quantity: { type: Number },
-  }
+  image: { type: Array },
+  shortDesc: { type: String },
+  longDesc: { type: String },
+  categoryid: { type: String, require: true },
+  subcategoryid: { type: String, require: true },
+  type: { type: Array },
+  rating: { type: Number, default: 0 },
+  sell: {type: Number, default: 0},
+  technical: {type: Object, required: true}
 });
 
 module.exports = mongoose.model("Product", Product);
