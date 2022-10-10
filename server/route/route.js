@@ -1,40 +1,16 @@
 module.exports = function (app) {
-  let userCtrl = require("../controller/UserController");
-  let productCtrl = require("../controller/ProductController");
-  let categoryCtrl = require("../controller/CategoryController");
 
+  let authRoute = require("./auth")
+  let userRoute = require("./user")
+  let categoryRoute = require("./category")
+  let productRoute = require("./product")
 
-  app
-  .route("/user")
-  .get(userCtrl.getAll)
-  .post(userCtrl.create);
+  authRoute(app)
 
-  app
-    .route("/user/:userId")
-    .get(userCtrl.getDetail)
-    .put(userCtrl.update)
-    .delete(userCtrl.delete);
+  userRoute(app)
 
-  app
-  .route("/product")
-  .get(productCtrl.getAll)
-  .post(productCtrl.create);
+  categoryRoute(app)
 
-  app
-  .route("/product/:productId")
-  .get(productCtrl.getDetail)
-  .put(productCtrl.update)
-  .delete(productCtrl.delete);
-
-  app
-  .route("/category")
-  .get(categoryCtrl.getAll)
-  .post(categoryCtrl.create);
-
-  app
-  .route("/category/:categoryId")
-  .get(categoryCtrl.getDetail)
-  .put(categoryCtrl.update)
-  .delete(categoryCtrl.delete);
+  productRoute(app)
 
 }

@@ -5,13 +5,21 @@
 const express = require('express')
 const route = require('./route/route')
 const db = require('./database/db')
+const cors =  require("cors")
+const env = require("dotenv")
+const cookieParser = require("cookie-parser")
+
+env.config()
+const port = process.env.PORT || 3000
+
 let app = express()
 
-// dotenv.config()
-// connectDB()
-const port = process.env.port || 3000
-db.connect()
+app.use(cors())
+app.use(cookieParser())
 app.use(express.json())
+
+db.connect()
+
 route(app)
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })
