@@ -1,20 +1,11 @@
-import React from 'react'
-import './Footer.css'
-import logo from "../../assets/img/logo.png"
-
+import React from 'react';
+import './Footer.css';
+import logo from "../../assets/img/logo.png";
+import ScrollToTop from 'react-scroll-to-top';
 import { Container, Row, Col, ListGroup, ListGroupItem } from "reactstrap"
 import { Link } from 'react-router-dom'
 const Footer = () => {
 
-  const mybutton = document.getElementById("myBtn");
-  // Cách top 100px thì hiện 
-  window.onscroll = () => {
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      mybutton.style.display = "block";
-    } else {
-      mybutton.style.display = "none";
-    }
-  }
   return (
     <footer className='footer'>
       <Container>
@@ -26,7 +17,11 @@ const Footer = () => {
                 <h1 className='text-white'>G10Store</h1>
               </div>
             </div>
-            <p className="footer_text mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam illum iusto sequi rerum asperiores numquam provident unde, laudantium officia. Eum aperiam quae modi rem a quam minus asperiores recusandae nihil!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quam!</p>
+            <h5 className="footer_text mt-4 text-white">Công nghệ sử dụng</h5>
+            <ListGroupItem>
+              <p>MERN</p>
+            </ListGroupItem>
 
           </Col>
           <Col lg='3'>
@@ -105,15 +100,13 @@ const Footer = () => {
               Copyright &copy; 2022 by G10Store. All Rights Reserved
             </p>
           </Col>
-          <Link
-            to='/'
-            id="myBtn"
-            title='Go to top'
-            style={{ textDecoration: 'none', color: 'unset' }}>
-            <i class="ri-arrow-up-s-line"></i>
-          </Link>
 
         </Row>
+        <ScrollToTop
+          smooths
+          color="#116149"
+          className='ScrollToTop'
+        />
       </Container>
     </footer>
   )

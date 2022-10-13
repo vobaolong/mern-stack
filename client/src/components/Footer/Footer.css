@@ -11,13 +11,11 @@
 .footer_links ul li {
   background: transparent !important;
   color: rgba(255, 255, 255, 0.8);
-
 }
 
 .footer_links ul li a {
   color: rgba(255, 255, 255, 0.8);
 }
-
 
 .links_title {
   margin-bottom: 20px;
@@ -25,42 +23,14 @@
   font-size: 1.1rem;
 }
 
+.list-group span {
+  margin-bottom: 1rem;
+}
+
 .footer_links p {
   color: rgba(255, 255, 255, 0.8);
-
 }
-
-/* Tạo nút go to top */
-#myBtn {
-  width: 40px;
-  height: 40px;
-  display: none;
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  padding: 1px;
-  border-radius: 15px;
-  background-color: var(--primary-color);
-  z-index: 9;
-  border: 3px solid #6bd5c4;
-  cursor: pointer;
-}
-
-#myBtn i {
-  display: block;
-  color: white;
-  font-size: 1.4rem;
-  animation: up 1.5s infinite;
-  padding: 0.3rem;
-}
-
-@keyframes up {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(-0.5rem);
-  }
+.ScrollToTop {
+  background: #d6f5fb !important;
+  border: 2px solid var(--primary-color);
 }

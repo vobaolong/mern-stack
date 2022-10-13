@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react"
 import "./Header.css"
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion"
 import logo from "../../assets/img/logo.png"
 import userIcon from "../../assets/img/user-icon.png"
@@ -49,7 +49,7 @@ const Header = () => {
           <div className="logo">
             <img src={logo} alt="" />
             <div>
-              <h1>G10Store</h1>
+              <h1><Link to='/'>G10Store</Link></h1>
             </div>
           </div>
           <div className="navigation" ref={menuRef} onClick={menuToggle}>
