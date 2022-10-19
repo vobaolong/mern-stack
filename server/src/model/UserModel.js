@@ -9,7 +9,6 @@ const User = new Schema(
       type: String,
       minlength: 6,
       maxlength: 20,
-      unique: true,
     },
     password: {
       type: String,
@@ -30,7 +29,6 @@ const User = new Schema(
       type: String,
       require: true,
       minlength: 11,
-      maxlength: 20,
       unique: true,
       index: true,
     },
