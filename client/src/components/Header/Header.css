@@ -48,7 +48,7 @@
 }
 
 .nav_item a:hover {
-  color: #6bd5c4;
+  color: var(--hover-color);
 }
 
 .nav_icons {
@@ -86,10 +86,9 @@
   z-index: 10;
 }
 
-.nav_icons span img {
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+.nav_icons a {
+  text-decoration: none;
+  color: unset;
 }
 
 .mobile_menu {
@@ -100,7 +99,7 @@
 
 .nav_active {
   font-weight: 700 !important;
-  color: #6bd5c4 !important;
+  color: var(--hover-color) !important;
 }
 
 .sticky {

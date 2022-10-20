@@ -1,8 +1,9 @@
 /* google fonts */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
 /*  css variables */
 :root {
+  --hover-color: #0a525e;
   --card-bg-01: #fdefe6;
   --card-bg-02: #d6e5fb;
   --card-bg-03: #ceebe9;
@@ -23,7 +24,8 @@
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
 }
 
 h1,
@@ -61,9 +63,12 @@ img {
 }
 
 section {
-  padding: 60px 0px;
+  padding: 30px 0px;
 }
-
+input {
+  border-radius: 5px;
+  outline: none;
+}
 @media only screen and (max-width: 768px) {
   section {
     padding: 40px 0px;

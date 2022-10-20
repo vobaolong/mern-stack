@@ -20,22 +20,20 @@ const Signup = () => {
 
               {/* Input Username */}
               <FormGroup className='form_group'>
-                <input type="text" placeholder='Nhập tên người dùng của bạn'
+                <input type="text" placeholder='Enter your username'
                   value={userName} onChange={e => setUserName(e.target.value)} />
               </FormGroup>
               {/* Input Email */}
               <FormGroup className='form_group'>
-                <input type="email" placeholder='Nhập email của bạn'
+                <input type="email" placeholder='Enter your email'
                   value={email} onChange={e => setEmail(e.target.value)} />
               </FormGroup>
-
               {/* Input Password */}
               <FormGroup className='form_group'>
-                <input type="password" placeholder='Nhập mật khẩu của bạn'
+                <input type="password" placeholder='Enter your password'
                   value={password} onChange={e => setPassword(e.target.value)} />
               </FormGroup>
-
-              {/* Input Password */}
+              {/* Input Filed */}
               <FormGroup className='form_group'>
                 <input
                   type="file"
@@ -43,8 +41,8 @@ const Signup = () => {
                   onChange={e => setFile(e.target.files[0])}
                 />
               </FormGroup>
-              <button type='submit' className="buy_btn auth_btn">Đăng ký</button>
-              <p>Đã có tài khoản?{" "} <Link to='/login' style={{ textDecoration: 'none', color: 'unset' }}>Đăng nhập ngay!</Link></p>
+              <button type='submit' className="buy_btn auth_btn">SignUp</button>
+              <p>Already have an account !{" "} <Link to='/login'>Login Now</Link></p>
             </Form>
           </Col>
         </Row>
