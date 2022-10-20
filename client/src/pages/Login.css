@@ -4,7 +4,7 @@
   border-radius: 5px;
 }
 
-.form_group>input {
+.form_group > input {
   width: 80%;
   border-radius: 5px;
   padding: 10px;
@@ -21,12 +21,12 @@
   margin-top: 20px;
 }
 
-
 .auth_form p a {
-  color: rgba(255, 255, 255, .8);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
 }
 
-.form_group input[type="file"] {
+.form_group input[type='file'] {
   color: #fff;
   cursor: pointer;
 }

@@ -1,9 +1,7 @@
 import React, { useRef, useEffect } from "react"
 import "./Header.css"
-import { Link, NavLink } from "react-router-dom";
-import { motion } from "framer-motion"
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../../assets/img/logo.png"
-import userIcon from "../../assets/img/user-icon.png"
 import { Container, Row } from "reactstrap"
 import { useSelector } from "react-redux";
 
@@ -42,59 +40,60 @@ const Header = () => {
   })
 
   const menuToggle = () => menuRef.current.classList.toggle('menu_active')
-  return <header className="header" ref={headerRef}>
-    <Container>
-      <Row>
-        <div className="nav_wrapper">
-          <div className="logo">
-            <img src={logo} alt="" />
-            <div>
-              <h1><Link to='/'>G10Store</Link></h1>
+  const navigate = useNavigate()
+  const navigateToCart = () => {
+    navigate('/cart')
+  }
+
+  return (
+    <header className="header" ref={headerRef}>
+      <Container>
+        <Row>
+          <div className="nav_wrapper">
+            <div className="logo">
+              <img src={logo} alt="" />
+              <div>
+                <h1><Link to='/'>G10Store</Link></h1>
+              </div>
             </div>
-          </div>
-          <div className="navigation" ref={menuRef} onClick={menuToggle}>
-            <ul className="menu">
-              {nav_links.map((item, index) => (
-                <li className="nav_item" key={index}>
-                  <NavLink
-                    title={`Go to ${item.display}`}
-                    to={item.path}
-                    style={{ textDecoration: 'none' }}
-                    className={(navClass) => navClass.isActive ? "nav_active" : ""}
-                  >
-                    {item.display}
-                  </NavLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/*icon */}
-          <div className="nav_icons">
-            <span className="fav_icon">
-              <i class="ri-heart-line"></i>
-              <span className="badges">1</span>
-            </span>
-            <span className="cart_icon"
-              title="Cart">
-              <i class="ri-shopping-bag-line"></i>
-              <span className="badges">{totalQuantity}</span>
-
-            </span>
-            <span>
-              <motion.img title="Profile"
-                whileTap={{ scale: 1.1 }} src={userIcon} alt="" />
-
-            </span>
-            <div className="mobile_menu">
-              <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
+            <div className="navigation" ref={menuRef} onClick={menuToggle}>
+              <ul className="menu">
+                {nav_links.map((item, index) => (
+                  <li className="nav_item" key={index}>
+                    <NavLink
+                      title={`Go to ${item.display}`}
+                      to={item.path}
+                      style={{ textDecoration: 'none' }}
+                      className={(navClass) => navClass.isActive ? "nav_active" : ""}
+                    >
+                      {item.display}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
             </div>
 
+            {/*icon */}
+            <div className="nav_icons">
+              <div className='nav__login'>
+                <Link to='/login'>Login</Link> </div>
+              <div className='nav__signup'>
+                <Link to='/signup'>Register</Link>
+              </div>
+              <div className="mobile_menu">
+                <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
+              </div>
+              <span className="cart_icon" onClick={navigateToCart}
+                title="Cart">
+                <i class="ri-shopping-bag-line"></i>
+                <span className="badges">{totalQuantity}</span>
+              </span>
+            </div>
           </div>
-        </div>
-      </Row>
-    </Container>
-  </header>
+        </Row>
+      </Container>
+    </header >
+  )
 }
 
 export default Header

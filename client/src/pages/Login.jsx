@@ -3,32 +3,53 @@ import Helmet from '../components/Helmet/Helmet'
 import './Login.css'
 import { Container, Row, Col, Form, FormGroup } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import { login } from '../redux/CallApi'
+import { useDispatch, useSelector } from "react-redux";
+
 const Login = () => {
-  const [email, setEmail] = useState('')
+
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch = useDispatch();
+  const { isFetching, error } = useSelector((state) => state.user);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    login(dispatch, { username, password });
+  };
   return <Helmet title='Login'>
     <section>
       <Container>
         <Row>
           <Col lg='6' className='m-auto text-center'>
-            <h3 className="fw-bold mb-4">Đăng nhập</h3>
+            <h3 className="fw-bold mb-4">Login</h3>
             <Form className='auth_form'>
 
-
-
-              {/* Input Email */}
+              {/* Input Username */}
               <FormGroup className='form_group'>
-                <input type="email" placeholder='Nhập email của bạn'
-                  value={email} onChange={e => setEmail(e.target.value)} />
+                <input
+                  type="text"
+                  placeholder='Enter your username'
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
               </FormGroup>
 
               {/* Input Password */}
               <FormGroup className='form_group'>
-                <input type="password" placeholder='Nhập mật khẩu của bạn'
+                <input type="password" placeholder='Enter your password'
                   value={password} onChange={e => setPassword(e.target.value)} />
               </FormGroup>
-              <button type='submit' className="buy_btn auth_btn">Đăng nhập</button>
-              <p>Không có tài khoản?{" "} <Link to='/signup' style={{ textDecoration: 'none', color: 'unset' }}>Đăng ký ngay!</Link></p>
+              <button
+                type='submit'
+                disabled={isFetching}
+                onClick={handleClick}
+                className="buy_btn auth_btn"
+              >
+                Login
+              </button>
+              <p>Don't have an account?{" "}
+                <Link to='/signup'>SignUp Now</Link></p>
             </Form>
           </Col>
         </Row>

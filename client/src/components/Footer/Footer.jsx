@@ -17,35 +17,28 @@ const Footer = () => {
                 <h1 className='text-white'>G10Store</h1>
               </div>
             </div>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quam!</p>
-            <h5 className="footer_text mt-4 text-white">Công nghệ sử dụng</h5>
-            <ListGroupItem>
-              <p>MERN</p>
-            </ListGroupItem>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt, quam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolor porro dolorem rerum facilis debitis explicabo libero, aspernatur beatae ex ratione! Accusantium dicta iure accusamus doloremque odio laudantium officia animi totam!</p>
+
 
           </Col>
           <Col lg='3'>
             <div className="footer_links">
-              <h4 className="links_title">Top loại sản phẩm</h4>
+              <h4 className="links_title">Technology</h4>
               <ListGroup className='mb-3'>
-                <ListGroupItem className='ps-0 border-0 d-flex '>
-                  <Link to='#trending' style={{ textDecoration: 'none', color: 'unset' }}>Xu hướng</Link>
-                </ListGroupItem>
-
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Bán chạy</Link>
+                  MONGODB
                 </ListGroupItem>
-
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Sản phẩm mới</Link>
+                  EXPRESSJS
                 </ListGroupItem>
-
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Chất lượng</Link>
+                  NODEJS
                 </ListGroupItem>
-
+                <ListGroupItem className='ps-0 border-0 '>
+                  REACTJS
+                </ListGroupItem>
                 <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Phổ biến</Link>
+                  REDUX TOOLKIT
                 </ListGroupItem>
               </ListGroup>
             </div>
@@ -64,10 +57,6 @@ const Footer = () => {
 
                 <ListGroupItem className='ps-0 border-0'>
                   <Link to='/login' style={{ textDecoration: 'none', color: 'unset' }}>Đăng nhập</Link>
-                </ListGroupItem>
-
-                <ListGroupItem className='ps-0 border-0'>
-                  <Link to='#' style={{ textDecoration: 'none', color: 'unset' }}>Chính sách bảo mật</Link>
                 </ListGroupItem>
               </ListGroup>
             </div>

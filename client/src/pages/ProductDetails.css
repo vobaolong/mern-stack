@@ -1,5 +1,5 @@
 .product_detail {
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .product_detail h2 {
@@ -7,11 +7,11 @@
   margin-bottom: 10px;
 }
 
-.product_rating span i {
+.product_detail span i {
   color: coral;
 }
 
-.product_rating p span {
+.product_detail p span {
   color: coral;
   font-weight: 500;
 }
@@ -66,7 +66,6 @@
   min-height: fit-content;
 }
 
-
 .form_group input:focus,
 .form_group textarea:focus {
   outline: none;
@@ -89,4 +88,13 @@
   font-size: 1.2rem;
   font-weight: 600;
   margin-top: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+  .product_details h2 {
+    font-size: 1.3rem;
+  }
+  .rating__group {
+    column-gap: 1rem !important;
+  }
 }
