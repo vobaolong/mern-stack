@@ -19,7 +19,7 @@ module.exports = {
 
   update: (req, res) => {
     Category.findByIdAndUpdate(req.params.categoryId, req.body)
-      .then(res.json({ message: "Update Successfully!!" }))
+      .then(res.json({ message: "Update Successfully!!"}))
       .catch((err) => res.json({ message: "Update Failed!!!" }));
   },
 

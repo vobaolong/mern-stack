@@ -28,9 +28,12 @@ module.exports = {
       .then(user => res.json(user))
   },
   update: (req, res) => {
+    const id = req.params.productId
     Product.findByIdAndUpdate(req.params.productId, req.body)
-      .then(res.json({ message: 'Update Successfully!!' }))
+      .then(res.json({ message: 'Update Successfully!!'}))
       .catch(err => res.json({ message: 'Update Failed!!!' }))
+    
+      console.log(req.body)
   },
 
   delete: (req, res) => {

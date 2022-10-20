@@ -1,4 +1,6 @@
 const categoryController = require("../controller/CategoryController");
+let authCtrl = require("../controller/AuthController");
+const fileCtrl = require("../controller/UpLoadImageController");
 
 module.exports = function (app) {
   app
@@ -11,4 +13,12 @@ module.exports = function (app) {
     .get(categoryController.getDetail)
     .put(authCtrl.verifyTokenAdmin, categoryController.update)
     .delete(authCtrl.verifyTokenAdmin, categoryController.delete);
+
+  app
+    .route("/category/:categoryId/uploadimage")
+    .put(
+      authCtrl.verifyTokenAdmin,
+      fileCtrl.upLoadFile,
+      categoryController.update
+    );
 };
