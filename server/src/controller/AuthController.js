@@ -2,10 +2,6 @@ const bycypt = require("bcrypt");
 const User = require("../model/UserModel");
 const jwt = require("jsonwebtoken");
 
-const env = require("dotenv");
-
-env.config();
-
 let otp_code = "";
 
 module.exports = authController = {

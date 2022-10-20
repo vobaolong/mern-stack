@@ -13,12 +13,12 @@ module.exports = {
     myProfile: (req, res) => {
         User.findById(req.user.id)
         .then(user => res.json(user))
-        .catch(err => res.status(404).json({message:'Can not find user'}))
+        .catch(err => res.status(404).json({message:'Can not find user', err}))
     },
     update: (req, res) => {
         User.findByIdAndUpdate(req.user.id, req.body)
         .then(res.json({message: 'Update Successfully!!'}))
-        .catch(err => res.json({message:'Update Failed!!!'}))
+        .catch(err => res.json({message:'Update Failed!!!', err}))
     },
 
     delete: (req, res) => {

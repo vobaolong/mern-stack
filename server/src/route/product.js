@@ -1,14 +1,19 @@
 const productController = require("../controller/ProductController");
+let authCtrl = require("../controller/AuthController")
+const fileCtrl = require("../controller/UpLoadImageController");
 
 module.exports = function (app) {
     app
     .route("/product")
     .get(productController.getAll)
-    .post(productController.create);
+    .post(authCtrl.verifyTokenAdmin, productController.create);
   
     app
     .route("/product/:productId")
     .get(productController.getDetail)
-    .put(productController.update)
-    .delete(productController.delete);
+    .put(authCtrl.verifyTokenAdmin, productController.update)
+    .delete(authCtrl.verifyTokenAdmin, productController.delete);
+
+    app.route("/product/:productId/uploadimage")
+      .put(authCtrl.verifyTokenAdmin, fileCtrl.upLoadFile, productController.update)
 };

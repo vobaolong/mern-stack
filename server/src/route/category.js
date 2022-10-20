@@ -4,11 +4,11 @@ module.exports = function (app) {
   app
     .route("/category")
     .get(categoryController.getAll)
-    .post(categoryController.create);
+    .post(authCtrl.verifyTokenAdmin, categoryController.create);
 
   app
     .route("/category/:categoryId")
     .get(categoryController.getDetail)
-    .put(categoryController.update)
-    .delete(categoryController.delete);
+    .put(authCtrl.verifyTokenAdmin, categoryController.update)
+    .delete(authCtrl.verifyTokenAdmin, categoryController.delete);
 };

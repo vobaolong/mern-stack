@@ -1,8 +1,5 @@
 const nodemailer = require("nodemailer");
-const env = require("dotenv");
 let authCtrl = require("../controller/AuthController")
-
-env.config();
 
 module.exports = {
   sendMail: async (req, res) => {
