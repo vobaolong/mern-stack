@@ -66,17 +66,17 @@ const Footer = () => {
               <h4 className="links_title">Liên hệ</h4>
               <ListGroup>
                 <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
-                  <span><i class="ri-map-pin-fill"></i></span>
+                  <span><i className="ri-map-pin-fill"></i></span>
                   <p>1st Vo Van Ngan, Ho Chi Minh city</p>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
-                  <span><i class="ri-phone-fill"></i></span>
+                  <span><i className="ri-phone-fill"></i></span>
                   <p>0331616496</p>
                 </ListGroupItem>
 
                 <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
-                  <span><i class="ri-mail-fill"></i></span>
+                  <span><i className="ri-mail-fill"></i></span>
                   <p>19110@gmail.com</p>
                 </ListGroupItem>
 
@@ -92,7 +92,7 @@ const Footer = () => {
 
         </Row>
         <ScrollToTop
-          smooths
+          smooths='true'
           color="#116149"
           className='ScrollToTop'
         />

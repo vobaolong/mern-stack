@@ -46,7 +46,7 @@ const ProductCard = ({ item }) => {
             title="Add to cart"
             whileTap={{ scale: 1.3 }}
             onClick={addToCart}>
-            <i class="ri-shopping-cart-line"></i>
+            <i className="ri-shopping-cart-line"></i>
           </motion.span>
         </div>
       </div>
