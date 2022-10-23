@@ -43,6 +43,13 @@ const User = new Schema(
       type: Number,
       default: 2,
     },
+    cart_id: {
+      type: String
+    },
+    is_Delete: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: true,

@@ -1,5 +1,5 @@
 const userController = require("../controller/UserController");
-let authCtrl = require("../controller/AuthController");
+const authCtrl = require("../controller/AuthController");
 const fileCtrl = require("../controller/UpLoadImageController");
 
 module.exports = function (app) {
@@ -17,7 +17,10 @@ module.exports = function (app) {
     .route("/myprofile/changePassword")
     .post(authCtrl.verifyToken, userController.verifyPassword, userController.changePassword);
 
-  app.route("/deleteme").delete(authCtrl.verifyToken, userController.verifyPassword, userController.delete);
+  // app.route("/deleteme").delete(authCtrl.verifyToken, userController.verifyPassword, userController.delete);
+  app.route("/removeme").delete(authCtrl.verifyToken, userController.remove);
+  app.route("/deleteme").delete(authCtrl.verifyToken, userController.delete);
+
 
   app
     .route("/myprofile/uploadimage")
