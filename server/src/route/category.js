@@ -12,6 +12,7 @@ module.exports = function (app) {
     .route("/category/:categoryId")
     .get(categoryController.getDetail)
     .put(authCtrl.verifyTokenAdmin, categoryController.update)
+    .post(authCtrl.verifyTokenAdmin, categoryController.remove)
     .delete(authCtrl.verifyTokenAdmin, categoryController.delete);
 
   app

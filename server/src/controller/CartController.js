@@ -36,10 +36,8 @@ module.exports = {
 
     let listItem = cart.products
 
-    // console.log(listItem)
-
     const check = await listItem.findIndex(i => i.id === req.body.id)
-    console.log(check)
+
     if (check >= 0)
     {
       item.quantity = listItem[check].quantity + 1,
@@ -54,8 +52,8 @@ module.exports = {
     
     cart.quantity++
     cart.total += req.body.price
-    cart.save();
-    res.json(cart);
+    cart.save().then(res.json({message: "Thêm vào giỏ hàng thành công"}))
+    
   },
 
   RemmoveItem: async (req, res) => {
@@ -68,7 +66,7 @@ module.exports = {
     cart.quantity = cart.quantity - item.quantity
     cart.total = cart.total - item.total
     cart.save();
-    res.status(200).json({message: "Xóa thành công sản phẩm", cart})
+    res.status(200).json({message: "Xóa thành công sản phẩm"})
   },
 
   UpdateItem: async (req, res) => {
@@ -92,5 +90,12 @@ module.exports = {
     cart.quantity = quantity
 
     cart.save().then(res.status(200).json({message: "Cập nhật thành công"}))
+  },
+
+  GetCart: async (req, res) => {
+    const cart = await Cart.findById(req.user.cart_id);
+    const { is_Delete, ...other } = cart._doc;
+
+    res.status(200).json({...other})
   }
 };

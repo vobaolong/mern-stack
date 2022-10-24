@@ -503,7 +503,7 @@ module.exports = {
         }
         return res
           .status(200)
-          .json({ message: "Đã gửimật khẩu mới vào email: " + req.body.email });
+          .json({ message: "Đã gửi mật khẩu mới vào email: " + req.body.email });
       }
     );
   },

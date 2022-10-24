@@ -12,6 +12,7 @@ module.exports = function (app) {
     .route("/product/:productId")
     .get(productController.getDetail)
     .put(authCtrl.verifyTokenAdmin, productController.update)
+    .post(authCtrl.verifyTokenAdmin, productController.remove)
     .delete(authCtrl.verifyTokenAdmin, productController.delete);
 
   app

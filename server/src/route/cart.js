@@ -3,6 +3,10 @@ let authCtrl = require("../controller/AuthController");
 
 module.exports = function (app) {
   app
+  .route("/cart")
+  .get(authCtrl.verifyToken, cartController.GetCart)
+
+  app
     .route("/cart/additem")
     .post(authCtrl.verifyToken, cartController.AddItem)
 

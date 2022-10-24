@@ -3,23 +3,26 @@ const bycypt = require("bcrypt");
 const cartCtrl = require("./CartController")
 
 module.exports = userController = {
-  getAll: (req, res) => {
-    User.find({}).then((users) => res.status(200).json(users));
+  getAllActive: (req, res) => {
+    User.find({is_Delete: false}).then((users) => {
+
+      const { password, is_Delete, ...other } = users._doc;
+
+        res.status(200).json({ ...other });
+    });
   },
 
   create: (req, res) => {
     User.create(req.body).then(
-      res.json({ message: "Create a new user Successfully!!" })
+      res.status(200).json({ message: "Create a new user Successfully!!" })
     );
   },
 
   getDetailByEmail: (req, res) => {
     const user = User.findOne({ email: req.email });
 
-    //Lấy thông tin user trừ pasword
-    const { password, ...other } = user._doc;
+    const { password, is_Delete, ...other } = user._doc;
 
-    //Trả về thông tin user và accessToken cho FrontEnd
     res.status(200).json({ ...other });
   },
 
@@ -27,20 +30,20 @@ module.exports = userController = {
     User.findById(req.user.id)
       .then((user) => {
         //Lấy thông tin user trừ pasword
-        const { password, ...other } = user._doc;
+        const { password, is_Delete, ...other } = user._doc;
 
         //Trả về thông tin user và accessToken cho FrontEnd
         res.status(200).json({ ...other });
       })
       .catch((err) =>
-        res.status(404).json({ message: "Can not find user", err })
+        res.status(404).json({ message: "Không tìm thấy thông tin người dùng", err })
       );
   },
 
   updateProfile: (req, res) => {
     User.findByIdAndUpdate(req.user.id, req.body)
-      .then(res.json({ message: "Update Successfully!!" }))
-      .catch((err) => res.json({ message: "Update Failed!!!", err }));
+      .then(res.status(200).json({ message: "Cập nhật thành công!!" }))
+      .catch((err) => res.status(400).json({ message: "Cập nhật thất bại!!!", err }));
   },
 
   remove: async (req, res) => {
@@ -51,7 +54,7 @@ module.exports = userController = {
     user.is_Delete = true
     user.save()
 
-    res.status(200).json({ message: "Delete Successfully!!" })
+    res.status(200).json({ message: "Xóa thành công!!" })
     
   },
 
@@ -62,14 +65,14 @@ module.exports = userController = {
 
     user.deleteOne()
 
-    res.status(200).json({ message: "Delete Successfully!!" })
+    res.status(200).json({ message: "Xóa thành công!!" })
     
   },
 
   verifyPassword: async (req, res, next) => {
     const user = await User.findById(req.user.id);
     if (!user) {
-      throw res.status(404).json({ message: "Không tìm thấy" });
+      throw res.status(404).json({ message: "Mật khẩu không chính xác" });
     }
 
     const vaildPassword = await bycypt.compare(
@@ -96,9 +99,9 @@ module.exports = userController = {
 
     user
       .save()
-      .then(res.status(200).json({ message: "Password Changed SuccessFully" }))
+      .then(res.status(200).json({ message: "Thay đổi mật khẩu thành công" }))
       .catch((err) =>
-        res.status(400).json({ message: "Password Changed Failed", err })
+        res.status(400).json({ message: "Thay đổi mật khẩu không thành công", err })
       );
   },
 

@@ -7,6 +7,7 @@ module.exports = function (app) {
   let mailRoute = require("./sendMail");
   let authGoogleRoute = require("./authGoogle");
   let cartRoute = require("./cart");
+  let orderRoute = require("./order");
 
   authGoogleRoute(app);
 
@@ -21,4 +22,6 @@ module.exports = function (app) {
   productRoute(app);
 
   cartRoute(app)
+
+  orderRoute(app)
 };
