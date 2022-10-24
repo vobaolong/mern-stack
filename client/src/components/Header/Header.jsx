@@ -81,11 +81,11 @@ const Header = () => {
                 <Link to='/signup'>Register</Link>
               </div>
               <div className="mobile_menu">
-                <span onClick={menuToggle}><i class="ri-menu-line"></i></span>
+                <span onClick={menuToggle}><i className="ri-menu-line"></i></span>
               </div>
               <span className="cart_icon" onClick={navigateToCart}
                 title="Cart">
-                <i class="ri-shopping-bag-line"></i>
+                <i className="ri-shopping-bag-line"></i>
                 <span className="badges">{totalQuantity}</span>
               </span>
             </div>
