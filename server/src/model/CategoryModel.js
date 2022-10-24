@@ -6,6 +6,7 @@ const ObjectId = Schema.ObjectId;
 const Category = new Schema({
   name: { type: String, require: true },
   image: { type: String },
+  is_Delete: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model("Category", Category);

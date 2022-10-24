@@ -1,5 +1,6 @@
 const User = require("../model/UserModel");
 const bycypt = require("bcrypt");
+const cartCtrl = require("./CartController")
 
 module.exports = userController = {
   getAll: (req, res) => {
@@ -42,10 +43,27 @@ module.exports = userController = {
       .catch((err) => res.json({ message: "Update Failed!!!", err }));
   },
 
-  delete: (req, res) => {
-    User.findByIdAndDelete(req.user.id).then(
-      res.status(200).json({ message: "Delete Successfully!!" })
-    );
+  remove: async (req, res) => {
+    const user = await User.findById(req.user.id)
+
+    cartCtrl.RemoveCart(user.cart_id)
+
+    user.is_Delete = true
+    user.save()
+
+    res.status(200).json({ message: "Delete Successfully!!" })
+    
+  },
+
+  delete: async (req, res) => {
+    const user = await User.findById(req.user.id)
+
+    cartCtrl.DeleteCart(user.cart_id)
+
+    user.deleteOne()
+
+    res.status(200).json({ message: "Delete Successfully!!" })
+    
   },
 
   verifyPassword: async (req, res, next) => {

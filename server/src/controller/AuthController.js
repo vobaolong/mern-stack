@@ -1,6 +1,7 @@
 const bycypt = require("bcrypt");
 const User = require("../model/UserModel");
 const jwt = require("jsonwebtoken");
+const cartCtrl = require("./CartController")
 
 let otp_code = "";
 
@@ -20,12 +21,16 @@ module.exports = authController = {
           .status(400)
           .json({ message: "Đã tồn tại email: " + req.body.email });
 
+      //Kiểm tra OTP người dùng nhập có giống với OTP đã generate ra hay không
       if (req.body.otp != otp_code)
         throw res.status(404).json({ message: "Mã OTP chưa chính xác!!! " });
 
       //Hash password
       const salt = await bycypt.genSalt(10);
       const hashed = await bycypt.hash(req.body.password, salt);
+
+      //Taoj cart cho user
+      const cart_id = await cartCtrl.CreateCart()
 
       //Lưu thông tin user với password đã hash
       const newUser = await new User({
@@ -35,14 +40,19 @@ module.exports = authController = {
         name: req.body.name,
         image: req.body.image,
         gender: req.body.gender,
+        cart_id: cart_id
       });
 
       //Lưu user vào DB
       User.create(newUser).then(
         res.status(200).json({
-          message: "Đăng ký thành công tài khoản username: " + newUser.username,
+          message: "Đăng ký thành công tài khoản username: " + newUser.username, newUser
         })
-      );
+      ).catch(err => res.status(400).json({
+        message: "Đăng ký thất bại", err
+      }));
+
+      req.email = newUser.email
     } catch (err) {
       res.status(500).json(err);
     }
@@ -65,12 +75,13 @@ module.exports = authController = {
         id: user.id,
         email: user.email,
         role: user.role,
+        cart_id: user.cart_id
       },
       //Mã bí bật của token
       process.env.JWT_ACCESS_KEY,
       {
         //Thời gian hết hạn
-        expiresIn: "5m",
+        expiresIn: "30m",
       }
     );
   },
@@ -83,6 +94,7 @@ module.exports = authController = {
         id: user.id,
         email: user.email,
         role: user.role,
+        cart_id: user.cart_id
       },
       process.env.JWT_REFRESH_KEY,
       {

@@ -14,6 +14,7 @@ const Product = new Schema({
   rating: { type: Number, default: 0 },
   sell: { type: Number, default: 0 },
   technical: { type: Object, required: true },
+  is_Delete: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model("Products", Product);

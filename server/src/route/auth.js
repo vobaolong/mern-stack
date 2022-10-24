@@ -1,7 +1,6 @@
 
 const authController = require("../controller/AuthController");
 
-
 module.exports = function(app){
 
     app.route("/register").post(authController.register)
