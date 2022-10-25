@@ -44,12 +44,12 @@ const User = new Schema(
       default: 2,
     },
     cart_id: {
-      type: String
+      type: String,
     },
     is_Delete: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   {
     timestamps: true,

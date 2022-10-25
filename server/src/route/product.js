@@ -22,4 +22,6 @@ module.exports = function (app) {
       fileCtrl.upLoadFile,
       productController.update
     );
+
+  app.route("/:categoryid").get(productController.getByCategory);
 };

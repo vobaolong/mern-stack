@@ -4,32 +4,37 @@ const Product = require("../model/ProductModel");
 
 module.exports = {
   CreateOrder: async (req, res) => {
-
     const cart = await Cart.findById(req.user.cart_id);
 
-    for(let item of cart.products){
-      const product = await Product.findById(item.id)
-      let list_type = product.type
+    for (let item of cart.products) {
+      const product = await Product.findById(item.id);
+      let list_type = product.type;
 
       const type_item = await {
-         color: "",
-         quantity: 0
+        color: "",
+        quantity: 0,
+      };
+
+      let type = await list_type.findIndex((i) => i.color === item.type.color);
+
+      if (item.quantity > list_type[type].quantity) {
+        throw res
+          .status(400)
+          .json({
+            message:
+              "Số lượng sản phẩm " + product.name + " không đủ để tạo đơn hàng",
+          });
       }
 
-      let type = await list_type.findIndex(i => i.color === item.type.color)
+      type_item.color = list_type[type].color;
+      type_item.quantity = list_type[type].quantity - item.quantity;
 
-      if (item.quantity > list_type[type].quantity){
-         throw res.status(400).json({message: "Số lượng sản phẩm "+product.name+" không đủ để tạo đơn hàng"})
-      }
+      list_type[type] = type_item;
 
-      type_item.color = list_type[type].color
-      type_item.quantity = list_type[type].quantity - item.quantity
-      
-      list_type[type] = type_item
+      product.type = list_type;
 
-      product.type = list_type
-
-      product.save()
+      //Cập nhật lại số lượng sản phẩm
+      product.save();
     }
 
     const newOrder = await new Order({
@@ -42,11 +47,13 @@ module.exports = {
       address: req.body.address,
     });
 
-    cart.products = []
-    cart.quantity = 0
-    cart.total = 0
-    cart.save()
+    //Reset Cart
+    cart.products = [];
+    cart.quantity = 0;
+    cart.total = 0;
+    cart.save();
 
+    // Tạo mới order
     Order.create(newOrder).then(
       res.status(200).json({ message: "Tạo đơn hàng thành công" })
     );
