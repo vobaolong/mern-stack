@@ -1,14 +1,13 @@
 const User = require("../model/UserModel");
 const bycypt = require("bcrypt");
-const cartCtrl = require("./CartController")
+const cartCtrl = require("./CartController");
 
 module.exports = userController = {
   getAllActive: (req, res) => {
-    User.find({is_Delete: false}).then((users) => {
-
+    User.find({ is_Delete: false }).then((users) => {
       const { password, is_Delete, ...other } = users._doc;
 
-        res.status(200).json({ ...other });
+      res.status(200).json({ ...other });
     });
   },
 
@@ -36,37 +35,39 @@ module.exports = userController = {
         res.status(200).json({ ...other });
       })
       .catch((err) =>
-        res.status(404).json({ message: "Không tìm thấy thông tin người dùng", err })
+        res
+          .status(404)
+          .json({ message: "Không tìm thấy thông tin người dùng", err })
       );
   },
 
   updateProfile: (req, res) => {
     User.findByIdAndUpdate(req.user.id, req.body)
       .then(res.status(200).json({ message: "Cập nhật thành công!!" }))
-      .catch((err) => res.status(400).json({ message: "Cập nhật thất bại!!!", err }));
+      .catch((err) =>
+        res.status(400).json({ message: "Cập nhật thất bại!!!", err })
+      );
   },
 
   remove: async (req, res) => {
-    const user = await User.findById(req.user.id)
+    const user = await User.findById(req.user.id);
 
-    cartCtrl.RemoveCart(user.cart_id)
+    cartCtrl.RemoveCart(user.cart_id);
 
-    user.is_Delete = true
-    user.save()
+    user.is_Delete = true;
+    user.save();
 
-    res.status(200).json({ message: "Xóa thành công!!" })
-    
+    res.status(200).json({ message: "Xóa thành công!!" });
   },
 
   delete: async (req, res) => {
-    const user = await User.findById(req.user.id)
+    const user = await User.findById(req.user.id);
 
-    cartCtrl.DeleteCart(user.cart_id)
+    cartCtrl.DeleteCart(user.cart_id);
 
-    user.deleteOne()
+    user.deleteOne();
 
-    res.status(200).json({ message: "Xóa thành công!!" })
-    
+    res.status(200).json({ message: "Xóa thành công!!" });
   },
 
   verifyPassword: async (req, res, next) => {
@@ -101,12 +102,14 @@ module.exports = userController = {
       .save()
       .then(res.status(200).json({ message: "Thay đổi mật khẩu thành công" }))
       .catch((err) =>
-        res.status(400).json({ message: "Thay đổi mật khẩu không thành công", err })
+        res
+          .status(400)
+          .json({ message: "Thay đổi mật khẩu không thành công", err })
       );
   },
 
   forgotPassword: async (req, res, next) => {
-    const user = await User.findOne({ email: req.body.email});
+    const user = await User.findOne({ email: req.body.email });
 
     //Hash password
     const resetPassword = await Math.random().toString(36);
@@ -117,7 +120,7 @@ module.exports = userController = {
     user.password = hashed;
 
     user.save();
-    req.password = resetPassword
-    next()
+    req.password = resetPassword;
+    next();
   },
 };

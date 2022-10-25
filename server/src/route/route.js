@@ -1,4 +1,3 @@
-
 module.exports = function (app) {
   let authRoute = require("./auth");
   let userRoute = require("./user");
@@ -8,6 +7,7 @@ module.exports = function (app) {
   let authGoogleRoute = require("./authGoogle");
   let cartRoute = require("./cart");
   let orderRoute = require("./order");
+  let reviewRoute = require("./review");
 
   authGoogleRoute(app);
 
@@ -19,9 +19,11 @@ module.exports = function (app) {
 
   categoryRoute(app);
 
+  reviewRoute(app);
+
   productRoute(app);
 
-  cartRoute(app)
+  cartRoute(app);
 
-  orderRoute(app)
+  orderRoute(app);
 };
