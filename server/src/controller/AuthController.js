@@ -110,7 +110,7 @@ module.exports = authController = {
       const user = await User.findOne({ username: req.body.username });
       //Nếu không có thì trả về lỗi
       if (!user) {
-        throw res
+        return res
           .status(404)
           .json({ message: "Không tìm thấy username: " + req.body.username });
       }
@@ -123,7 +123,7 @@ module.exports = authController = {
 
       //Nếu sai password thì trả về lỗi
       if (!vaildPassword) {
-        throw res.status(404).json({ message: "Mật khẩu không chính xác " });
+        return res.status(404).json({ message: "Mật khẩu không chính xác " });
       }
 
       //Nếu đúng username và password
@@ -144,10 +144,10 @@ module.exports = authController = {
         const { password, ...other } = user._doc;
 
         //Trả về thông tin user và accessToken cho FrontEnd
-        res.status(200).json({ ...other, accessToken });
+        return res.status(200).json({ ...other, accessToken });
       }
     } catch (error) {
-      res.status(500).json(err);
+      return res.status(500).json(err);
     }
   },
 

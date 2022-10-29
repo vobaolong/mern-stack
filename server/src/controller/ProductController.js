@@ -1,11 +1,11 @@
 const Product = require("../model/ProductModel");
 const ReviewCtrl = require("./ReviewController");
 
-module.exports = {
+module.exports = ProductCtrl = {
   getAll: async (req, res) => {
     const param = req.query.sort;
     const page = parseInt(req.query.page) || 1;
-    const perPage = 5;
+    const perPage = req.query.maxResult || 10;
     let start = (page - 1) * perPage;
     let end = page * perPage;
 
@@ -14,89 +14,81 @@ module.exports = {
         Product.find({ is_Delete: false })
           .sort({ price: 1 })
           .then((products) => {
-            res
-              .status(200)
-              .json({
-                list: products.slice(start, end),
-                total: products.length,
-                totalPage: Math.ceil(products.length / perPage),
-              });
+            res.status(200).json({
+              list: products.slice(start, end),
+              total: products.length,
+              totalPage: Math.ceil(products.length / perPage),
+            });
           });
         break;
       case "decrease":
         Product.find({ is_Delete: false })
           .sort({ price: -1 })
           .then((products) => {
-            res
-              .status(200)
-              .json({
-                list: products.slice(start, end),
-                total: products.length,
-                totalPage: Math.ceil(products.length / perPage),
-              });
-          });
-        break;
-      default:
-        Product.find({ is_Delete: false }).then((products) => {
-          res
-            .status(200)
-            .json({
+            res.status(200).json({
               list: products.slice(start, end),
               total: products.length,
               totalPage: Math.ceil(products.length / perPage),
             });
+          });
+        break;
+      default:
+        Product.find({ is_Delete: false }).then((products) => {
+          res.status(200).json({
+            list: products.slice(start, end),
+            total: products.length,
+            totalPage: Math.ceil(products.length / perPage),
+          });
         });
     }
   },
 
   getByCategory: async (req, res) => {
-    const id_category = req.params.categoryid;
+    const id_category = req.query.id || null;
     const sort = req.query.sort;
     const page = parseInt(req.query.page) || 1;
-    const perPage = 5;
+    const perPage = req.query.maxResult || 10;
     let start = (page - 1) * perPage;
     let end = page * perPage;
 
-    switch (sort) {
-      case "ascending":
-        Product.find({ categoryid: id_category, is_Delete: false })
-          .sort({ price: 1 })
-          .then((products) => {
-            res
-              .status(200)
-              .json({
+    if (id_category) {
+      switch (sort) {
+        case "ascending":
+          Product.find({ categoryid: id_category, is_Delete: false })
+            .sort({ price: 1 })
+            .then((products) => {
+              res.status(200).json({
                 list: products.slice(start, end),
                 total: products.length,
                 totalPage: Math.ceil(products.length / perPage),
               });
-          });
-        break;
-      case "decrease":
-        Product.find({ categoryid: id_category, is_Delete: false })
-          .sort({ price: -1 })
-          .then((products) => {
-            res
-              .status(200)
-              .json({
+            });
+          break;
+        case "decrease":
+          Product.find({ categoryid: id_category, is_Delete: false })
+            .sort({ price: -1 })
+            .then((products) => {
+              res.status(200).json({
                 list: products.slice(start, end),
                 total: products.length,
                 totalPage: Math.ceil(products.length / perPage),
               });
-          });
-        break;
-      default:
-        console.log("hmmm");
-        Product.find({ categoryid: id_category, is_Delete: false }).then(
-          (products) => {
-            res
-              .status(200)
-              .json({
+            });
+          break;
+        default:
+          console.log("hmmm");
+          Product.find({ categoryid: id_category, is_Delete: false }).then(
+            (products) => {
+              res.status(200).json({
                 list: products.slice(start, end),
                 total: products.length,
                 totalPage: Math.ceil(products.length / perPage),
               });
-          }
-        );
+            }
+          );
+      }
+    } else {
+      ProductCtrl.getAll(req, res);
     }
   },
 
