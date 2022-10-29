@@ -18,12 +18,10 @@ module.exports = {
       let type = await list_type.findIndex((i) => i.color === item.type.color);
 
       if (item.quantity > list_type[type].quantity) {
-        throw res
-          .status(400)
-          .json({
-            message:
-              "Số lượng sản phẩm " + product.name + " không đủ để tạo đơn hàng",
-          });
+        throw res.status(400).json({
+          message:
+            "Số lượng sản phẩm " + product.name + " không đủ để tạo đơn hàng",
+        });
       }
 
       type_item.color = list_type[type].color;
@@ -34,6 +32,7 @@ module.exports = {
       product.type = list_type;
 
       //Cập nhật lại số lượng sản phẩm
+      product.sell = product.sell + cart.quantity;
       product.save();
     }
 
@@ -81,4 +80,49 @@ module.exports = {
       .deleteOne()
       .then(res.status(200).json({ message: "Hủy đơn hàng thành công" }));
   },
+
+  GetOrderByUser: async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const perPage = req.query.maxResult || 10;
+    let start = (page - 1) * perPage;
+    let end = page * perPage;
+    Order.find({ user_id: req.user.id })
+      .sort({ createdAt: -1 })
+      .then((order) => {
+        res
+          .status(200)
+          .json({
+            order: other.slice(start, end),
+            total: order.length,
+            totalPage: Math.ceil(order.length / perPage),
+          })
+      }
+        
+      );
+  },
+
+  GetAll: async (req,res) => {
+    const page = parseInt(req.query.page) || 1;
+    const perPage = req.query.maxResult || 10;
+    let start = (page - 1) * perPage;
+    let end = page * perPage;
+    Order.find()
+      .sort({ createdAt: -1 })
+      .then((order) => {
+        res
+          .status(200)
+          .json({
+            order: other.slice(start, end),
+            total: order.length,
+            totalPage: Math.ceil(order.length / perPage),
+          })
+      }
+      );
+  },
+
+  GetOrderById: async (req, res) => {
+    const order = await Order.findById(req.params.orderId);
+    const { is_Delete, ...other } = order._doc;
+    res.status(200).json({ ...other });
+  }
 };

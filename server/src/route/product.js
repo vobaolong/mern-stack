@@ -23,5 +23,5 @@ module.exports = function (app) {
       productController.update
     );
 
-  app.route("/:categoryid").get(productController.getByCategory);
+  app.route("/productByCategory").get(productController.getByCategory);
 };
