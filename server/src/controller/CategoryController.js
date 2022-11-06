@@ -3,8 +3,7 @@ const Category = require("../model/CategoryModel");
 module.exports = {
   getAll: (req, res) => {
     Category.find({}).then((categories) => {
-      const { is_Delete, ...other } = categories._doc;
-      res.status(200).json({ ...other });
+      res.status(200).json({ categories });
     });
   },
 
