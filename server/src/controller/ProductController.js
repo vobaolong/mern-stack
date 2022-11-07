@@ -94,7 +94,7 @@ module.exports = ProductCtrl = {
 
   create: (req, res) => {
     Product.create(req.body).then(
-      res.status(200).json({ message: "Create a new user Successfully!!" })
+      res.status(200).json({ message: "Create a new product Successfully!!" })
     );
   },
 
