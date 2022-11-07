@@ -5,9 +5,8 @@ const cartCtrl = require("./CartController");
 module.exports = userController = {
   getAllActive: (req, res) => {
     User.find({ is_Delete: false }).then((users) => {
-      const { password, is_Delete, ...other } = users._doc;
 
-      res.status(200).json({ ...other });
+      res.status(200).json({ users });
     });
   },
 

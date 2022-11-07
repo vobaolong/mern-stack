@@ -91,8 +91,7 @@ module.exports = {
 
   GetCart: async (req, res) => {
     const cart = await Cart.findById(req.user.cart_id);
-    const { is_Delete, ...other } = cart._doc;
 
-    res.status(200).json({ ...other });
+    res.status(200).json({ cart });
   },
 };

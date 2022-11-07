@@ -9,5 +9,5 @@ module.exports = function(app){
 
     app.route("/refreshToken").get(authController.requestRefreshToken)
 
-    app.route("/logout").get( authController.logout)
+    app.route("/logout").post( authController.logout)
 }
