@@ -3,7 +3,7 @@ const Category = require("../model/CategoryModel");
 module.exports = {
   getAll: (req, res) => {
     Category.find({}).then((categories) => {
-      res.status(200).json({ categories });
+      res.status(200).json(categories );
     });
   },
 
@@ -27,8 +27,9 @@ module.exports = {
   },
 
   remove: async (req, res) => {
-    const category = await Category.findById(req.id);
+    const category = await Category.findById(req.params.categoryId);
 
+    console.log(category)
     category.is_Delete = true;
 
     category

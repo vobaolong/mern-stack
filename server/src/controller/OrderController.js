@@ -92,7 +92,7 @@ module.exports = {
         res
           .status(200)
           .json({
-            order: other.slice(start, end),
+            order: order.slice(start, end),
             total: order.length,
             totalPage: Math.ceil(order.length / perPage),
           })
@@ -112,7 +112,7 @@ module.exports = {
         res
           .status(200)
           .json({
-            order: other.slice(start, end),
+            order: order.slice(start, end),
             total: order.length,
             totalPage: Math.ceil(order.length / perPage),
           })

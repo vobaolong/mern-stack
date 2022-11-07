@@ -7,6 +7,7 @@ module.exports = {
 
     if (req.query.folder) folder = req.query.folder
     const file = req.files.image;
+    console.log(req.files)
 
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       public_id: `${Date.now()}`,
