@@ -72,7 +72,7 @@ module.exports = userController = {
   verifyPassword: async (req, res, next) => {
     const user = await User.findById(req.user.id);
     if (!user) {
-      throw res.status(404).json({ message: "Mật khẩu không chính xác" });
+      throw res.status(404).json({ message: "Không tìm thấy người dùng!!" });
     }
 
     const vaildPassword = await bycypt.compare(
@@ -82,7 +82,7 @@ module.exports = userController = {
 
     //Nếu sai password thì trả về lỗi
     if (!vaildPassword) {
-      throw res.status(404).json({ message: "Mật khẩu không chính xác " });
+      throw res.status(404).json({ message: "Mật khẩu không chính xác" });
     }
     next();
   },

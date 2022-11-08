@@ -5,8 +5,8 @@ const fileCtrl = require("../controller/UpLoadImageController");
 module.exports = function (app) {
   app
     .route("/users")
-    .get(authCtrl.verifyTokenAdmin, userController.getAllActive) //Kiểm tra quyền Admin trước rồi mới getAll user
-    .post(userController.create);
+    .get(authCtrl.verifyTokenAdmin, userController.getAllActive); //Kiểm tra quyền Admin trước rồi mới getAll user
+    //.post(userController.create); //Không tạo user bằng cách này
 
   app
     .route("/myprofile")
