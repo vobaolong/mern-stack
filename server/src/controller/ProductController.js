@@ -114,7 +114,7 @@ module.exports = ProductCtrl = {
   },
 
   remove: async (req, res) => {
-    const product = await Product.findById(req.id);
+    const product = await Product.findById(req.params.productId);
 
     product.is_Delete = true;
 
