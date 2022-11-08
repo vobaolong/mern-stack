@@ -9,6 +9,11 @@ module.exports = function (app) {
       authCtrl.verifyToken,
       reviewController.CreateReview,
       reviewController.Rating
-    )
-    .delete(reviewController.RemoveReview);
+    );
+  app
+    .route("/review/:reviewId")
+    .delete(
+      authCtrl.verifyToken,
+      reviewController.RemoveReview
+    );
 };

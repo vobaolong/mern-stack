@@ -32,7 +32,7 @@ module.exports = {
   },
 
   RemoveReview: async (req, res) => {
-    const review = await Review.findById(req.id);
+    const review = await Review.findById(req.params.reviewId);
     review.is_Delete = true;
     review
       .save()

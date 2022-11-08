@@ -29,7 +29,7 @@ module.exports = {
   remove: async (req, res) => {
     const category = await Category.findById(req.params.categoryId);
 
-    console.log(category)
+    // console.log(category)
     category.is_Delete = true;
 
     category
