@@ -76,7 +76,7 @@ module.exports = ProductCtrl = {
             });
           break;
         default:
-          console.log("hmmm");
+          // console.log("hmmm");
           Product.find({ categoryid: id_category, is_Delete: false }).then(
             (products) => {
               res.status(200).json({
