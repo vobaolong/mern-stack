@@ -1,0 +1,75 @@
+// flex-box==========================
+@mixin flex($position){
+    display: flex;
+    justify-content: $position;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+// responsive==========================
+// xl-device=====
+@mixin xxl-down-device{
+    @media (max-width:1399px){
+        @content;
+    }
+}
+
+@mixin xl-down-device{
+    @media (max-width:1199px){
+        @content;
+    }
+}
+
+@mixin xl-device{
+    @media (min-width:1200px) and (max-width:1399px){
+        @content;
+    }
+}
+
+@mixin lg-device{
+    @media (min-width:992px) and (max-width:1199px){
+        @content;
+    }
+}
+@mixin lg-up-device{
+    @media (min-width:992px){
+        @content;
+    }
+}
+
+@mixin lg-down-device{
+    @media (max-width:991px){
+        @content;
+    }
+}
+
+// md-device============
+@mixin md-device{
+    @media (min-width:768px) and (max-width:991px){
+        @content;
+    }
+}
+@mixin md-up-device{
+    @media (min-width:768px){
+        @content;
+    }
+}
+
+@mixin md-down-device{
+    @media (max-width:767px){
+        @content;
+    }
+}
+
+// sm-device
+@mixin sm-device{
+    @media (min-width: 576px) and (max-width:768px){
+        @content;
+    }
+}
+
+@mixin sm-down-device{
+    @media (max-width:576px){
+        @content;
+    }
+}

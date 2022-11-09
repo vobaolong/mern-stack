@@ -1,0 +1,192 @@
+// about-section-------------------
+.about-image{
+    position: relative;
+    img{
+        border-radius: 15px;
+    }
+    .total-customer{
+        position: absolute;
+        bottom: -40px;
+        left: -35px;
+        border-radius: 4px;
+        background: $primary-orange;
+        color: #fff;
+        font-size: 25px;
+        font-weight: 600;
+        font-family: $font-1;
+        padding: 24px 60px 24px 20px;
+        text-align: center;
+        clip-path: polygon(100% 0, 79% 24%, 79% 100%, 0 100%, 0 0);
+        @include lg-down-device{
+            bottom: 0;
+            left: 0;
+        }
+}
+}
+.about-content-wrap{
+    border-radius: 15px;
+    padding: 40px;
+    position: absolute;
+    top: 60px;
+    left: -130px;
+    background: #fff;
+    overflow: hidden;
+    @include xxl-down-device{
+        position: unset;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        bottom: -90px;
+        right: -90px;
+        border: 30px solid #EFEFEF;
+        border-radius: 50%;
+        height: 194px;
+        width: 194px;
+        @include xxl-down-device{
+            display: none;
+            visibility: hidden;
+        }
+    }
+}
+.stamp-area{
+    @include flex(space-start);
+    margin-bottom: 35px;
+    .stamp{
+        background: #fff;
+        border-radius: 5px;
+        padding: 13px;
+        margin-right: 20px;
+    }
+}
+.abt-btn{
+    padding: 12px 30px;
+}
+
+// about-video section-------------------
+.about-video-section{
+    width: 100%;
+}
+.about-video-wrap{
+    background-image: linear-gradient(rgba(0, 43, 70, .7), rgba(0, 43, 70, .7)), url('../images/bg/abt-video.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+.about-video-area{
+    margin-left: auto;
+    margin-right: auto;
+    color: $primary-orange;
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 5;
+    &::before{
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background: rgba(255,255,255,0.5);
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        z-index: -1;
+        display: inline-block;
+        animation: blur 2s linear infinite;
+        animation-delay: .5s;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        background: rgba(255,255,255,0.2);
+        height: 75px;
+        width: 75px;
+        border-radius: 50%;
+        animation: blurr 2s linear infinite;
+        z-index: -1;
+
+    }
+    @keyframes blur {
+        0%{
+            transform: scale(.1);
+            opacity: 1;
+        }
+        50%{
+            transform: scale(.5);
+            opacity: 1;
+        }
+        100%{
+            transform: scale(1);
+            opacity: .5;
+        }
+    }
+    @keyframes blurr {
+        0%{
+            transform: scale(.1);
+            opacity: .5;
+        }
+        50%{
+            transform: scale(1);
+            opacity: 1;
+            opacity: 1;
+        }
+        100%{
+            transform: scale(1);
+            opacity: .5;
+        }
+    }   
+}
+
+// service-section-------------------
+
+.service-item{
+    border: 1px solid $border-color;
+    padding: 24px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: 0.4s ease;
+    .service-icon{
+        margin-bottom: 20px;
+    }
+    .service-content{
+        h5{
+            font-size: 20px;
+            font-weight: 800;
+            color: $title-color;
+            font-family: $font-1;
+            margin-bottom: 6px;
+        }
+        p{
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .service-btn{
+            color: $subtitile-color;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: $font-1;
+            transition: 0.4s ease;
+            border-bottom: 1px solid transparent;
+
+            &:hover{
+                color: $primary-orange;
+                border-bottom: 1px solid $primary-orange;
+            }
+        }
+    }
+    &:hover{
+        border: 1px solid #fff;
+        box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+        transform: translateY(-3px);
+
+    }
+}

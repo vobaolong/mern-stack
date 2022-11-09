@@ -1,0 +1,63 @@
+.contact-form-area{
+    p{
+        font-size: 1rem;
+        color: $para-color;
+        font-weight: 400;
+        font-family: $font-2;
+        margin-bottom: 24px;
+    }
+    
+    .contact-btn{
+        padding: 15px 30px;
+        border-radius: 5px;
+    }
+}
+.branch-info-item{
+    .branch-info-header{
+        background: $primary-orange;
+        border-radius: 5px;
+        padding: 26px 20px;
+        color: #fff;
+        width: 230px;
+        text-align: center;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        @include md-down-device{
+            padding: 15px 25px;
+        }
+        h4{
+            font-weight: 700;
+            font-family: $font-1;
+            font-size: 22px;
+            line-height: 1.7;
+
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            height: 8px;
+            width: 8px;
+            background: $primary-orange;
+            transform: rotate(45deg);
+        }
+    }
+    .branch-info-body{
+        margin-top: -30px;
+        padding: 55px 30px 25px 30px;
+        border-radius: 5px;
+        li{
+            @extend .para;
+            margin-bottom: 8px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            &:last-child{
+                margin-bottom: 0;
+            }
+            &:hover{
+                color: $primary-orange;
+            }
+        }
+    }
+}

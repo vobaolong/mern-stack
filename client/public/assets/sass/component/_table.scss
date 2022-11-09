@@ -1,0 +1,258 @@
+// ===============common-table===================
+.table-wrapper{
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 32px;
+}
+.eg-table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    thead{
+        background: #fff;
+        tr{
+            border-width: 2px;
+            th{
+                font-size: 1rem;
+                font-weight: 600;
+                color: $title-color;
+                opacity: 1;
+                padding: 15px;
+                vertical-align: top ;
+                text-align: center;
+            border-width: 1px;
+
+                @include md-down-device{
+                    display: none;
+                }
+            }
+        }
+    }
+    tbody{
+        tr{
+            td{
+                font-weight: 400;
+                color: $para-color;
+                text-align: center;
+                border-width: 1px;
+                // border: 2px solid $border-color;
+                vertical-align: middle;
+                padding: 15px;
+                @include md-down-device{
+                    display: block;
+                    width: 100%;
+                    text-align: right;
+                    padding-left: 50%;
+                    position: relative;
+                }
+            }
+            @include md-down-device{
+                display: block;
+                width: 100%;
+                margin-bottom: 20px;
+                // border: 1px solid $title-color;
+            }
+        }
+        @include md-down-device{
+            display: block;
+            width: 100%;
+        }
+    }
+    @include md-down-device{
+        display: block;
+        width: 100%;
+    }
+    td{
+        @include md-down-device{
+            &:before{
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                text-align: left;
+                padding-left: 15px;
+                font-weight: 600;
+                color: $title-color;
+            }
+        }
+    }
+}
+
+// ===============cart-table===================
+.cart-table{
+    tbody{
+        tr{
+            td:nth-child(5),td:nth-child(7){
+                font-weight: bold;
+            }
+        }
+        td{
+            .delete-icon{
+                i{
+                    padding: 8px;
+                    color: $para-color;
+                    font-size: 10px;
+                    border-radius: 50%;
+                    background: #fff;
+                    box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.19);
+                    border: 1px solid transparent;
+                    transition: 0.4s ease;
+                    cursor: pointer;
+                    &:hover{
+                        background: $primary-orange;
+                        color: #fff;
+                    }
+                }
+            }
+            
+            img{
+                width: 54px;
+                height: 64px;
+                object-fit: cover;
+            }
+            .number-input{
+                height: 36px;
+                width: 71px;
+                background: $border-color;
+                margin-left: auto;
+                margin-right: auto;
+                border: none;
+                outline: none;
+                border-radius: 5px;
+                padding: 10px;
+                @include md-down-device{
+                    margin-right: 0 !important;
+                }
+            }
+        }
+    }
+}
+// ===============total-table===================
+.total-table{
+    thead{
+        tr{
+            border-width: 2px;
+        }
+        th{
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: $title-color;
+            padding: 15px;
+            font-family: $font-1;
+            border-width: 1px;
+            @include md-down-device{
+                font-size: 16px;
+            }
+        }
+    }
+    tbody{
+        tr{
+            border-width: 2px;
+            td{
+                border-width: 2px;
+                padding: 15px;
+                color: $para-color;
+                font-family: $font-2;
+                @include md-down-device{
+                    padding: 10px;
+                    font-size: 14px;
+                }
+                &:nth-child(1),&:nth-child(3){
+                    font-weight: 700;
+                    font-size: 1rem;
+                    color: $title-color;
+                    font-family: $font-1;
+                    text-align: center;
+                    @include md-down-device{
+                        font-size: 14px;
+                    }
+                }
+                .cost-list{
+                    li{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: $para-color;
+                        margin-bottom: 10px;
+                        line-height: 1.6;
+                        @include md-down-device{
+                            font-size: 13px;
+                        }
+                        a{
+                            color: $primary-orange;
+                            border-bottom: 1px solid $primary-orange;
+                        }
+                    }
+                }
+                .single-cost{
+                    li{
+                        font-size: 14px;
+                        color: $title-color !important;
+                        margin-bottom: 10px;
+                        line-height: 1.6;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+.quantity{
+    position: relative;
+    display: inline-table;
+}
+.quantity input {
+    width: 70px;
+    height: 42px;
+    line-height: 1.65;
+    float: left;
+    display: block;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+    border: 1px solid #eee;
+    margin-left: 0;
+    background: #eee;
+  }
+  
+  .quantity input:focus {
+    outline: 0;
+  }
+  
+  .quantity-nav {
+    float: left;
+    position: relative;
+    height: 42px;
+  }
+  
+  .quantity-button {
+    position: relative;
+    cursor: pointer;
+    border-left: 1px solid #eee;
+    width: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 13px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+    line-height: 1.7;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+  
+  .quantity-button.quantity-up {
+    position: absolute;
+    height: 50%;
+    top: 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .quantity-button.quantity-down {
+    position: absolute;
+    bottom: -1px;
+    height: 50%;
+  }
