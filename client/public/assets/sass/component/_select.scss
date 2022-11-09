@@ -1,0 +1,24 @@
+.select-primary1{
+    background: $primary-green;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16;
+    border-radius: 2px;
+    height: 32px;
+    line-height: 30px;
+    padding: 3px 10px;
+}
+.select-white{
+    color: $primary-green;
+    background: #fff;
+    font-weight: 600;
+    font-size: 16;
+    border-radius: 2px;
+    height: 30px;
+    line-height: 30px;
+    padding: 3px 10px;
+    border: 1px solid $light-shad;
+}
+option{
+    font-size: 14px;
+}
