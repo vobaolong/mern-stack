@@ -44,6 +44,31 @@ import Contact from "./components/Contact";
 import Register from "./components/user/Register";
 
 function App() {
+<<<<<<< HEAD:frontend/src/App.js
+=======
+<<<<<<< HEAD
+  return (
+    <>
+      <scrollToTop />
+      <Layout />
+    </>
+  )
+=======
+  const [stripeApiKey, setStripeApiKey] = useState("");
+
+  useEffect(() => {
+    store.dispatch(loadUser());
+
+    async function getStripApiKey() {
+      const { data } = await axios.get("/stripeapi");
+
+      setStripeApiKey(data.stripeApiKey);
+    }
+
+    getStripApiKey();
+  }, []);
+
+>>>>>>> e2fd668f5f9c85ca5b52d19838b3b8f52aad7815:client/src/App.js
   return (
     <Router>
       <div className="App">
@@ -133,6 +158,7 @@ function App() {
       </div>
     </Router>
   );
+>>>>>>> c20aed94609afb8ae8401bfb12703baa62716742
 }
 
 export default App;
