@@ -1,0 +1,23 @@
+.breadcrumb-item{
+    color: #fff;
+    &.active{
+        color: #fff !important;
+    }
+    &::before{
+        color: #fff;
+    }
+}
+.inner-banner-title{
+    font-weight: 800;
+    font-family: $font-1;
+    font-size: 45px;
+    margin-bottom: 12px;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    color: #fff;
+}
+.inner-banner{
+    background-image: linear-gradient(rgba(0, 43, 70, .7),rgba(0, 43, 70, .7)),url('../images/banner/inner-banner.jpg');
+    background-size: cover;
+     background-repeat: no-repeat
+}

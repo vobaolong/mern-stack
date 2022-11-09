@@ -1,0 +1,222 @@
+.eg-btn{
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn--capsule{
+  border-radius: 30px !important;
+}
+.btn-priamry-sea{
+  background-color: $primary-sea-green;
+  border: 1px solid $primary-sea-green;
+  color: #fff;
+  box-shadow: inset 0 0 0 0 #fff;
+  transition: 0.2s ease;
+  border: 1px solid $primary-sea-green;
+  &:hover{
+    box-shadow: inset 150px 0 0 0  #fff;
+    background: #fff;
+    border: 1px solid $primary-sea-green;
+    color: $primary-sea-green;
+    }
+}
+.btn-white-sea{
+  background: #fff;
+  color: $primary-sea-green;
+  border: 1px solid $primary-sea-green;
+  padding: 7px 30px;
+  transition: 0.3s ease;
+  position: relative;
+  width: 190px;
+  &:hover{
+    background: $primary-sea-green;
+    color: #fff;
+    padding-left: 20px;
+    &:after{
+      opacity: 1;
+    }
+  }
+  &::after{
+    position: absolute;
+    content: '\f067';
+    font-family: 'Line Awesome free';
+    font-weight: 600;
+    color: $primary-sea-green;
+    background: #fff;
+    position: absolute;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    margin-left: 80px;
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+}
+.lg--btn2{
+  padding: 16px 40px;
+}
+.md--btn2{
+  padding: 14px 40px;
+  @include md-down-device{
+    padding: 5px 15px;
+  }
+}
+.btn-green{
+    color: #fff;
+    height: 45px;
+    padding: 0px 20px;
+    line-height: 44px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    font-size: 18px;
+    font-family: $font-1;
+    background: $primary-green;
+    transition: ease 0.6s;
+    transition: 0.3s ease;
+  &:hover{
+    background: #fff;
+    color: $primary-green;
+    border: 1px solid $primary-green;
+
+    }
+    
+}
+
+
+  // small-primary-capsule
+  .small-primary-capsule{
+    background-color: $primary-orange;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: $font-1;
+    padding: 4px 18px;
+  }
+  .lg--btn{
+    padding: 15px 35px;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  .md--btn{
+    padding: 6px 24px;
+    font-weight: 600;
+  }
+  .primary--btn{
+    background-color: $primary-orange;
+    border: 1px solid $primary-orange;
+    color: #fff;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: 0.2s ease;
+    &:hover{
+    box-shadow: inset 150px 0 0 0  #fff;
+    background: #fff;
+    border: 1px solid $primary-orange;
+    color: $primary-orange;
+    }
+  }
+// white-btn-primary===========
+  .white-btn-primary{
+    background-color: #fff;
+    border: 1px solid transparent;
+    color: $title-color;
+    box-shadow: inset 0 0 0 0 $primary-orange;
+    transition: 0.2s ease;
+    &:hover{
+    box-shadow: inset 150px 0 0 0  $primary-orange;
+    background: $primary-orange;
+    border: 1px solid $primary-orange;
+    color: #fff;
+    }
+  }
+// white-btn-title-color===========
+  .white-btn-title-color{
+    background-color: #fff;
+    border: 1px solid $title-color;
+    color: $title-color;
+    box-shadow: inset 0 0 0 0 $title-color;
+    transition: 0.2s ease;
+    padding: 1px 12px;
+    line-height: 28px;
+    font-family: $font-1;
+    &:hover{
+    box-shadow: inset 150px 0 0 0  $title-color;
+    background: $title-color;
+    border: 1px solid $title-color;
+    color: #fff;
+    }
+  }
+
+  // white-btn-title-color===========
+  .white-btn{
+    background-color: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    box-shadow: inset 0 0 0 0 $primary-orange;
+    transition: 0.2s ease;
+    padding: 0px 12px;
+    line-height: 18px;
+    font-family: $font-1;
+    &:hover{
+    box-shadow: inset 150px 0 0 0  $primary-orange;
+    background: $primary-orange;
+    border: 1px solid $primary-orange;
+    color: #fff;
+    }
+  }
+
+  .primary--btn2{
+    background-color: #fff;
+    color: $primary-orange;
+    border: 1px solid $primary-orange;
+    box-shadow: inset 0 0 0 0 $primary-orange;
+    &:hover{
+    box-shadow: inset 0 0 0 400px $primary-orange;
+    }
+  }
+  .btn-titlecolor{
+    background-color: $title-color;
+    border: 1px solid $title-color;
+    padding: 5px 15px;
+    color: #fff;
+    box-shadow: inset 0 0 0 0 #fff;
+    transition: 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: $font-1;
+    &:hover{
+    box-shadow: inset 0 0 400px 0 #fff;
+    color: $title-color;
+    }
+  }
+// =======================
+// BADGE
+// =======================
+.eg-badge{
+  border-radius: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: $font-1;
+}
+.red--badge{
+  background: $secondary-color;
+  color: #fff;
+  padding: 4px 9px;
+}
+.black--badge{
+  background: #111;
+  color: #fff;
+  padding: 4px 9px;
+}
+.sea--badge{
+  background: $primary-sea-green;
+  color: #fff;
+  padding: 4px 9px
+}

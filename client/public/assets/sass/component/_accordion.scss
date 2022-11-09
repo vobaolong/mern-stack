@@ -1,0 +1,82 @@
+.faq-wrapper {
+    .accordion-item {
+      margin-bottom: 30px;
+      border-radius: 5px;
+      border: unset;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .accordion-button {
+      font-size: 16px;
+      font-weight: 500;
+      padding-right: 60px;
+      padding-left: 0px;
+      border: none;
+      background-color: $bg-light;
+      font-family: $font-1;
+      padding: 26px 30px;
+      padding-right: 45px;
+      color: $subtitile-color;
+      &:focus {
+        z-index: unset;
+        border-color: unset;
+        outline: 0;
+        box-shadow: none;
+      }
+      &::after {
+        flex-shrink: 0;
+        width: unset;
+        height: unset;
+        margin-left: auto;
+        background-image: none;
+        background-repeat: unset;
+        background-size: unset;
+        font-family: "Line Awesome Free";
+        font-weight: 900;
+        position: absolute;
+        right: 22px;
+        content: "\f107";
+        transition: unset;
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 15px;
+      }
+      &:not(.collapsed)::after {
+        background-image: none;
+        transform: unset;
+        font-family: "Line Awesome Free";
+        font-weight: 600;
+        content: "\f106";
+        border-radius: 50%;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        line-height: 32px;
+        font-size: 16px;
+        color: $subtitile-color;
+      }
+    }
+    .accordion-body {
+      font-weight: 400;
+      font-size: 16px;
+      border-color: transparent;
+      padding: 0px 30px 30px 30px;
+      font-size: 1rem;
+      font-weight: 400;
+      font-family: $font-2;
+      box-shadow: 4px 8px 30px rgba(141, 141, 141, 0.1);
+    }
+    .accordion-button:not(.collapsed) {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        background-color: #fff;
+        font-weight: 600;
+        color: $title-color !important;
+        font-size: 18px;
+
+    }
+  }

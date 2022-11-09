@@ -1,0 +1,169 @@
+.mobile-sidebar{
+    overflow-x: hidden;
+    width: 290px;
+    position: fixed;top: 0;left: 0;
+    background: #fff;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 100;
+    height: 100%;
+    padding: 100px 0px ;
+    overflow-y: auto;
+    box-shadow: 0px 0px 9px rgba(0,0,0,0.09);
+    &.slide-mobile-sidebar{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    /* scroll css*/
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.2);
+    }
+    
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+    .moblie-item{
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 5px 0px;
+        position: relative;
+        &:last-child{
+            border-bottom: none;
+        }
+        .dropd-icon{
+            position: absolute;
+            top: 14px;
+            right: 30px;
+            transition: 0.3s ease;
+            &.icon-rotate{
+                transform: rotate(180deg);
+            }
+        }
+        &:hover{
+            .moblie-link{
+                padding-left: 28px;
+            }
+        }
+    }
+    .moblie-link{
+        padding: 5px 25px;
+        display: block;
+        transition: 0.4s ease;
+        text-transform: capitalize;
+        font-family: $font-1;
+
+    }
+    .mob-submenu{
+        padding-left: 40px;
+        display: none;
+        background: $bg-light;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        li{
+            padding: 5px 0px;
+            transition: 0.3s ease;
+            &:hover{
+                color: $primary-sea-green;
+                transform: translateX(2px);
+            }
+        }
+        a{
+            font-size: 15px;
+            color: $title-color;
+            text-transform: capitalize;
+            font-family: $font-1;
+            display: block;
+        }
+    }
+    .mobile-contact-area{
+        padding: 25px;
+        margin-top: 20px;
+        h6{
+            font-size: 18px;
+            font-weight: 700;
+            color: $title-color;
+            margin-bottom: 10px;
+        }
+        small{
+            color: $subtitile-color;
+            font-size: 12px;
+        }
+        .mobile-social-icons{
+            padding-top: 15px;
+            li{
+                margin-right: 10px;
+            }
+        }
+    }
+}
+.mobile-menu-close{
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    color: $title-color;
+    cursor: pointer;
+    transition: 0.4s ease;
+    font-size: 28px;
+    background: $bg-light;
+    border-radius: 50%;
+    width: 40px;
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    &:hover{
+        color: #fff;
+        background: $title-color;
+    }
+}
+
+// MOBILE BOTTOM MENU---------------------------
+.mobile-bottom-menu{
+    background: #fff;
+    padding: 15px 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: 0.5s ease;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.09);
+    li{
+        i{
+            font-size: 24px;
+        }
+        .cart-items-count{
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background-color: $primary-orange;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            font-family: $font-1;
+            text-align: center;
+            height: 20px;
+            border-radius: 50%;
+            width: 20px;
+            line-height: 20px;
+          }
+
+    }
+    @include sm-down-device{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
