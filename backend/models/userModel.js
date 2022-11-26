@@ -33,10 +33,13 @@ const userSchema = new mongoose.Schema({
       required: true,
     },
   },
+
+  // Role is for identify weather it is user or admin
   role: {
     type: String,
     default: "user",
   },
+
   createdAt: {
     type: Date,
     default: Date.now,
@@ -51,6 +54,7 @@ userSchema.pre("save", async function (next) {
     next();
   }
 
+  // bcrypting the password
   this.password = await bcrypt.hash(this.password, 10);
 });
 
@@ -61,8 +65,7 @@ userSchema.methods.getJWTToken = function () {
   });
 };
 
-// Compare Password
-
+// compare password
 userSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };

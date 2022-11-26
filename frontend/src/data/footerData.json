@@ -1,0 +1,37 @@
+[
+  {
+    "companyName": "G10Store",
+    "aboutCompany": "G10Store là cửa hàng chuyên cung cấp các sản phẩm linh kiện điện tử như Laptop, PC, chuột máy tính, tai nghe,... online hàng đầu hiện nay",
+    "heading": [
+      {
+        "aboutus": "About Us",
+        "information": "Information",
+        "account": "Account"
+      }
+    ],
+    "infoData": [
+      {
+        "link": "About Us",
+        "path": "/aboutus"
+      },
+      {
+        "link": "Products",
+        "path": "/products"
+      }
+    ],
+    "accountInfo": [
+      {
+        "link": "My Account",
+        "path": "/account"
+      },
+      {
+        "link": "My Cart",
+        "path": "/cart"
+      },
+      {
+        "link": "Login",
+        "path": "/login"
+      }
+    ]
+  }
+]

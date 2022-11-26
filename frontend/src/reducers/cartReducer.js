@@ -19,9 +19,9 @@ export const cartReducer = (
       if (isItemExist) {
         return {
           ...state,
-          cartItems: state.cartItems.map((i) =>
-            i.product === isItemExist.product ? item : i
-          ),
+          cartItems: state.cartItems.map((i) => {
+            return i.product === isItemExist.product ? item : i;
+          }),
         };
       } else {
         return {
@@ -41,7 +41,6 @@ export const cartReducer = (
         ...state,
         shippingInfo: action.payload,
       };
-
     default:
       return state;
   }

@@ -10,15 +10,13 @@ import {
   productsReducer,
   reviewReducer,
 } from "./reducers/productReducer";
-
 import {
-  allUsersReducer,
-  forgotPasswordReducer,
   profileReducer,
-  userDetailsReducer,
   userReducer,
+  forgotPasswordReducer,
+  allUsersReducer,
+  userDetailsReducer,
 } from "./reducers/userReducer";
-
 import { cartReducer } from "./reducers/cartReducer";
 import {
   allOrdersReducer,
@@ -28,6 +26,7 @@ import {
   orderReducer,
 } from "./reducers/orderReducer";
 
+// for multiple reducer
 const reducer = combineReducers({
   products: productsReducer,
   productDetails: productDetailsReducer,
@@ -49,6 +48,7 @@ const reducer = combineReducers({
   review: reviewReducer,
 });
 
+// initialstate
 let initialState = {
   cart: {
     cartItems: localStorage.getItem("cartItems")
@@ -60,8 +60,10 @@ let initialState = {
   },
 };
 
+// middle ware
 const middleware = [thunk];
 
+// Create a store
 const store = createStore(
   reducer,
   initialState,
