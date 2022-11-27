@@ -1,13 +1,16 @@
 import React, { Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MetaData from "../../components/layout/MetaData";
 import { Link, useNavigate } from "react-router-dom";
 import CheckoutSteps from "../../components/shipping/CheckoutSteps";
 import { dolaSymbol } from "../../constants/constants";
 import SlideableBtn from "../../components/layout/Buttons/SlideableBtn";
+import { resetCart } from "../../actions/cartAction";
 
 const ConfirmOrder = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
 
   const subtotal = cartItems.reduce(
@@ -29,7 +32,7 @@ const ConfirmOrder = () => {
     };
 
     sessionStorage.setItem("orderInfo", JSON.stringify(data));
-
+    dispatch(resetCart());
     navigate("/process/payment");
   };
 
