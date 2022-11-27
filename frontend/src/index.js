@@ -38,6 +38,7 @@ ReactDOM.render(
             justifyContent: "center",
             display: "grid",
             alignContent: "center",
+            zIndex: 1000,
           }}
         />
       </BrowserRouter>

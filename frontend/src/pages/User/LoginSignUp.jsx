@@ -32,7 +32,6 @@ const LoginSignUp = () => {
   const [registerName, setRegisterName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
-  console.log(user);
   const path = user?.role === "admin" ? "/" : "/account";
   const redirect = location.search ? location.search.split("=")[1] : path;
   useEffect(() => {

@@ -17,6 +17,7 @@ const isNotActiveStyle = "font-semibold opacity-50 transition-all duration-500";
 const Navbar = ({ webName, menuOptions }) => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const handlecloseToggle = () => {
     setToggleSidebar(true);
@@ -53,6 +54,13 @@ const Navbar = ({ webName, menuOptions }) => {
               <>
                 <CustomIcon path="/search" Icon={AiOutlineSearch} />
                 <CustomIcon path="/cart" Icon={AiOutlineShoppingCart} />
+                {cartItems.length === 0 ? null : (
+                  <>
+                    <p className="w-5 text-xs text-white -ml-7 rounded-full border-2 border-sky-500 pl-1.5">
+                      {cartItems.length}
+                    </p>
+                  </>
+                )}
               </>
             )}
             {isAuthenticated ? (

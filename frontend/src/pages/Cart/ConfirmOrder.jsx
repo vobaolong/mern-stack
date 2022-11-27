@@ -45,10 +45,11 @@ const ConfirmOrder = () => {
           </h2>
           <div>
             <div className="grid grid-col-1 tall:grid-cols-6 divide-y-2 tall:divide-y-0 tall:divide-x-2 divide-secondaryDark">
-              <div className="flex flex-col col-span-6 tall:col-span-4">
+              {/* Shipping Info */}
+              <div className="flex flex-col col-span-6 tall:col-span-4 mx-5">
                 <div>
                   <p className="text-xl font-bold">Shipping Info</p>
-                  <div className="px-5 md:px-10 mt-3 flex flex-col gap-2">
+                  <div className="p-5 md:px-10 mt-3 flex flex-col gap-2 rounded-lg bg-slate-300">
                     <div className="flex gap-3 ">
                       <p>Name: </p>
                       <span className="text-slate-600">
@@ -70,44 +71,43 @@ const ConfirmOrder = () => {
                 <div className="my-5">
                   <p className="text-xl font-bold">Your Cart Items: </p>
                   <div>
-                    {cartItems &&
-                      cartItems.map((item, index) => {
-                        return (
-                          <div
-                            key={index}
-                            className="flex px-5 md:px-10 gap-x-7 mt-3 items-center"
+                    {cartItems?.map((item, index) => {
+                      return (
+                        <div
+                          key={index}
+                          className="border hover:border-slate-400 flex px-5 py-1 md:px-10 gap-x-7 mt-3 items-center rounded-lg"
+                        >
+                          <img
+                            className="w-[10vmax] md:w-[5vmax] rounded-lg"
+                            src={item.image}
+                            alt="Product"
+                          />
+                          <Link
+                            className="capitalize w-[30vmax] hover:text-cyan-600"
+                            to={`/product/${item.product}`}
                           >
-                            <img
-                              className="w-[10vmax] md:w-[5vmax]"
-                              src={item.image}
-                              alt="Product"
-                            />
-                            <Link
-                              className="capitalize"
-                              to={`/product/${item.product}`}
-                            >
-                              {item.name}
-                            </Link>
-                            <span>
-                              {item.quantity} X {dolaSymbol}
-                              {item.price} ={" "}
-                              <b>
-                                {dolaSymbol}
-                                {item.price * item.quantity}
-                              </b>
-                            </span>
-                          </div>
-                        );
-                      })}
+                            {item.name}
+                          </Link>
+                          <span>
+                            {item.quantity} X {dolaSymbol}
+                            {item.price} =
+                            <b>
+                              {dolaSymbol}
+                              {item.price * item.quantity}
+                            </b>
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
 
-              {/*  */}
+              {/* Order Summary */}
               <div className="tall:pl-8 py-5 mt-3 md:mt-0 col-span-6 tall:col-span-2">
                 <div>
                   <p className="text-xl font-bold text-center py-3 border-b-2">
-                    Order Summery
+                    Order Summary
                   </p>
                   <div className="flex flex-col gap-5 my-3">
                     <div className="flex justify-between">

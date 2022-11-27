@@ -73,7 +73,7 @@ const Dashboard = () => {
   }, [isAuthenticated, navigate]);
 
   return (
-    <div className="dashboardStyle -mt-20">
+    <div className="dashboardStyle mt-5">
       <MetaData title="Dashboard - Admin Panel" />
       <div className="sidebarStyle sticky left-0">
         <Sidebar />
@@ -102,18 +102,18 @@ const Dashboard = () => {
               to="/admin/products"
             >
               <p>Products</p>
-              <p>{products && products.length}</p>
+              <p>{products?.length}</p>
             </Link>
             <Link
               className="summryBoxStyle bg-secondaryDark "
               to="/admin/orders"
             >
               <p>Orders</p>
-              <p>{orders && orders.length}</p>
+              <p>{orders?.length}</p>
             </Link>
             <Link className="summryBoxStyle bg-gray-800" to="/admin/users">
               <p>Users</p>
-              <p>{users && users.length}</p>
+              <p>{users?.length}</p>
             </Link>
           </div>
         </div>
