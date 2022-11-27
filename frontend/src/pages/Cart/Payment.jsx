@@ -14,11 +14,11 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CreditCard, Event, VpnKey } from "@material-ui/icons";
 import { createOrder, clearErrors } from "../../actions/orderAction";
+import { resetCart } from "../../actions/cartAction";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
   const payBtn = useRef(null);
   const stripe = useStripe();
@@ -103,6 +103,10 @@ const Payment = () => {
     }
   };
 
+  const paymentHandler = () => {
+    dispatch(resetCart());
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -138,6 +142,7 @@ const Payment = () => {
             </div>
 
             <input
+              onClick={paymentHandler}
               className="slideableBtnStyles cursor-pointer"
               ref={payBtn}
               type="submit"
