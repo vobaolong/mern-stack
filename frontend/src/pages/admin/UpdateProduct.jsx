@@ -225,15 +225,14 @@ const UpdateProduct = () => {
                   </p>
                 </div>
                 <div className="w-full flex justify-center items-center my-5 gap-5 overflow-auto ">
-                  {oldImages &&
-                    oldImages.map((image, index) => (
-                      <img
-                        key={index}
-                        className="shadow-lg w-[10vmax] h-[10vmax] tall:w-[5vmax] tall:h-[5vmax]"
-                        src={image.url}
-                        alt="Product Preview"
-                      />
-                    ))}
+                  {oldImages?.map((image, index) => (
+                    <img
+                      key={index}
+                      className="shadow-lg w-[10vmax] h-[10vmax] tall:w-[5vmax] tall:h-[5vmax]"
+                      src={image.url}
+                      alt="Product Preview"
+                    />
+                  ))}
                 </div>
 
                 <div className="text-center">

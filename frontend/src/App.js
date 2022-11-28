@@ -54,7 +54,7 @@ function App() {
   return (
     <>
       {/* Navbar components */}
-      <Navbar webName="G10Store" menuOptions={menuOptions} />
+      <Navbar menuOptions={menuOptions} />
 
       {/* All routes */}
       <ElementWithRoutes stripeApiKey={stripeApikey} />

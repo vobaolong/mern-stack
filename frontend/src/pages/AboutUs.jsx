@@ -9,7 +9,7 @@ const AboutUs = () => {
         </div>
         <div class="w-[50%] px-5">
           <h1 class="text-primaryBlue text-3xl font-semibold uppercase tracking-widest mt-8">
-            Thông tin về chúng tôi
+            About Us
           </h1>
           <p class="mt-5 text-lightGray">
             <strong>G10Store</strong> là công ty chuyên cung cấp các sản phẩm về

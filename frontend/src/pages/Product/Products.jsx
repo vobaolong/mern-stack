@@ -65,10 +65,9 @@ const Products = () => {
 
             <div className="flex flex-row-reverse justify-center ">
               <div className="productsLayoutStyle">
-                {products &&
-                  products.map((product, index) => {
-                    return <ProductCard key={index} product={product} />;
-                  })}
+                {products?.map((product, index) => {
+                  return <ProductCard key={index} product={product} />;
+                })}
               </div>
 
               <FilterSlide

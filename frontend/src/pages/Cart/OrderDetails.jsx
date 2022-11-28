@@ -108,35 +108,34 @@ const OrderDetails = () => {
               <div className="mt-5">
                 <p className="heading">Order Items: </p>
                 <div className="headingData">
-                  {order.orderItems &&
-                    order.orderItems.map((item, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="flex gap-x-7 mt-3 items-center"
+                  {order.orderItems?.map((item, index) => {
+                    return (
+                      <div
+                        key={index}
+                        className="flex gap-x-7 mt-3 items-center"
+                      >
+                        <img
+                          className="w-[10vmax] md:w-[5vmax]"
+                          src={item.image}
+                          alt="Product"
+                        />
+                        <Link
+                          className="capitalize"
+                          to={`/product/${item.product}`}
                         >
-                          <img
-                            className="w-[10vmax] md:w-[5vmax]"
-                            src={item.image}
-                            alt="Product"
-                          />
-                          <Link
-                            className="capitalize"
-                            to={`/product/${item.product}`}
-                          >
-                            {item.name}
-                          </Link>
-                          <span>
-                            {item.quantity} X {dolaSymbol}
-                            {item.price} ={" "}
-                            <b>
-                              {dolaSymbol}
-                              {item.price * item.quantity}
-                            </b>
-                          </span>
-                        </div>
-                      );
-                    })}
+                          {item.name}
+                        </Link>
+                        <span>
+                          {item.quantity} X {dolaSymbol}
+                          {item.price} ={" "}
+                          <b>
+                            {dolaSymbol}
+                            {item.price * item.quantity}
+                          </b>
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

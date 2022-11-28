@@ -9,10 +9,9 @@ const OurProduct = ({ products }) => {
 
         <div className="w-[90%] mx-auto">
           <div className="productsLayoutStyle">
-            {products &&
-              products.map((product, index) => {
-                return <ProductCard key={index} product={product} />;
-              })}
+            {products?.map((product, index) => {
+              return <ProductCard key={index} product={product} />;
+            })}
           </div>
         </div>
       </div>

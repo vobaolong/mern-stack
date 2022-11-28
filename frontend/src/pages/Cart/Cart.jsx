@@ -60,43 +60,39 @@ const Cart = () => {
             </div>
 
             <div className="cartContainer w-[90%] px-5 bg-slate-100 mx-auto flex flex-col gap-5 divide-y">
-              {cartItems &&
-                cartItems.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="grid grid-cols-3 md:grid-cols-6"
-                    >
-                      <div className="md:col-span-4 place-items-start">
-                        <CartItemCard
-                          item={item}
-                          deleteCartItems={deleteItemsFromCart}
-                        />
-                      </div>
-                      <div className="flex items-center justify-center md:justify-start">
-                        {" "}
-                        <QuantityCardInput
-                          quantity={item.quantity}
-                          increaseQuantity={() =>
-                            increaseQuantity(
-                              item.product,
-                              item.quantity,
-                              item.stock
-                            )
-                          }
-                          decreaseQuantity={() =>
-                            decreaseQuantity(item.product, item.quantity)
-                          }
-                        />
-                      </div>
-                      <div className="flex justify-end items-center">
-                        <p className="font-medium">{`$${
-                          item.price * item.quantity
-                        }`}</p>
-                      </div>
+              {cartItems?.map((item, index) => {
+                return (
+                  <div key={index} className="grid grid-cols-3 md:grid-cols-6">
+                    <div className="md:col-span-4 place-items-start">
+                      <CartItemCard
+                        item={item}
+                        deleteCartItems={deleteItemsFromCart}
+                      />
                     </div>
-                  );
-                })}
+                    <div className="flex items-center justify-center md:justify-start">
+                      {" "}
+                      <QuantityCardInput
+                        quantity={item.quantity}
+                        increaseQuantity={() =>
+                          increaseQuantity(
+                            item.product,
+                            item.quantity,
+                            item.stock
+                          )
+                        }
+                        decreaseQuantity={() =>
+                          decreaseQuantity(item.product, item.quantity)
+                        }
+                      />
+                    </div>
+                    <div className="flex justify-end items-center">
+                      <p className="font-medium">{`$${
+                        item.price * item.quantity
+                      }`}</p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="grid place-items-end w-[90%] mx-auto ">

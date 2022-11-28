@@ -170,7 +170,7 @@ const ProductReviews = () => {
             </div>
           </form>
 
-          {reviews && reviews.length > 0 ? (
+          {reviews?.length > 0 ? (
             <DataGrid
               rows={rows}
               columns={columns}
