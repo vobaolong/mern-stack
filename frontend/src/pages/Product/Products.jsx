@@ -29,9 +29,8 @@ const Products = () => {
 
   const [price, setPrice] = useState([0, 5000]);
   const [category, setCategory] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
   const [ratings, setRatings] = useState(0);
-
+  const [currentPage, setCurrentPage] = useState(1);
   const keyword = params.keyword;
 
   const setCurrentPageNo = (e) => {
@@ -76,11 +75,10 @@ const Products = () => {
                   </h1>
                 )}
               </div>
-
               <FilterSlide
                 price={price}
-                categories={categories}
                 priceHandler={priceHandler}
+                categories={categories}
                 setCategory={setCategory}
                 ratings={ratings}
                 setRatings={setRatings}
