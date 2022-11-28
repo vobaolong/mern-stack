@@ -5,9 +5,16 @@
     "heading": [
       {
         "aboutus": "About Us",
+        "technical": "Technical",
         "information": "Information",
         "account": "Account"
       }
+    ],
+    "technical": [
+      { "link": "MongoDB", "path": "/#" },
+      { "link": "ExpressJS", "path": "" },
+      { "link": "ReactJS", "path": "" },
+      { "link": "NodeJS", "path": "" }
     ],
     "infoData": [
       {

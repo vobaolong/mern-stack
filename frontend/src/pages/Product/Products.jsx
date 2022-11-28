@@ -6,6 +6,7 @@ import ProductCard from "../../components/home/OurProduct/ProductCard";
 import { useAlert } from "react-alert";
 import { useParams } from "react-router-dom";
 import Pagination from "react-js-pagination";
+import { AiOutlineFrown } from "react-icons/ai";
 import FilterSlide from "../../components/Products/FilterSlide";
 import MetaData from "../../components/layout/MetaData";
 
@@ -26,7 +27,7 @@ const Products = () => {
   const { loading, error, products, productsCount, resultPerPage } =
     useSelector((state) => state.products);
 
-  const [price, setPrice] = useState([0, 25000]);
+  const [price, setPrice] = useState([0, 5000]);
   const [category, setCategory] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [ratings, setRatings] = useState(0);
@@ -63,11 +64,17 @@ const Products = () => {
               Products
             </h1>
 
-            <div className="flex flex-row-reverse justify-center ">
+            <div className="flex flex-row-reverse justify-center">
               <div className="productsLayoutStyle">
-                {products?.map((product, index) => {
-                  return <ProductCard key={index} product={product} />;
-                })}
+                {products && products.length > 0 ? (
+                  products.map((product, index) => {
+                    return <ProductCard key={index} product={product} />;
+                  })
+                ) : (
+                  <h1 className="items-center text-center text-xl flex uppercase text-red-600">
+                    Product not found <AiOutlineFrown className="mx-1" />!
+                  </h1>
+                )}
               </div>
 
               <FilterSlide

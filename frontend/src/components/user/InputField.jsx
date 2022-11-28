@@ -21,7 +21,7 @@ const InputField = ({
         value={value}
         onChange={onChange}
         required
-        autofocus={autofocus}
+        autoFocus={autofocus}
         autocomplete={autocomplete}
       />
     </div>

@@ -7,25 +7,36 @@ const Footer = ({ jsonData }) => {
 
   return (
     <div className="bg-primaryBlue w-[100%] top-full">
-      <div className="flex flex-col lg:justify-center lg:flex-row py-16 px-8 lg:px-24">
-        <div className="lg:w-1/4 flex items-center">
-          <img className="w-[70%]" src={logo} alt="logo" />
+      <div className="flex sm:flex-col lg:justify-center md:flex-row py-8 px-8">
+        <div className="md:w-1/5 sm:w-full flex items-center justify-center">
+          <img className="md:w-[80%] sm:w-[20%]" src={logo} alt="logo" />
         </div>
-        <div className="lg:w-1/3 pr-10">
+
+        <div className=" md:w-1/4 p-10">
           <h1 className="text-primaryBlue font-semibold uppercase tracking-widest">
             {heading.aboutus}
           </h1>
-          <p className="mt-5 text-lightGray text-justify my-5 mr-10">
+          <p className="mt-5 text-lightGray text-justify my-5 ">
             {footerData.aboutCompany}
           </p>
         </div>
-        <div className="mt-5 mb-5 lg:mt-0 lg:mb-0 lg:w-1/3">
+
+        <div className="md:w-1/6 p-10">
+          <FooterContent
+            title={heading.technical}
+            data={footerData.technical}
+            disabled
+          />
+        </div>
+
+        <div className="md:w-1/5 p-10">
           <FooterContent
             title={heading.information}
             data={footerData.infoData}
           />
         </div>
-        <div className="lg:w-1/3">
+
+        <div className="md:w-1/5 p-10">
           <FooterContent
             title={heading.account}
             data={footerData.accountInfo}
