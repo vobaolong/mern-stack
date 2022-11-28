@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { MdMailOutline, MdLockOpen, MdFace } from "react-icons/md";
+import { MdMailOutline, MdLockOpen, MdPerson } from "react-icons/md";
+import {
+  AiFillEye,
+  AiFillEyeInvisible,
+  AiOutlineCheckCircle,
+  AiOutlineCloseCircle,
+} from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/user/Button";
 import InputField from "../../components/user/InputField";
@@ -25,6 +31,7 @@ const LoginSignUp = () => {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
   const [cpassword, setCpassword] = useState("");
+  const [show, setShow] = useState(false);
 
   const [avatar, setAvatar] = useState("/profile.png");
   const [avatarPreview, setAvatarPreview] = useState("/profile.png");
@@ -32,8 +39,14 @@ const LoginSignUp = () => {
   const [registerName, setRegisterName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
+
   const path = user?.role === "admin" ? "/" : "/account";
   const redirect = location.search ? location.search.split("=")[1] : path;
+
+  const handleShowHide = () => {
+    setShow(!show);
+  };
+
   useEffect(() => {
     if (error) {
       alert.error(error);
@@ -80,7 +93,7 @@ const LoginSignUp = () => {
     myForm.set("avatar", avatar);
 
     if (registerPassword !== cpassword) {
-      alert.error("password doesn't match");
+      alert.error("Password doesn't match");
     } else {
       dispatch(register(myForm));
     }
@@ -106,8 +119,8 @@ const LoginSignUp = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="h-screen px-8 py-24 bg-slate-200 md:px-24">
-          <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[70vh] rounded-lg  mx-auto py-5 overflow-hidden">
+        <div className="h-screen px-8 py-24 bg-slate-200 md:px-24 ">
+          <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[80vh] rounded-lg  mx-auto py-5 overflow-hidden">
             <div>
               <div className="flex justify-evenly">
                 <p
@@ -135,24 +148,39 @@ const LoginSignUp = () => {
               ref={loginTab}
               onSubmit={loginSubmit}
             >
-              <div className="flex justify-evenly flex-col w-full h-[50%] px-3">
+              <div className="flex justify-evenly flex-col w-full h-[40%] px-3">
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="email"
                   placeholder="Email"
                   Icon={MdMailOutline}
                   value={loginEmail}
-                  setOnChangeValue={(e) => setLoginEmail(e.target.value)}
+                  autofocus
+                  onChange={(e) => setLoginEmail(e.target.value)}
                 />
-
-                <InputField
-                  inputType="password"
-                  name="password"
-                  placeholder="Password"
-                  Icon={MdLockOpen}
-                  value={loginPassword}
-                  setOnChangeValue={(e) => setLoginPassword(e.target.value)}
-                />
+                <div className="flex">
+                  <InputField
+                    type={show ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    Icon={MdLockOpen}
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                  />
+                  {show ? (
+                    <AiFillEye
+                      id="show_hide"
+                      className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                      onClick={handleShowHide}
+                    />
+                  ) : (
+                    <AiFillEyeInvisible
+                      id="show_hide"
+                      className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                      onClick={handleShowHide}
+                    />
+                  )}
+                </div>
               </div>
 
               <Link
@@ -166,7 +194,7 @@ const LoginSignUp = () => {
 
             {/* Register form */}
             <form
-              className="signUpForm h-[80%] transition-transform duration-500 flex flex-col px-5 py-2  justify-evenly items-center "
+              className="signUpForm h-[70%] transition-transform duration-500 flex flex-col px-5 py-2  justify-evenly items-center "
               ref={registerTab}
               encType="multipart/form-data"
               onSubmit={registerSubmit}
@@ -174,42 +202,70 @@ const LoginSignUp = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-2 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="text"
+                    type="text"
                     name="name"
                     placeholder="Enter your name"
-                    Icon={MdFace}
+                    Icon={MdPerson}
                     value={registerName}
-                    setOnChangeValue={(e) => setRegisterName(e.target.value)}
+                    onChange={(e) => setRegisterName(e.target.value)}
+                    autocomplete="off"
                   />
 
                   <InputField
-                    inputType="email"
+                    type="email"
                     name="email"
                     placeholder="Enter your email"
                     Icon={MdMailOutline}
                     value={registerEmail}
-                    setOnChangeValue={(e) => setRegisterEmail(e.target.value)}
+                    onChange={(e) => setRegisterEmail(e.target.value)}
+                    autocomplete="off"
                   />
-
-                  <InputField
-                    inputType="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    Icon={MdLockOpen}
-                    value={registerPassword}
-                    setOnChangeValue={(e) =>
-                      setRegisterPassword(e.target.value)
-                    }
-                  />
-
-                  <InputField
-                    inputType="password"
-                    name="cpassword"
-                    placeholder="Comfirm your password"
-                    Icon={MdLockOpen}
-                    value={cpassword}
-                    setOnChangeValue={(e) => setCpassword(e.target.value)}
-                  />
+                  <div className="flex">
+                    <InputField
+                      type={show ? "text" : "password"}
+                      name="password"
+                      placeholder="Enter your password"
+                      Icon={MdLockOpen}
+                      value={registerPassword}
+                      onChange={(e) => setRegisterPassword(e.target.value)}
+                    />
+                    {show ? (
+                      <AiFillEye
+                        id="show_hide"
+                        className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                        onClick={handleShowHide}
+                      />
+                    ) : (
+                      <AiFillEyeInvisible
+                        id="show_hide"
+                        className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                        onClick={handleShowHide}
+                      />
+                    )}
+                  </div>
+                  <div className="flex">
+                    <InputField
+                      type={show ? "text" : "password"}
+                      name="cpassword"
+                      placeholder="Comfirm your password"
+                      Icon={MdLockOpen}
+                      value={cpassword}
+                      onChange={(e) => setCpassword(e.target.value)}
+                    />
+                    {show ? (
+                      <AiFillEye
+                        id="show_hide"
+                        className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                        onClick={handleShowHide}
+                      />
+                    ) : (
+                      <AiFillEyeInvisible
+                        id="show_hide"
+                        className="cursor-pointer justify-center mt-3 -ml-8 text-xl"
+                        onClick={handleShowHide}
+                      />
+                    )}
+                  </div>
 
                   <div className="flex items-center gap-5">
                     <img
