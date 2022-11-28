@@ -1,11 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { MdMailOutline, MdLockOpen, MdPerson } from "react-icons/md";
-import {
-  AiFillEye,
-  AiFillEyeInvisible,
-  AiOutlineCheckCircle,
-  AiOutlineCloseCircle,
-} from "react-icons/ai";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "../../components/user/Button";
 import InputField from "../../components/user/InputField";
