@@ -6,6 +6,7 @@ const InputField = ({
   value,
   type,
   name,
+  onKeyPress,
   onChange,
   autofocus,
   autocomplete,
@@ -20,6 +21,7 @@ const InputField = ({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        onKeyUp={onKeyPress}
         required
         autoFocus={autofocus}
         autocomplete={autocomplete}
