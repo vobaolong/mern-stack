@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import CartItemCard from "../../components/Cart/CartItemCard";
 import { useDispatch, useSelector } from "react-redux";
 import QuantityCardInput from "../../components/Cart/QuantityCardInput";
-import { addItemsToCart, removeItemsFromCart } from "../../actions/cartAction";
+import {
+  addItemsToCart,
+  removeItemsFromCart,
+  resetCart,
+} from "../../actions/cartAction";
 import { Link, useNavigate } from "react-router-dom";
 import { RemoveShoppingCart } from "@material-ui/icons";
 
@@ -32,7 +36,9 @@ const Cart = () => {
   const deleteItemsFromCart = (id) => {
     dispatch(removeItemsFromCart(id));
   };
-
+  const clearCartHandle = () => {
+    dispatch(resetCart());
+  };
   const checkoutHandler = () => {
     navigate("/login?redirect=shipping");
   };
@@ -70,7 +76,6 @@ const Cart = () => {
                       />
                     </div>
                     <div className="flex items-center justify-center md:justify-start">
-                      {" "}
                       <QuantityCardInput
                         quantity={item.quantity}
                         increaseQuantity={() =>
@@ -94,26 +99,33 @@ const Cart = () => {
                 );
               })}
             </div>
-
-            <div className="grid place-items-end w-[90%] mx-auto ">
-              <div></div>
-              <div className="flex justify-between px-5 py-5 border-t-4 border-primaryDarkBlue w-full md:w-1/2 lg:w-1/3 ">
-                <p className="font-bold text-[1.2em] ">Gross Total</p>
-                <p className="font-bold text-[1em]">{`$
+            <div className="w-[90%] flex mx-auto md:flex-row sm:flex-col gap-5 divide-y">
+              <div className="px-5 md:w-1/2 lg:w-1/5">
+                <button
+                  onClick={clearCartHandle}
+                  className="bg-red-600 w-full hover:shadow-lg py-2 rounded-md text-white mt-5 transition-all duration-500 hover:scale-105"
+                >
+                  Clear Cart
+                </button>
+              </div>
+              <div className="grid place-items-end w-[90%] mx-auto flex ">
+                <div className="flex justify-between px-5 py-5 border-t-4 border-primaryDarkBlue w-full md:w-1/2 lg:w-1/3 ">
+                  <p className="font-bold text-[1.2em] ">Gross Total</p>
+                  <p className="font-bold text-[1em]">{`$
                   ${cartItems.reduce(
                     (acc, item) => acc + item.quantity * item.price,
                     0
                   )}
                 `}</p>
-              </div>
-              <div></div>
-              <div className="px-5 w-full md:w-1/2 lg:w-1/5">
-                <button
-                  onClick={checkoutHandler}
-                  className="bg-primaryBlue w-full hover:shadow-lg py-2 rounded-md text-white mt-10 transition-all duration-500 hover:scale-105"
-                >
-                  Check Out
-                </button>
+                </div>
+                <div className="px-5 w-full md:w-1/2 lg:w-1/5">
+                  <button
+                    onClick={checkoutHandler}
+                    className="bg-primaryBlue w-full hover:shadow-lg py-2 rounded-md text-white mt-10 transition-all duration-500 hover:scale-105"
+                  >
+                    Check Out
+                  </button>
+                </div>
               </div>
             </div>
           </div>
