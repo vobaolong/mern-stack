@@ -12,7 +12,6 @@ import { RemoveShoppingCart } from "@material-ui/icons";
 
 const Cart = () => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -25,6 +24,7 @@ const Cart = () => {
 
     dispatch(addItemsToCart(id, newQty));
   };
+
   const decreaseQuantity = (id, quantity) => {
     const newQty = quantity - 1;
     if (quantity <= 1) {
@@ -36,9 +36,11 @@ const Cart = () => {
   const deleteItemsFromCart = (id) => {
     dispatch(removeItemsFromCart(id));
   };
+
   const clearCartHandle = () => {
     dispatch(resetCart());
   };
+
   const checkoutHandler = () => {
     navigate("/login?redirect=shipping");
   };
@@ -101,12 +103,12 @@ const Cart = () => {
             </div>
             <div className="w-[90%] flex mx-auto md:flex-row sm:flex-col gap-5 divide-y">
               <div className="px-5 md:w-1/2 lg:w-1/5">
-                <button
+                <input
+                  type="submit"
                   onClick={clearCartHandle}
-                  className="bg-red-600 w-full hover:shadow-lg py-2 rounded-md text-white mt-5 transition-all duration-500 hover:scale-105"
-                >
-                  Clear Cart
-                </button>
+                  className="bg-red-600 w-full hover:shadow-lg py-2 rounded-md text-white mt-5 transition-all duration-500 hover:scale-105 cursor-pointer"
+                  value="Clear Cart"
+                />
               </div>
               <div className="grid place-items-end w-[90%] mx-auto flex ">
                 <div className="flex justify-between px-5 py-5 border-t-4 border-primaryDarkBlue w-full md:w-1/2 lg:w-1/3 ">
