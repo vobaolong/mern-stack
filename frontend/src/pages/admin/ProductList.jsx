@@ -48,25 +48,25 @@ const ProductList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 180, flex: 0.4 },
+    { field: "id", headerName: "Mã sản phẩm", minWidth: 180, flex: 0.3 },
 
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên sản phẩm",
       minWidth: 300,
-      flex: 0.8,
+      flex: 0.7,
     },
     {
       field: "stock",
-      headerName: "Stock",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 120,
-      flex: 0.2,
+      flex: 0.3,
     },
 
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Giá",
       type: "number",
       minWidth: 120,
       flex: 0.2,
@@ -74,8 +74,8 @@ const ProductList = () => {
 
     {
       field: "actions",
-      flex: 0.3,
-      headerName: "Actions",
+      flex: 0.4,
+      headerName: "Hành động",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -117,7 +117,7 @@ const ProductList = () => {
 
   return (
     <Fragment>
-      <MetaData title={`All Products - Admin`} />
+      <MetaData title={`Sản phẩm - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -128,7 +128,7 @@ const ProductList = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              ALL PRODUCTS
+              Tất cả sản phẩm
             </p>
           </div>
 

@@ -84,7 +84,7 @@ const UpdateUser = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              UPDATE USER ROLE
+              Cập nhật quyền người dùng
             </p>
           </div>
 
@@ -117,7 +117,7 @@ const UpdateUser = () => {
                       onChange={(e) => setRole(e.target.value)}
                     >
                       <option disabled value="">
-                        Choose Role
+                        Chọn quyền
                       </option>
                       <option value="admin">Admin</option>
                       <option value="user">User</option>
@@ -128,7 +128,7 @@ const UpdateUser = () => {
               <div className="w-fit mx-auto mt-5">
                 <Button
                   disabled={updateLoading ? true : false}
-                  label="Update Role"
+                  label="Cập nhật quyền"
                 />
               </div>
             </form>

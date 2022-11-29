@@ -36,40 +36,40 @@ const ConfirmOrder = () => {
   return (
     <Fragment>
       <div className="h-auto py-24 px-8 md:px-0">
-        <MetaData title="Shipping Details" />
+        <MetaData title="Thông tin vận chuyển" />
 
         <CheckoutSteps activeStep={1} />
         <div className="w-full md:w-[85%] mx-auto">
           <h2 className="text-2xl mb-5 pb-5 border-b-2 border-secondaryDark font-semibold w-fit mx-auto">
-            Confirm Order
+          Xác nhận đơn hàng
           </h2>
           <div>
             <div className="grid grid-col-1 tall:grid-cols-6 divide-y-2 tall:divide-y-0 tall:divide-x-2 divide-secondaryDark">
               {/* Shipping Info */}
               <div className="flex flex-col col-span-6 tall:col-span-4 mx-5">
                 <div>
-                  <p className="text-xl font-bold">Shipping Info</p>
+                  <p className="text-xl font-bold">Thông tin giao hàng</p>
                   <div className="p-5 md:px-10 mt-3 flex flex-col gap-2 rounded-lg bg-slate-300">
                     <div className="flex gap-3 ">
-                      <p>Name: </p>
+                      <p>Tên: </p>
                       <span className="text-slate-600">
                         {shippingInfo.fullname}
                       </span>
                     </div>
                     <div className="flex gap-3 ">
-                      <p>Phone: </p>
+                      <p>SĐT: </p>
                       <span className="text-slate-600">
                         {shippingInfo.phoneNo}
                       </span>
                     </div>
                     <div className="flex gap-3 ">
-                      <p>Address: </p>
+                      <p>Địa chỉ: </p>
                       <span className="text-slate-600">{address}</span>
                     </div>
                   </div>
                 </div>
                 <div className="my-5">
-                  <p className="text-xl font-bold">Your Cart Items: </p>
+                  <p className="text-xl font-bold">Sản phẩm: </p>
                   <div>
                     {cartItems?.map((item, index) => {
                       return (
@@ -107,22 +107,22 @@ const ConfirmOrder = () => {
               <div className="tall:pl-8 py-5 mt-3 md:mt-0 col-span-6 tall:col-span-2">
                 <div>
                   <p className="text-xl font-bold text-center py-3 border-b-2">
-                    Order Summary
+                    Tóm tắt đơn hàng
                   </p>
                   <div className="flex flex-col gap-5 my-3">
                     <div className="flex justify-between">
-                      <p>Subtotal: </p>
+                      <p>Tổng: </p>
                       <span className="text-slate-500">{`${dolaSymbol}${subtotal}`}</span>
                     </div>
                     <div className="flex justify-between">
-                      <p>Shipping Charges: </p>
+                      <p>Phí vận chuyển: </p>
                       <span className="text-slate-500">{`${dolaSymbol}${shippingCharges}`}</span>
                     </div>
                   </div>
 
                   <div className="flex justify-between py-5 border-t-2">
                     <p>
-                      <b>Total: </b>
+                      <b>Tổng: </b>
                     </p>
                     <span className="font-bold">
                       {dolaSymbol}
@@ -132,7 +132,7 @@ const ConfirmOrder = () => {
 
                   <SlideableBtn
                     onClick={proceedToPayment}
-                    label="Proceed To Continue"
+                    label="Tiếp tục"
                   />
                 </div>
               </div>

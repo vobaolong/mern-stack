@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./components/layout/Navbar/Navbar";
-import WebFont from "webfontloader";
-import Footer from "./components/layout/Footer/Footer";
-import footerData from "./data/footerData.json";
-import "./App.css";
+import React, { useEffect, useState } from 'react';
+import Navbar from './components/layout/Navbar/Navbar';
+import WebFont from 'webfontloader';
+import Footer from './components/layout/Footer/Footer';
+import footerData from './data/footerData.json';
+import './App.css';
 
-import store from "./store";
-import { loadUser } from "./actions/userAction";
-import ElementWithRoutes from "./routes/ElementWithRoutes";
-import axios from "axios";
+import store from './store';
+import { loadUser } from './actions/userAction';
+import ElementWithRoutes from './routes/ElementWithRoutes';
+import axios from 'axios';
 
 function App() {
   const menuOptions = [
     {
-      menuName: "Home",
-      path: "/",
+      menuName: 'Trang chủ',
+      path: '/',
     },
     {
-      menuName: "Products",
-      path: "/products",
+      menuName: 'Sản phẩm',
+      path: '/products',
     },
     {
-      menuName: "About Us",
-      path: "/aboutus",
+      menuName: 'Thông tin',
+      path: '/aboutus',
     },
     {
-      menuName: "Contact Us",
-      path: "/contactus",
+      menuName: 'Liên hệ',
+      path: '/contactus',
     },
   ];
 
-  const [stripeApikey, setStripeApiKey] = useState("");
+  const [stripeApikey, setStripeApiKey] = useState('');
 
   const getStripeApiKey = async () => {
-    const { data } = await axios.get("/api/v1/stripeapikey");
+    const { data } = await axios.get('/api/v1/stripeapikey');
 
     setStripeApiKey(data.stripeApiKey);
   };
@@ -41,7 +41,7 @@ function App() {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ["Poppins", "Roboto"],
+        families: ['Poppins', 'Roboto'],
       },
     });
 

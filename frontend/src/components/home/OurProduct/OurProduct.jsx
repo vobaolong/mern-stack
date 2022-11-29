@@ -5,7 +5,7 @@ const OurProduct = ({ products }) => {
   return (
     <div className="w-[100%] h-auto py-14 mt-16" id="ourproduct">
       <div className="">
-        <h1 className="headingStyle">Featured Products</h1>
+        <h1 className="headingStyle">Sản phẩm tiêu biểu</h1>
 
         <div className="w-[90%] mx-auto">
           <div className="productsLayoutStyle">

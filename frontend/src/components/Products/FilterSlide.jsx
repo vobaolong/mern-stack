@@ -34,7 +34,7 @@ const FilterSlide = ({
           {showIcon ? (
             <MdArrowForward className="text-white text-xl " />
           ) : (
-            <p>Apply Filter</p>
+            <p>Sử dụng bộ lọc</p>
           )}
         </div>
       )}
@@ -47,7 +47,7 @@ const FilterSlide = ({
       >
         <div className="flex justify-between items-center">
           <p className="py-2 w-full border-b-2 border-primaryBlue/50 text-primaryBlue">
-            Filters
+            Bộ lọc
           </p>
           <MdClose
             onClick={() => setToggleFilterSlider(false)}
@@ -55,7 +55,7 @@ const FilterSlide = ({
           />
         </div>
         <div className="pt-5">
-          <p className="filterHeadingStyle">Price</p>
+          <p className="filterHeadingStyle">Giá</p>
           <Slider
             value={price}
             onChange={priceHandler}
@@ -67,7 +67,7 @@ const FilterSlide = ({
 
           <div>
             <p className="filterHeadingStyle pt-5 pb-3 border-b-2 border-primaryBlue/50">
-              Categories
+              Danh mục
             </p>
             <ul>
               {categories.map((category, index) => {
@@ -86,7 +86,7 @@ const FilterSlide = ({
 
           <div>
             <fieldset>
-              <p className="filterHeadingStyle pt-3">Ratings Above</p>
+              <p className="filterHeadingStyle pt-3">Đánh giá từ</p>
               <Slider
                 value={ratings}
                 onChange={(e, newRatings) => setRatings(newRatings)}

@@ -15,7 +15,7 @@ const Sidebar = () => {
     <div className="w-full bg-white py-24 flex flex-col gap-10 h-full px-10 ">
       <Link className="sidebarLinkStyles border-b-2" to="/admin/dashboard">
         <p>
-          <DashboardIcon /> Dashboard
+          <DashboardIcon /> Bảng điều khiển
         </p>
       </Link>
       <Link className="sidebarLinkStyles border-b-2" to="#">
@@ -23,31 +23,31 @@ const Sidebar = () => {
           defaultCollapseIcon={<ExpandMoreIcon />}
           defaultExpandIcon={<ImportExportIcon />}
         >
-          <TreeItem nodeId="1" label="Products">
+          <TreeItem nodeId="1" label="Sản phẩm">
             <Link className="sidebarLinkStyles border-b-2" to="/admin/products">
-              <TreeItem nodeId="2" label="All" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="Tất cả" icon={<PostAddIcon />} />
             </Link>
 
             <Link className="sidebarLinkStyles border-b-2" to="/admin/product">
-              <TreeItem nodeId="3" label="Create" icon={<AddIcon />} />
+              <TreeItem nodeId="3" label="Tạo" icon={<AddIcon />} />
             </Link>
           </TreeItem>
         </TreeView>
       </Link>
       <Link className="sidebarLinkStyles border-b-2" to="/admin/orders">
         <p>
-          <ListAltIcon /> Orders
+          <ListAltIcon /> Đơn hàng
         </p>
       </Link>
       <Link className="sidebarLinkStyles border-b-2" to="/admin/users">
         <p>
-          <PeopleIcon /> Users
+          <PeopleIcon /> Người dùng
         </p>
       </Link>
       <Link className="sidebarLinkStyles border-b-2" to="/admin/reviews">
         <p>
           <RateReviewIcon />
-          Reviews
+          Đánh giá
         </p>
       </Link>
     </div>

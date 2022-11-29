@@ -40,12 +40,12 @@ const Shipping = () => {
   return (
     <Fragment>
       <div className="h-auto py-24">
-        <MetaData title="Shipping Details" />
+        <MetaData title="Thông tin vận chuyển" />
 
         <CheckoutSteps activeStep={0} />
         <div className="w-full sm:w-[80%] md:w-[60%] lg:w-[40%] mx-auto">
           <h2 className="text-2xl mb-5 pb-5 border-b-2 border-secondaryDark font-semibold w-fit mx-auto">
-            Shipping Details
+            Thông tin vận chuyển
           </h2>
 
           <form
@@ -94,7 +94,7 @@ const Shipping = () => {
               </div>
             </div>
 
-            <Button label="Continue" />
+            <Button label="Tiếp tục" />
           </form>
         </div>
       </div>

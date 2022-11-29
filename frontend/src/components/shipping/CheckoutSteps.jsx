@@ -9,15 +9,15 @@ import React from "react";
 const CheckoutSteps = ({ activeStep }) => {
   const steps = [
     {
-      label: <Typography>Shipping Details</Typography>,
+      label: <Typography>Thông tin vận chuyển</Typography>,
       icon: <LocalShipping />,
     },
     {
-      label: <Typography>Confirm Order</Typography>,
+      label: <Typography>Xác nhận đơn hàng</Typography>,
       icon: <LibraryAddCheck />,
     },
     {
-      label: <Typography>Payment</Typography>,
+      label: <Typography>Thanh toán</Typography>,
       icon: <AccountBalance />,
     },
   ];

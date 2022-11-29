@@ -34,7 +34,7 @@ const LoginSignUp = () => {
   const [show, setShow] = useState(false);
 
   const [avatar, setAvatar] = useState("/profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("/profile.png");
+  const [avatarPreview, setAvatarPreview] = useState("https://res.cloudinary.com/baolong317/image/upload/v1669743696/avatars/gbgy5z5ovkkl85tgydeu.png");
 
   const [registerName, setRegisterName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -230,13 +230,13 @@ const LoginSignUp = () => {
                   className="grid place-items-center cursor-pointer hover:text-secondaryDark"
                   onClick={(e) => switchTabs(e, "login")}
                 >
-                  Login
+                  Đăng nhập
                 </p>
                 <p
                   className="grid place-items-center cursor-pointer hover:text-secondaryDark"
                   onClick={(e) => switchTabs(e, "register")}
                 >
-                  Register
+                  Đăng ký
                 </p>
               </div>
               <button
@@ -264,7 +264,7 @@ const LoginSignUp = () => {
                   <InputField
                     type={show ? "text" : "password"}
                     name="password"
-                    placeholder="Password"
+                    placeholder="Mật khẩu"
                     Icon={MdLockOpen}
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
@@ -289,9 +289,9 @@ const LoginSignUp = () => {
                 to="/password/forgot"
                 className="text-secondaryDark hover:text-primaryBlue transition-all duration-500"
               >
-                Forget Password ?
+                Quên mật khẩu 
               </Link>
-              <Button label="Login" />
+              <Button label="Đăng nhập" />
             </form>
 
             {/* Register form */}
@@ -306,7 +306,7 @@ const LoginSignUp = () => {
                   <InputField
                     type="text"
                     name="name"
-                    placeholder="Enter your name"
+                    placeholder="Tên của bạn"
                     Icon={MdPerson}
                     value={registerName}
                     onChange={(e) => setRegisterName(e.target.value)}
@@ -315,7 +315,7 @@ const LoginSignUp = () => {
                   <InputField
                     type="email"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder="Email của bạn"
                     Icon={MdMailOutline}
                     value={registerEmail}
                     onChange={(e) => setRegisterEmail(e.target.value)}
@@ -324,7 +324,7 @@ const LoginSignUp = () => {
                     <InputField
                       type={show ? "text" : "password"}
                       name="password"
-                      placeholder="Enter your password"
+                      placeholder="Nhập mật khẩu"
                       Icon={MdLockOpen}
                       value={registerPassword}
                       onKeyPress={(e) => checkPassword(e.target.value)}
@@ -348,7 +348,7 @@ const LoginSignUp = () => {
                     <InputField
                       type={show ? "text" : "password"}
                       name="cpassword"
-                      placeholder="Comfirm your password"
+                      placeholder="Xác nhận lại mật khẩu"
                       Icon={MdLockOpen}
                       value={cpassword}
                       onChange={(e) => setCpassword(e.target.value)}
@@ -372,13 +372,14 @@ const LoginSignUp = () => {
                     <img
                       src={avatarPreview}
                       className="w-10 h-10 rounded-full"
-                      alt="avatar preview"
+                      alt="ảnh đại diện"
                     />
                     <input
                       className="avatarChoose border-2 rounded-lg "
                       type="file"
                       name="avatar"
                       accept="image/*"
+                      placeholder="chọn ảnh"
                       onChange={registerDataChange}
                       required
                     />
@@ -444,7 +445,7 @@ const LoginSignUp = () => {
                   </div>
                 </div>
               </div>
-              <Button id="btn-signup" label="Sign Up" />
+              <Button id="btn-signup" label="Đăng ký" />
             </form>
           </div>
         </div>

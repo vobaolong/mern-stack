@@ -35,14 +35,14 @@ const UserOptions = ({ user }) => {
 
   const logoutUser = () => {
     store.dispatch(logout());
-    alert.success("Logout Successfully");
+    alert.success("Đăng nhập thành công");
     navigate("/login");
   };
 
   const options = [
     {
       icon: <Person />,
-      name: "Profile",
+      name: "Thông tin cá nhân",
       func: account,
     },
 
@@ -53,19 +53,19 @@ const UserOptions = ({ user }) => {
           value={cartItems.length}
         />
       ),
-      name: `Cart(${cartItems.length})`,
+      name: `Giỏ hàng(${cartItems.length})`,
       func: cart,
     },
 
     {
       icon: <ListAlt />,
-      name: "Orders",
+      name: "Đơn hàng",
       func: orders,
     },
 
     {
       icon: <ExitToApp />,
-      name: "Logout",
+      name: "Đăng xuát",
       func: logoutUser,
     },
   ];
@@ -73,7 +73,7 @@ const UserOptions = ({ user }) => {
   if (user.role === "admin") {
     options.unshift({
       icon: <Dashboard />,
-      name: "Dashboard",
+      name: "Bảng điều khiển",
       func: dashboard,
     });
     options.splice(1, 3);

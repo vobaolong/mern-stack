@@ -29,12 +29,12 @@ const SearchProducts = () => {
                 type="text"
                 onChange={(e) => setKeyword(e.target.value)}
                 className="py-2 md:py-3 md:w-96 px-3 w-full outline-none text-base"
-                placeholder="Search a product ..."
+                placeholder="Tên sản phẩm ..."
               />
               <input
                 className="bg-secondaryDark py-3  md:py-4 px-3 md:px-10 rounded-r-lg outline-none border-primaryBlue text-white opacity-80 hover:opacity-100 cursor-pointer transition-all duration-500"
                 type="submit"
-                value="Search"
+                value="Tìm kiếm"
               />
             </div>
           </div>

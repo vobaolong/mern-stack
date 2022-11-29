@@ -127,7 +127,7 @@ const Payment = () => {
             onSubmit={(e) => submitHandler(e)}
           >
             <p className="w-fit mx-auto text-xl font-bold py-5 border-b-2 border-secondaryDark">
-              Card Info
+              Thông tin thẻ
             </p>
             <div className="paymentInputFieldDivStyle">
               <CreditCard className="paymentInputFieldIconStyle" />
@@ -151,7 +151,7 @@ const Payment = () => {
               value={
                 loading
                   ? `Processing...`
-                  : `Pay - ${orderInfo && orderInfo.totalPrice}`
+                  : `Thanh toán - ${orderInfo && orderInfo.totalPrice}`
               }
             />
           </form>

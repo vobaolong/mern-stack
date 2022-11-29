@@ -30,7 +30,7 @@ const ProductDetails = () => {
   const { id } = useParams();
 
   const [open, setOpen] = useState(false);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5);
   const [comment, setComment] = useState("");
 
   const { product, loading, error } = useSelector(
@@ -62,7 +62,7 @@ const ProductDetails = () => {
     }
 
     if (success) {
-      alert.success("Review Submited Successflly");
+      alert.success("Đánh giá thành công");
       dispatch({ type: NEW_REVIEW_RESET });
     }
     dispatch(getProductDetails(id));
@@ -80,7 +80,7 @@ const ProductDetails = () => {
 
   const addToCartHandler = () => {
     dispatch(addItemsToCart(id, quantity));
-    alert.success("Item Added To Cart");
+    alert.success("Thêm giỏ hàng thành công");
   };
 
   const submitReviewToggle = () => {
@@ -119,9 +119,9 @@ const ProductDetails = () => {
               <h2 className="text-primaryDarkBlue font-bold text-xl text-center mt-5 md:mt-0 md:text-left capitalize">
                 {product.name}
               </h2>
-              <p className="text-slate-400 font-light text-xm text-center md:text-left">
+              {/* <p className="text-slate-400 font-light text-xm text-center md:text-left">
                 Product # {product._id}
-              </p>
+              </p> */}
             </div>
 
             {/* revies related div */}
@@ -131,7 +131,7 @@ const ProductDetails = () => {
             >
               <Rating {...options} />
               <span className="text-slate-500">
-                ({product.numOfReviews} Reviews)
+                ({product.numOfReviews} Đánh giá)
               </span>
             </div>
 
@@ -148,26 +148,26 @@ const ProductDetails = () => {
                 <button
                   disabled={product.stock < 1 ? true : false}
                   onClick={addToCartHandler}
-                  className="commonBtnStyle mx-auto md:mx-0 py-2 px-5 w-full sm:w-1/2 md:w-[150px] bg-primaryBlue"
+                  className="commonBtnStyle mx-auto md:mx-0 py-2 px-5 w-full sm:w-1/2 md:w-[170px] bg-primaryBlue"
                 >
-                  Add to Cart
+                  Thêm vào giỏ hàng
                 </button>
               </div>
 
               <p className="border-t-2 border-b-2 py-3 border-slate-300 text-slate-600 font-semibold text-center md:text-left">
-                Status:{" "}
+                Trạng thái:{" "}
                 <b
                   className={`${
                     product.stock < 1 ? "text-red-500" : "text-green-500"
                   }`}
                 >
-                  {product.stock < 1 ? "OutOfStock" : "InStock"} -{" "}
-                  {product.stock} items
+                  {product.stock < 1 ? "OutOfStock" : "Trong kho"} -{" "}
+                  {product.stock} 
                 </b>
               </p>
             </div>
             <div className="py-5 font-semibold text-center md:text-left">
-              Description:{" "}
+              Mô tả:{" "}
               <p className="font-normal text-slate-500 text-xs text-justify">
                 {product.description}
               </p>
@@ -175,9 +175,9 @@ const ProductDetails = () => {
             <div className="flex justify-center md:justify-start">
               <button
                 onClick={submitReviewToggle}
-                className="commonBtnStyle w-full sm:w-1/2 md:w-[150px] py-2 px-10 bg-secondaryDark hover:scale-105 outline-none"
+                className="commonBtnStyle w-full sm:w-1/2 md:w-[190px] py-2 px-10 bg-secondaryDark hover:scale-105 outline-none"
               >
-                Add Review
+                Thêm đánh giá
               </button>
             </div>
           </div>
@@ -187,7 +187,7 @@ const ProductDetails = () => {
       <div className="py-5">
         <h1 className="headingStyle uppercase">
           <div className="headingStylesDiv" />
-          Reviews
+          Đánh giá
         </h1>
 
         <Dialog
@@ -195,7 +195,7 @@ const ProductDetails = () => {
           open={open}
           onClose={submitReviewToggle}
         >
-          <DialogTitle>Add Review</DialogTitle>
+          <DialogTitle>Thêm đánh giá</DialogTitle>
           <DialogContent>
             <Rating
               onChange={(e) => setRating(e.target.value)}
@@ -206,7 +206,7 @@ const ProductDetails = () => {
             <textarea
               className="w-full border-2 p-1"
               cols="30"
-              placeholder="Add you review"
+              placeholder="Thêm đánh giá"
               rows="5"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
@@ -218,13 +218,13 @@ const ProductDetails = () => {
               type="submit"
               onClick={submitReviewToggle}
               color="secondary"
-              value="Cancel"
+              value="Hủy"
             />
             <input
               type="submit"
               onClick={reviewSubmitHandler}
               color="primary"
-              value="Submit"
+              value="Gửi"
             />
           </DialogActions>
         </Dialog>
@@ -238,7 +238,7 @@ const ProductDetails = () => {
           </div>
         ) : (
           <p className="text-center py-24 text-2xl text-slate-400">
-            No Reviews Yet
+            Chưa có đánh giá
           </p>
         )}
       </div>

@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
-import { AiOutlineHome, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { AiOutlineHome, AiOutlinePhone, AiOutlineMail } from 'react-icons/ai';
 const ContactUs = () => {
   const form = useRef();
   const sendEmail = (e) => {
@@ -8,10 +8,10 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        "service_jrrzssf",
-        "template_jmgmnuj",
+        'service_jrrzssf',
+        'template_jmgmnuj',
         form.current,
-        "wj1KVPLMC5fGuwGhv"
+        'wj1KVPLMC5fGuwGhv'
       )
       .then(
         (result) => {
@@ -39,8 +39,8 @@ const ContactUs = () => {
                 <AiOutlineHome className="w-10 h-12" />
               </div>
               <div>
-                01 Vo Van Ngan street, Linh Chieu ward, Thu Duc city, Ho Chi
-                Minh city
+                01 đường Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức, thành phố Hồ Chí
+                Minh
               </div>
             </div>
             {/* phone */}
@@ -68,21 +68,21 @@ const ContactUs = () => {
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="user_name"
-                  placeholder="Enter your full name"
+                  placeholder="Họ và tên"
                   type="text"
                   required
                 />
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="user_email"
-                  placeholder="Enter your email address"
+                  placeholder="Địa chỉ email"
                   type="email"
                   required
                 />
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="subject"
-                  placeholder="Title"
+                  placeholder="Tiêu đề"
                   type="text"
                   required
                 />
@@ -91,7 +91,7 @@ const ContactUs = () => {
                 <textarea
                   className="w-[100%] p-2 my-2 rounded-lg h-40"
                   name="message"
-                  placeholder="Subject"
+                  placeholder="Nội dung"
                   type="text"
                 ></textarea>
                 <button
@@ -99,7 +99,7 @@ const ContactUs = () => {
                   value="submit"
                   className="xl:w-[30%] lg:w-[30%] sm:w-[100%] bg-sky-500/50 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded"
                 >
-                  Send
+                  Gửi
                 </button>
               </div>
             </form>

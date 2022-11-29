@@ -46,7 +46,7 @@ const UserList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "User ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Mã người dùng", minWidth: 200, flex: 0.5 },
 
     {
       field: "email",
@@ -56,16 +56,16 @@ const UserList = () => {
     },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên",
       minWidth: 200,
       flex: 0.4,
     },
 
     {
       field: "role",
-      headerName: "Role",
+      headerName: "Quyền",
       minWidth: 150,
-      flex: 0.3,
+      flex: 0.2,
       cellClassName: (params) => {
         return params.getValue(params.id, "role") === "admin"
           ? "text-green-500"
@@ -75,8 +75,8 @@ const UserList = () => {
 
     {
       field: "actions",
-      flex: 0.2,
-      headerName: "Actions",
+      flex: 0.3,
+      headerName: "Hành động",
       minWidth: 100,
       sortable: false,
       renderCell: (params) => {
@@ -128,7 +128,7 @@ const UserList = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              ALL USERS
+              Tất cả người dùng
             </p>
           </div>
 

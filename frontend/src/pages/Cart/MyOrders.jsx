@@ -25,22 +25,22 @@ const MyOrders = () => {
   }, [dispatch, alert, error]);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 280, flex: 1 },
+    { field: "id", headerName: "Mã đơn hàng", minWidth: 280, flex: 1 },
 
     {
       field: "status",
-      headerName: "Status",
+      headerName: "Trạng thái",
       minWidth: 120,
       flex: 0.3,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.getValue(params.id, "status") === "Đã giao hàng"
           ? "text-green-500"
           : "text-red-500";
       },
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -48,14 +48,14 @@ const MyOrders = () => {
 
     {
       field: "amount",
-      headerName: "Amount",
+      headerName: "Tổng giá",
       type: "number",
       minWidth: 270,
       flex: 0.5,
     },
     {
       field: "actions",
-      headerName: "Actions",
+      headerName: "Hành động",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -80,14 +80,14 @@ const MyOrders = () => {
       rows.push({
         itemsQty: item.orderItems.length,
         id: item._id,
-        status: item.orderStatus,
+        status: item.orderStatus && item.orderStatus === "Delivered"? "Đã giao hàng" : item.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí",
         amount: item.totalPrice,
       });
     });
 
   return (
     <Fragment>
-      <MetaData title={`${user.name} - Orders`} />
+      <MetaData title={`${user.name} - đơn hàng`} />
 
       {loading ? (
         <Loader />

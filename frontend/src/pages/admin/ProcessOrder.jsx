@@ -59,7 +59,7 @@ const ProcessOrder = () => {
 
   return (
     <Fragment>
-      <MetaData title={`Process Order - Admin`} />
+      <MetaData title={`Đơn hàng - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -72,29 +72,29 @@ const ProcessOrder = () => {
           <div className="dashboardRightBoxStyle">
             <div className="mb-5">
               <p className="upper text-center text-2xl font-bold text-gray-400">
-                UPDATE ORDER
+                Đơn hàng
               </p>
             </div>
             <div className="px-10">
               <div className="grid grid-col-1 tall:grid-cols-6 divide-y-2 tall:divide-y-0 tall:divide-x-2 divide-secondaryDark">
                 <div className="flex flex-col col-span-6 tall:col-span-4">
                   <div>
-                    <p className="text-xl font-bold">Shipping Info</p>
+                    <p className="text-xl font-bold">Thông tin vận chuyển</p>
                     <div className="headingData">
                       <div className="flex gap-3 ">
-                        <p>Name: </p>
+                        <p>Tên: </p>
                         <span className="text-slate-600">
                           {order.shippingInfo && order.shippingInfo.fullname}
                         </span>
                       </div>
                       <div className="flex gap-3 ">
-                        <p>Phone: </p>
+                        <p>SĐT: </p>
                         <span className="text-slate-600">
                           {order.shippingInfo && order.shippingInfo.phoneNo}
                         </span>
                       </div>
                       <div className="flex gap-3 ">
-                        <p>Address: </p>
+                        <p>Địa chỉ: </p>
                         <span className="text-slate-600">
                           {order.shippingInfo &&
                             `${order.shippingInfo.address}, ${order.shippingInfo.city}`}
@@ -104,10 +104,10 @@ const ProcessOrder = () => {
                   </div>
 
                   <div className="mt-5">
-                    <p className="heading">Payment Details</p>
+                    <p className="heading">Chi tiết thanh toán</p>
                     <div className="headingData">
                       <div className="flex gap-3">
-                        <p>Payment: </p>
+                        <p>Thanh toán: </p>
                         <p
                           className={`${
                             order.paymentInfo &&
@@ -118,13 +118,13 @@ const ProcessOrder = () => {
                         >
                           {order.paymentInfo &&
                           order.paymentInfo.status === "succeeded"
-                            ? "PAID"
-                            : "NOT PAID"}
+                            ? "Thanh toán"
+                            : "Chưa thanh toán"}
                         </p>
                       </div>
 
                       <div className="flex gap-3">
-                        <p>Amount: </p>
+                        <p>Số tiền: </p>
                         <span className="text-slate-600">
                           {dolaSymbol}
                           {order.totalPrice && order.totalPrice}
@@ -134,11 +134,11 @@ const ProcessOrder = () => {
                   </div>
 
                   <div className="mt-5">
-                    <p className="heading">Order Status</p>
+                    <p className="heading">Trạng thái đơn hàng</p>
                     <div className="headingData">
                       <div className="flex gap-3">
                         <p className="flex gap-3">
-                          Order:{" "}
+                          Đơn hàng:{" "}
                           <p
                             className={`${
                               order.orderStatus &&
@@ -147,7 +147,7 @@ const ProcessOrder = () => {
                                 : "text-red-500"
                             }  `}
                           >
-                            {order.orderStatus && order.orderStatus}
+                            {order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí"}
                           </p>
                         </p>
                       </div>
@@ -155,7 +155,7 @@ const ProcessOrder = () => {
                   </div>
 
                   <div className="my-5">
-                    <p className="text-xl font-bold">Your Cart Items: </p>
+                    <p className="text-xl font-bold">Sản phẩm: </p>
                     <div>
                       {order.orderItems?.map((item, index) => {
                         return (

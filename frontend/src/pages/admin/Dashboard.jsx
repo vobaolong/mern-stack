@@ -44,10 +44,10 @@ const Dashboard = () => {
   Chart.register(CategoryScale);
 
   const state = {
-    labels: ["Initial Amount", "Amount Earned"],
+    labels: ["Số tiền ban đầu", "Số tiền bán được"],
     datasets: [
       {
-        label: "TOTAL AMOUNT",
+        label: "Tổng doanh thu",
         backgroundColor: ["tomato"],
         hoverBackgroundColor: ["rgb(197, 72, 49)"],
         data: [0, totalAmount],
@@ -56,7 +56,7 @@ const Dashboard = () => {
   };
 
   const doughnutState = {
-    labels: ["Out of Stock", "InStock"],
+    labels: ["Hết hàng", "Trong kho"],
     datasets: [
       {
         backgroundColor: ["#00A6B4", "#6800B4"],
@@ -74,7 +74,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardStyle mt-5">
-      <MetaData title="Dashboard - Admin Panel" />
+      <MetaData title="Bảng điều khiển - Admin" />
       <div className="sidebarStyle sticky left-0">
         <Sidebar />
       </div>
@@ -82,7 +82,7 @@ const Dashboard = () => {
       <div className="dashboardRightBoxStyle">
         <div>
           <p className="upper text-center text-2xl font-bold text-gray-400">
-            Dashboard
+            Bảng điều khiển
           </p>
         </div>
 
@@ -90,7 +90,7 @@ const Dashboard = () => {
         <div className="pt-10">
           <div className="text-center text-xl py-5 text-white font-medium bg-secondaryDark">
             <p>
-              Total Amount <br /> {dolaSymbol}
+              Tổng doanh thu <br /> {dolaSymbol}
               {totalAmount}
             </p>
           </div>
@@ -101,18 +101,18 @@ const Dashboard = () => {
               className="summryBoxStyle bg-primaryBlue"
               to="/admin/products"
             >
-              <p>Products</p>
+              <p>Sản phẩm</p>
               <p>{products?.length}</p>
             </Link>
             <Link
               className="summryBoxStyle bg-secondaryDark "
               to="/admin/orders"
             >
-              <p>Orders</p>
+              <p>Đơn hàng</p>
               <p>{orders?.length}</p>
             </Link>
             <Link className="summryBoxStyle bg-gray-800" to="/admin/users">
-              <p>Users</p>
+              <p>Người dùng</p>
               <p>{users?.length}</p>
             </Link>
           </div>

@@ -63,17 +63,17 @@ const ProductReviews = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Mã đánh giá", minWidth: 200, flex: 0.5 },
 
     {
       field: "user",
-      headerName: "User",
+      headerName: "Người dùng",
       minWidth: 150,
       flex: 0.3,
     },
     {
       field: "comment",
-      headerName: "Comment",
+      headerName: "Bình luận",
       type: "number",
       minWidth: 300,
       flex: 0.6,
@@ -81,7 +81,7 @@ const ProductReviews = () => {
 
     {
       field: "rating",
-      headerName: "Rating",
+      headerName: "Đánh giá",
       type: "number",
       minWidth: 100,
       flex: 0.2,
@@ -96,7 +96,7 @@ const ProductReviews = () => {
     {
       field: "actions",
       flex: 0.3,
-      headerName: "Actions",
+      headerName: "Hành động",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -142,7 +142,7 @@ const ProductReviews = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              ALL REVIEWS
+              Tất cả đánh giá
             </p>
           </div>
 
@@ -156,7 +156,7 @@ const ProductReviews = () => {
                   inputType="text"
                   name="username"
                   Icon={Star}
-                  placeholder="Place product Id"
+                  placeholder="Nhập mã sản phẩm"
                   value={productId}
                   onChange={(e) => setProductId(e.target.value)}
                 />
@@ -165,7 +165,7 @@ const ProductReviews = () => {
             <div className="w-fit mx-auto mt-5">
               <Button
                 disabled={loading ? true : false}
-                label="Search Reviews"
+                label="Xem đánh giá"
               />
             </div>
           </form>
@@ -181,7 +181,7 @@ const ProductReviews = () => {
             />
           ) : (
             <p className="text-center text-gray-400 text-xl mt-10">
-              No Reviews Found
+              Không tìm thấy đánh giá
             </p>
           )}
         </div>

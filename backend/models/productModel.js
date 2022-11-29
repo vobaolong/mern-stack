@@ -3,17 +3,16 @@ const mongoose = require("mongoose");
 const productSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please Enter product Name"],
+    required: [true, "Hãy nhập tên sản phẩm"],
     trim: true,
   },
   description: {
     type: String,
-    required: [true, "Please Enter product Description"],
+    required: [true, "Hãy nhập mô tả sản phẩm"],
   },
   price: {
     type: Number,
-    required: [true, "Please Enter product Price"],
-    maxLength: [8, "Price cannot exceed 8 characters"],
+    required: [true, "Hãy nhập giá sản phẩm"]
   },
   ratings: {
     type: Number,
@@ -33,12 +32,11 @@ const productSchema = mongoose.Schema({
   ],
   category: {
     type: String,
-    required: [true, "Please Enter Product Category"],
+    required: [true, "Hãy chọn danh mục sản phẩm"],
   },
   stock: {
     type: Number,
-    required: [true, "Please Enter product Stock"],
-    maxLength: [4, "Stock cannot exceed 4 characters"],
+    required: [true, "Hãy nhập số lượng sản phẩm"],
     default: 1,
   },
   numOfReviews: {

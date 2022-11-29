@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         <div className="w-full flex justify-center items-center flex-col pb-1">
           <Rating {...options} />
           <span className="text-gray-500">
-            ({product.numOfReviews} reviews)
+            ({product.numOfReviews} đánh giá)
           </span>
         </div>
 

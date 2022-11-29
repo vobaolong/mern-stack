@@ -47,21 +47,21 @@ const OrdersList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 200, flex: 0.7 },
+    { field: "id", headerName: "Mã đơn hàng", minWidth: 200, flex: 0.7 },
     {
       field: "status",
-      headerName: "Status",
+      headerName: "Trạng thái",
       minWidth: 150,
       flex: 0.3,
       cellClassName: (params) => {
-        return params.getValue(params.id, "status") === "Delivered"
+        return params.getValue(params.id, "status") === "Đã giao hàng"
           ? "text-green-500"
           : "text-red-500";
       },
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -69,7 +69,7 @@ const OrdersList = () => {
 
     {
       field: "amount",
-      headerName: "Amount",
+      headerName: "Tổng giá",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -78,7 +78,7 @@ const OrdersList = () => {
     {
       field: "actions",
       flex: 0.3,
-      headerName: "Actions",
+      headerName: "Hành động",
       minWidth: 150,
       type: "number",
       sortable: false,
@@ -113,14 +113,14 @@ const OrdersList = () => {
       rows.push({
         id: order._id,
         itemsQty: order.orderItems.length,
-        status: order.orderStatus,
+        status: order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí",
         amount: order.totalPrice,
       });
     });
 
   return (
     <Fragment>
-      <MetaData title={`All Orders - Admin`} />
+      <MetaData title={`Đơn hàng - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -131,7 +131,7 @@ const OrdersList = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              ALL ORDERS
+              Tất cả đơn hàng
             </p>
           </div>
 

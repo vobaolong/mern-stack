@@ -28,27 +28,28 @@ const OrderDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="Order Details" />
+          <MetaData title="Chi tiết đơn hàng" />
+          
           <div className="h-auto py-24">
             <div className="w-[90%] mx-auto">
               <div>
-                <p className="heading">Shipping Info</p>
+                <p className="heading">Thông tin giao hàng</p>
               </div>
               <div className="headingData">
                 <div className="flex gap-3 ">
-                  <p>Name: </p>
+                  <p>Tên: </p>
                   <span className="text-slate-600">
                     {order.user && order.shippingInfo.fullname}
                   </span>
                 </div>
                 <div className="flex gap-3 ">
-                  <p>Phone: </p>
+                  <p>SĐT: </p>
                   <span className="text-slate-600">
                     {order.user && order.shippingInfo.phoneNo}
                   </span>
                 </div>
                 <div className="flex gap-3 ">
-                  <p>Address: </p>
+                  <p>Địa chỉ: </p>
                   <span className="text-slate-600">
                     {order.user &&
                       `${order.shippingInfo.fullname} - ${order.shippingInfo.address}, ${order.shippingInfo.city} `}
@@ -56,10 +57,10 @@ const OrderDetails = () => {
                 </div>
               </div>
               <div className="mt-5">
-                <p className="heading">Payment Details</p>
+                <p className="heading">Chi tiết thanh toán</p>
                 <div className="headingData">
                   <div className="flex gap-3">
-                    <p>Payment: </p>
+                    <p>Thanh toán: </p>
                     <p
                       className={`${
                         order.paymentInfo &&
@@ -70,13 +71,13 @@ const OrderDetails = () => {
                     >
                       {order.paymentInfo &&
                       order.paymentInfo.status === "succeeded"
-                        ? "PAID"
-                        : "NOT PAID"}
+                        ? "Đã thanh toán"
+                        : "Chua thanh toán"}
                     </p>
                   </div>
 
                   <div className="flex gap-3">
-                    <p>Amount: </p>
+                    <p>Số tiền: </p>
                     <span className="text-slate-600">
                       {dolaSymbol}
                       {order.totalPrice && order.totalPrice}
@@ -86,11 +87,11 @@ const OrderDetails = () => {
               </div>
 
               <div className="mt-5">
-                <p className="heading">Order Status</p>
+                <p className="heading">Trạng thái đơn hàng</p>
                 <div className="headingData">
                   <div className="flex gap-3">
                     <p className="flex gap-3">
-                      Order:{" "}
+                      Đơn hàng:{" "}
                       <p
                         className={`${
                           order.orderStatus && order.orderStatus === "Delivered"
@@ -98,7 +99,7 @@ const OrderDetails = () => {
                             : "text-red-500"
                         }  `}
                       >
-                        {order.orderStatus && order.orderStatus}
+                        {order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí"}
                       </p>
                     </p>
                   </div>
@@ -106,7 +107,7 @@ const OrderDetails = () => {
               </div>
 
               <div className="mt-5">
-                <p className="heading">Order Items: </p>
+                <p className="heading">Chi tiết đơn hàng: </p>
                 <div className="headingData">
                   {order.orderItems &&
                     order.orderItems.map((item, index) => {

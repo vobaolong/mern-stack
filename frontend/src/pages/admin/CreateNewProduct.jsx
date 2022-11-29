@@ -34,11 +34,11 @@ const CreateNewProduct = () => {
   const categories = [
     "Laptop",
     "PC",
-    "Mouse",
-    "Keyboard",
-    "Headphones",
+    "Chuột",
+    "Bàn phím",
+    "Tai nghe",
     "SSD",
-    "Case",
+    "Thùng máy tính",
   ];
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const CreateNewProduct = () => {
 
   return (
     <Fragment>
-      <MetaData title={`All Products - Admin`} />
+      <MetaData title={`Sản phẩm - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -106,7 +106,7 @@ const CreateNewProduct = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              CREATE PRODUCT
+              Tạo sản phẩm
             </p>
           </div>
 
@@ -120,7 +120,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="text"
                   name="productName"
-                  placeholder="Enter Product Name"
+                  placeholder="Nhập tên sản phẩm"
                   Icon={Spellcheck}
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
@@ -128,7 +128,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="number"
                   name="price"
-                  placeholder="Enter Product Price"
+                  placeholder="Nhập giá sản phẩm"
                   Icon={AttachMoney}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
@@ -138,7 +138,7 @@ const CreateNewProduct = () => {
 
                   <textarea
                     className="px-3 py-2 outline-none border-2 w-full"
-                    placeholder="Product Description"
+                    placeholder="Mô tả sản phẩm"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     cols="30"
@@ -151,7 +151,7 @@ const CreateNewProduct = () => {
                     className="px-3 py-2 outline-none border-2 w-full"
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="">Choose Category</option>
+                    <option value="">Chọn danh mục</option>
                     {categories.map((category, index) => {
                       return (
                         <option key={index} value={category}>
@@ -164,7 +164,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="number"
                   name="stock"
-                  placeholder="Enter Product Stock"
+                  placeholder="Nhập số lượng sản phẩm"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}
@@ -195,7 +195,7 @@ const CreateNewProduct = () => {
               <Button
                 type="submit"
                 disabled={loading ? true : false}
-                label="Create"
+                label="Tạo"
               />
             </div>
           </form>

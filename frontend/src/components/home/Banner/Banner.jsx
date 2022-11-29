@@ -9,16 +9,16 @@ const Banner = ({ jsonData }) => {
     <div className="w-[100%] h-screen flex justify-center items-center bg-primaryBlue customBanner">
       <div className="flex justify-center flex-col items-center px-8 md:px-0">
         <h1 className="text-2xl font-bold text-lightGray text-center">
-          Welcome to{" "}
+          Chào mừng đến với {"  "}
           <span className="text-primaryBlue">{data.companyName}</span>
         </h1>
 
         <p className="text-4xl md:text-5xl uppercase mt-10 text-primaryBlue text-center leading-relaxed">
-          Find{" "}
+          TÌM SẢN PHẨM{" "}
           <span className="text-lightGray border-b-4 border-primaryBlue">
-            Amazing
+          TUYỆT VỜI
           </span>{" "}
-          Products Below
+          Ở BÊN DƯỚI
         </p>
 
         {/* scroll button */}
@@ -27,7 +27,7 @@ const Banner = ({ jsonData }) => {
           className="transition-all duration-500 animate-bounce mt-36"
         >
           <button className="py-3 px-7 bg-primaryDarkBlue  rounded-lg border-2 border-borderGlowBlue text-primaryBlue hover:bg-transparent transition-all duration-500 flex justify-center items-center gap-3">
-            Scroll to shop
+            Đến của hàng
             <CustomIcon Icon={CgMouse} />
           </button>
         </a>
