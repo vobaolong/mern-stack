@@ -126,42 +126,13 @@ const LoginSignUp = () => {
   const iconNotCheckSpecial = document.getElementById("iconNotCheckSpecial");
   const iconNotCheckLength = document.getElementById("iconNotCheckLength");
 
-<<<<<<< HEAD
-const iconCheckLower = document.getElementById('iconCheckLower');
-const iconCheckUpper = document.getElementById('iconCheckUpper');
-const iconCheckNumber = document.getElementById('iconCheckNumber');
-const iconCheckSpecial = document.getElementById('iconCheckSpecial');
-const iconCheckLength = document.getElementById('iconCheckLength');
-const btnSignUp = document.getElementById('btn-signup');
-
-const checkPassword = data => {
-
-  const lower = new RegExp('(?=.*[a-z])');
-  const upper = new RegExp("(?=.*[A-Z])");
-  const number = new RegExp('(?=.*[0-9])');
-  const special = new RegExp('(?=.*[!@#\$%\^&\*])');
-  const length = new RegExp('(?=.{8,})');
-  //Lower Case validation check
-  if(lower.test(data)){
-    lowerCase.classList.add("text-zinc-400");
-    iconNotCheckLower.classList.remove('inline');
-    iconNotCheckLower.classList.add('hidden');
-    iconCheckLower.classList.remove('hidden');
-    iconCheckLower.classList.add('inline');
-  }else {
-    lowerCase.classList.remove('text-zinc-400');
-    iconNotCheckLower.classList.add('inline');
-    iconNotCheckLower.classList.remove('hidden');
-    iconCheckLower.classList.add('hidden');
-    iconCheckLower.classList.remove('inline');
-  }
-=======
   const iconCheckLower = document.getElementById("iconCheckLower");
   const iconCheckUpper = document.getElementById("iconCheckUpper");
   const iconCheckNumber = document.getElementById("iconCheckNumber");
   const iconCheckSpecial = document.getElementById("iconCheckSpecial");
   const iconCheckLength = document.getElementById("iconCheckLength");
-
+  const btnSignUp = document.getElementById('btn-signup');
+  
   const checkPassword = (data) => {
     const lower = new RegExp("(?=.*[a-z])");
     const upper = new RegExp("(?=.*[A-Z])");
@@ -182,7 +153,6 @@ const checkPassword = data => {
       iconCheckLower.classList.add("hidden");
       iconCheckLower.classList.remove("inline");
     }
->>>>>>> c2b69f1ddebcbf99ff8843bf7936f611ff4ea4a6
 
     if (upper.test(data)) {
       upperCase.classList.add("text-zinc-400");
@@ -226,29 +196,6 @@ const checkPassword = data => {
       iconCheckSpecial.classList.remove("inline");
     }
 
-<<<<<<< HEAD
-  if(length.test(data)){
-    minLength.classList.add('text-zinc-400');
-    iconNotCheckLength.classList.remove('inline');
-    iconNotCheckLength.classList.add('hidden');
-    iconCheckLength.classList.remove('hidden');
-    iconCheckLength.classList.add('inline');
-  }else {
-    minLength.classList.remove('text-zinc-400');
-    iconNotCheckLength.classList.add('inline');
-    iconNotCheckLength.classList.remove('hidden');
-    iconCheckLength.classList.add('hidden');
-    iconCheckLength.classList.remove('inline');
-  }
- 
-  if(lower.test(data) && upper.test(data) && number.test(data) && special.test(data) && length.test(data)){
-    btnSignUp.disabled = false;
-  }
-  else{
-    btnSignUp.disabled = true;
-  }
-}
-=======
     if (length.test(data)) {
       minLength.classList.add("text-zinc-400");
       iconNotCheckLength.classList.remove("inline");
@@ -262,8 +209,14 @@ const checkPassword = data => {
       iconCheckLength.classList.add("hidden");
       iconCheckLength.classList.remove("inline");
     }
+
+    if(lower.test(data) && upper.test(data) && number.test(data) && special.test(data) && length.test(data)){
+      btnSignUp.disabled = false;
+    }
+    else{
+      btnSignUp.disabled = true;
+    }
   };
->>>>>>> c2b69f1ddebcbf99ff8843bf7936f611ff4ea4a6
   return (
     <>
       {loading ? (
