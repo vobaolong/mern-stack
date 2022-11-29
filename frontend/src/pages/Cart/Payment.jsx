@@ -92,6 +92,7 @@ const Payment = () => {
           };
           dispatch(createOrder(order));
           navigate("/success", { replace: true });
+          dispatch(resetCart());
           setLoading(false);
         } else {
           alert.error("There's some issue while processing payment");
@@ -103,9 +104,9 @@ const Payment = () => {
     }
   };
 
-  const paymentHandler = async () => {
-    await dispatch(resetCart());
-  };
+  // const paymentHandler = async () => {
+  //   await dispatch(resetCart());
+  // };
 
   useEffect(() => {
     if (error) {
@@ -142,7 +143,7 @@ const Payment = () => {
             </div>
 
             <input
-              onClick={paymentHandler}
+              // onClick={dispatch(resetCart())}
               className="slideableBtnStyles cursor-pointer"
               ref={payBtn}
               type="submit"
