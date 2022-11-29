@@ -36,7 +36,9 @@ export const removeItemsFromCart = (id) => async (dispatch, getState) => {
 export const resetCart = () => async (dispatch) => {
   dispatch({ type: RESET_CART_ITEM });
 
-  localStorage.removeItem("cartItems");
+  localStorage.setItem("cartItems", JSON.stringify([]));
+
+  // localStorage.removeItem("cartItems");
 };
 
 // Save shipping info

@@ -37,8 +37,8 @@ const Cart = () => {
     dispatch(removeItemsFromCart(id));
   };
 
-  const clearCartHandle = () => {
-    dispatch(resetCart());
+  const clearCartHandle = async () => {
+    await dispatch(resetCart());
   };
 
   const checkoutHandler = () => {

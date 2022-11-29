@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-// import Carousel from "react-material-ui-carousel";
 import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
@@ -202,6 +201,7 @@ const ProductDetails = () => {
               onChange={(e) => setRating(e.target.value)}
               value={rating}
               size="large"
+              name="hover-feedback"
             />
             <textarea
               className="w-full border-2 p-1"
@@ -210,15 +210,22 @@ const ProductDetails = () => {
               rows="5"
               value={comment}
               onChange={(e) => setComment(e.target.value)}
+              required
             ></textarea>
           </DialogContent>
           <DialogActions>
-            <Button onClick={submitReviewToggle} color="secondary">
-              Cancel
-            </Button>
-            <Button onClick={reviewSubmitHandler} color="primary">
-              Submit
-            </Button>
+            <input
+              type="submit"
+              onClick={submitReviewToggle}
+              color="secondary"
+              value="Cancel"
+            />
+            <input
+              type="submit"
+              onClick={reviewSubmitHandler}
+              color="primary"
+              value="Submit"
+            />
           </DialogActions>
         </Dialog>
 

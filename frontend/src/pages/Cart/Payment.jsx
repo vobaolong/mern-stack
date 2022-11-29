@@ -103,8 +103,8 @@ const Payment = () => {
     }
   };
 
-  const paymentHandler = () => {
-    dispatch(resetCart());
+  const paymentHandler = async () => {
+    await dispatch(resetCart());
   };
 
   useEffect(() => {

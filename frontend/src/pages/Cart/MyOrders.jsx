@@ -96,7 +96,8 @@ const MyOrders = () => {
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={10}
+            rowsPerPageOptions={[]}
+            pageSize={5}
             disableSelectionOnClick
             className="rounded-t-md"
             autoHeight

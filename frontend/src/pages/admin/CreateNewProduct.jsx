@@ -123,7 +123,7 @@ const CreateNewProduct = () => {
                   placeholder="Enter Product Name"
                   Icon={Spellcheck}
                   value={productName}
-                  setOnChangeValue={(e) => setProductName(e.target.value)}
+                  onChange={(e) => setProductName(e.target.value)}
                 />
                 <InputField
                   inputType="number"
@@ -131,7 +131,7 @@ const CreateNewProduct = () => {
                   placeholder="Enter Product Price"
                   Icon={AttachMoney}
                   value={price}
-                  setOnChangeValue={(e) => setPrice(e.target.value)}
+                  onChange={(e) => setPrice(e.target.value)}
                 />
                 <div className="bg-primaryBlue rounded-lg overflow-hidden w-full flex justify-start items-center">
                   <Description className="text-xl text-white mx-2" />
@@ -167,7 +167,7 @@ const CreateNewProduct = () => {
                   placeholder="Enter Product Stock"
                   Icon={Storage}
                   value={Stock}
-                  setOnChangeValue={(e) => setStock(e.target.value)}
+                  onChange={(e) => setStock(e.target.value)}
                 />
                 <div className="w-full flex items-center gap-5">
                   <input

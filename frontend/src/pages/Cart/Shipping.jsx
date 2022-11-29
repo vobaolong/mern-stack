@@ -61,7 +61,7 @@ const Shipping = () => {
                   placeholder="Full Name"
                   Icon={Home}
                   value={fullname}
-                  setOnChangeValue={(e) => setFullname(e.target.value)}
+                  onChange={(e) => setFullname(e.target.value)}
                 />
 
                 <InputField
@@ -70,7 +70,7 @@ const Shipping = () => {
                   placeholder="Address"
                   Icon={Home}
                   value={address}
-                  setOnChangeValue={(e) => setAddress(e.target.value)}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
 
                 <InputField
@@ -79,7 +79,7 @@ const Shipping = () => {
                   placeholder="City"
                   Icon={LocationCity}
                   value={city}
-                  setOnChangeValue={(e) => setCity(e.target.value)}
+                  onChange={(e) => setCity(e.target.value)}
                 />
 
                 <InputField
@@ -89,7 +89,7 @@ const Shipping = () => {
                   Icon={Phone}
                   value={phoneNo}
                   size="10"
-                  setOnChangeValue={(e) => setPhoneNo(e.target.value)}
+                  onChange={(e) => setPhoneNo(e.target.value)}
                 />
               </div>
             </div>

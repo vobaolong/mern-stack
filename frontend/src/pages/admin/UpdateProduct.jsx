@@ -207,7 +207,7 @@ const UpdateProduct = () => {
                   placeholder="Enter Product Stock"
                   Icon={Storage}
                   value={Stock}
-                  setOnChangeValue={(e) => setStock(e.target.value)}
+                  onChange={(e) => setStock(e.target.value)}
                 />
                 <div className="w-full flex items-center gap-5">
                   <input
