@@ -72,7 +72,7 @@ const ResetPassword = () => {
                     placeholder="New Password"
                     Icon={MdLockOpen}
                     value={password}
-                    setOnChangeValue={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputField
                     inputType="password"
@@ -80,7 +80,7 @@ const ResetPassword = () => {
                     placeholder="Confirm Password"
                     Icon={MdLock}
                     value={confirmPassword}
-                    setOnChangeValue={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>

@@ -99,7 +99,7 @@ const UpdateProfile = () => {
                     placeholder="Enter your name"
                     Icon={MdFace}
                     value={name}
-                    setOnChangeValue={(e) => setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                   />
 
                   <InputField
@@ -108,7 +108,7 @@ const UpdateProfile = () => {
                     placeholder="Enter your email"
                     Icon={MdMailOutline}
                     value={email}
-                    setOnChangeValue={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
 
                   <div className="flex items-center gap-5">

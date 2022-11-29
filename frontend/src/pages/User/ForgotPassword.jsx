@@ -62,7 +62,7 @@ const ForgotPassword = () => {
                     placeholder="Enter your email"
                     Icon={MdMailOutline}
                     value={email}
-                    setOnChangeValue={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
               </div>

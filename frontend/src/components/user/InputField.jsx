@@ -8,8 +8,6 @@ const InputField = ({
   name,
   onKeyPress,
   onChange,
-  autofocus,
-  autocomplete,
 }) => {
   return (
     <div className="bg-primaryBlue rounded-lg overflow-hidden w-full flex justify-start items-center">
@@ -23,8 +21,6 @@ const InputField = ({
         onChange={onChange}
         onKeyUp={onKeyPress}
         required
-        autoFocus={autofocus}
-        autocomplete={autocomplete}
       />
     </div>
   );

@@ -76,7 +76,7 @@ const UpdatePassword = () => {
                     placeholder="Old Password"
                     Icon={MdVpnKey}
                     value={oldPassword}
-                    setOnChangeValue={(e) => setOldPassword(e.target.value)}
+                    onChange={(e) => setOldPassword(e.target.value)}
                   />
                   <InputField
                     inputType="password"
@@ -84,7 +84,7 @@ const UpdatePassword = () => {
                     placeholder="New Password"
                     Icon={MdLockOpen}
                     value={newPassword}
-                    setOnChangeValue={(e) => setNewPassword(e.target.value)}
+                    onChange={(e) => setNewPassword(e.target.value)}
                   />
                   <InputField
                     inputType="password"
@@ -92,7 +92,7 @@ const UpdatePassword = () => {
                     placeholder="Confirm Password"
                     Icon={MdLock}
                     value={confirmPassword}
-                    setOnChangeValue={(e) => setConfirmPassword(e.target.value)}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>

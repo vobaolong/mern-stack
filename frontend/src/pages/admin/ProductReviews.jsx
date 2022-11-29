@@ -158,7 +158,7 @@ const ProductReviews = () => {
                   Icon={Star}
                   placeholder="Place product Id"
                   value={productId}
-                  setOnChangeValue={(e) => setProductId(e.target.value)}
+                  onChange={(e) => setProductId(e.target.value)}
                 />
               </div>
             </div>
@@ -166,7 +166,7 @@ const ProductReviews = () => {
               <Button
                 disabled={loading ? true : false}
                 label="Search Reviews"
-              />{" "}
+              />
             </div>
           </form>
 
