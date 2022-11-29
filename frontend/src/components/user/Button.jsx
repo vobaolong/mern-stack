@@ -14,7 +14,7 @@ const Button = ({id, label, disabled, ref, onClick }) => {
             className="w-5 h-5 mr-3 border-r-2 border-white rounded-full bg-transparent animate-spin"
             viewBox="0 0 24 24"
           ></svg>
-          Processing...
+          Đang xử lí...
         </button>
       ) : (
         <input

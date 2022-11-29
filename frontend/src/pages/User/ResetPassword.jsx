@@ -161,10 +161,10 @@ const ResetPassword = () => {
         <Loader />
       ) : (
         <div className="h-screen px-8 py-24 bg-slate-200 md:px-24">
-          <MetaData title={`Rest Password`} />
+          <MetaData title={`Đặt lại mật khẩu`} />
           <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[70vh] rounded-lg  mx-auto py-5 overflow-hidden">
             <h1 className="text-center text-xl text-slate-600 py-3 border-b-2 border-secondaryDark w-fit mx-auto">
-              Rest Password{" "}
+              Đặt lại mật khẩu{" "}
             </h1>
             <form
               className="h-[80%] transition-transform duration-500 flex flex-col px-5 py-2  justify-evenly items-center "
@@ -175,7 +175,7 @@ const ResetPassword = () => {
                   <InputField
                     inputType="password"
                     name="password"
-                    placeholder="New Password"
+                    placeholder="Mật khẩu mới"
                     Icon={MdLockOpen}
                     value={password}
                     onKeyPress={(e) => checkPassword(e.target.value)}
@@ -184,7 +184,7 @@ const ResetPassword = () => {
                   <InputField
                     inputType="password"
                     name="confirmPassword"
-                    placeholder="Confirm Password"
+                    placeholder="Nhập lại mật khẩu"
                     Icon={MdLock}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -250,7 +250,7 @@ const ResetPassword = () => {
                   </div>
                 </div>
               </div>
-              <Button id="btn-resetPassword" label="Reset" />
+              <Button id="btn-resetPassword" label="Đặt lại mật khẩu" />
             </form>
           </div>
         </div>

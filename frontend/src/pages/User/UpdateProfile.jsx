@@ -96,7 +96,7 @@ const UpdateProfile = () => {
                   <InputField
                     inputType="text"
                     name="name"
-                    placeholder="Enter your name"
+                    placeholder="Nhập tên của bạn"
                     Icon={MdFace}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -105,7 +105,7 @@ const UpdateProfile = () => {
                   <InputField
                     inputType="text"
                     name="email"
-                    placeholder="Enter your email"
+                    placeholder="Nhập email của bạn"
                     Icon={MdMailOutline}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

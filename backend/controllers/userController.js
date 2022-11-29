@@ -89,11 +89,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
   //for localserver
   // ${process.env.FRONTEND_URL}
-  const resetPasswordUrl = `${req.protocol}://${req.get(
-    'host'
-  )}/password/reset/${resetToken}`;
+  const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
-  const message = `Your password reset token is :- \n\n ${resetPasswordUrl}\n\n If you have not requested this email then, please ignore it`;
+  const message = `Đường Link thay đổi mật khẩu của bạn :- \n\n ${resetPasswordUrl}\n\n Nếu bạn chưa yêu cầu email này thì hãy bỏ qua nó`;
 
   try {
     // Send the email to user after generating token
@@ -105,7 +103,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: `Email sent to ${user.email} successfully`,
+      message: `Đã gửi đến Email ${user.email}`,
     });
   } catch (error) {
     // if there is error than we already generated a these below token so it's duty define them as undefined
@@ -135,14 +133,14 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
   if (!user) {
     return next(
       new ErrorHandler(
-        'Reset Password Token is invalid or has been expired',
+        'Mã đặt lại mật khẩu không hợp lệ hoặc đã hết hạn',
         400
       )
     );
   }
 
   if (req.body.password !== req.body.confirmPassword) {
-    return next(new ErrorHandler('Password does not password', 400));
+    return next(new ErrorHandler('Mật khẩu không hợp lệ', 400));
   }
 
   user.password = req.body.password;
@@ -172,18 +170,18 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
   const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
 
   if (!isPasswordMatched) {
-    return next(new ErrorHandler('Old password is incorrect', 400));
+    return next(new ErrorHandler('Mật khẩu cũ không chính xác', 400));
   }
 
   if (req.body.newPassword !== req.body.confirmPassword) {
-    return next(new ErrorHandler('Password does not match', 400));
+    return next(new ErrorHandler('Mật khẩu không khớp', 400));
   }
 
   user.password = req.body.newPassword;
 
   await user.save();
 
-  sendToken(user, 200, res, 'Password updated successfully');
+  sendToken(user, 200, res, 'Thay đổi mật khẩu thành công');
 });
 
 // update user profile
@@ -220,7 +218,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: 'Your Profile Updated Successfully',
+    message: 'Cập nhật thông tin thành công',
   });
 });
 
@@ -240,7 +238,7 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
 
   if (!user) {
     return next(
-      new ErrorHandler(`User does not exist with id: ${req.params.id}`)
+      new ErrorHandler(`Không tìm thấy người dùng với id: ${req.params.id}`)
     );
   }
 
@@ -266,7 +264,7 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: 'Admin Updated user Role Successfully',
+    message: 'Cập nhật quyền người dùng thành công',
   });
 });
 
@@ -288,6 +286,6 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
-    message: 'User Deleted Successfully',
+    message: 'Xóa người dùng thành công',
   });
 });

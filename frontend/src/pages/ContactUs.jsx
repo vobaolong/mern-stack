@@ -96,7 +96,7 @@ const ContactUs = () => {
                 ></textarea>
                 <button
                   type="submit"
-                  value="submit"
+                  value="Gửi"
                   className="xl:w-[30%] lg:w-[30%] sm:w-[100%] bg-sky-500/50 hover:bg-sky-500 text-white font-bold py-2 px-4 rounded"
                 >
                   Gửi

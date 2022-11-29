@@ -62,7 +62,7 @@ const UpdatePassword = () => {
           <MetaData title={`Update Password`} />
           <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[70vh] rounded-lg  mx-auto py-5 overflow-hidden">
             <h1 className="text-center text-xl text-slate-600 py-3 border-b-2 border-secondaryDark w-fit mx-auto">
-              Change Password{" "}
+              Đổi mật khẩu{" "}
             </h1>
             <form
               className="h-[80%] transition-transform duration-500 flex flex-col px-5 py-2  justify-evenly items-center "
@@ -73,7 +73,7 @@ const UpdatePassword = () => {
                   <InputField
                     inputType="password"
                     name="oldPassword"
-                    placeholder="Old Password"
+                    placeholder="Mật khẩu cũ"
                     Icon={MdVpnKey}
                     value={oldPassword}
                     onChange={(e) => setOldPassword(e.target.value)}
@@ -81,7 +81,7 @@ const UpdatePassword = () => {
                   <InputField
                     inputType="password"
                     name="newPassword"
-                    placeholder="New Password"
+                    placeholder="Mật khẩu mới"
                     Icon={MdLockOpen}
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
@@ -89,14 +89,14 @@ const UpdatePassword = () => {
                   <InputField
                     inputType="password"
                     name="confirmPassword"
-                    placeholder="Confirm Password"
+                    placeholder="Nhập lại mật khẩu mới"
                     Icon={MdLock}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>
-              <Button label="Change" />
+              <Button label="Thay đổi" />
             </form>
           </div>
         </div>
