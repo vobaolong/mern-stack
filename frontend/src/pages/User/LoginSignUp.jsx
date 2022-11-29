@@ -126,8 +126,10 @@ const iconCheckUpper = document.getElementById('iconCheckUpper');
 const iconCheckNumber = document.getElementById('iconCheckNumber');
 const iconCheckSpecial = document.getElementById('iconCheckSpecial');
 const iconCheckLength = document.getElementById('iconCheckLength');
+const btnSignUp = document.getElementById('btn-signup');
 
 const checkPassword = data => {
+
   const lower = new RegExp('(?=.*[a-z])');
   const upper = new RegExp("(?=.*[A-Z])");
   const number = new RegExp('(?=.*[0-9])');
@@ -202,6 +204,13 @@ const checkPassword = data => {
     iconNotCheckLength.classList.remove('hidden');
     iconCheckLength.classList.add('hidden');
     iconCheckLength.classList.remove('inline');
+  }
+ 
+  if(lower.test(data) && upper.test(data) && number.test(data) && special.test(data) && length.test(data)){
+    btnSignUp.disabled = false;
+  }
+  else{
+    btnSignUp.disabled = true;
   }
 }
   return (
@@ -394,7 +403,7 @@ const checkPassword = data => {
                   </div>
                 </div>
               </div>
-              <Button label="Sign Up" />
+              <Button id="btn-signup" label="Sign Up" />
             </form>
           </div>
         </div>
