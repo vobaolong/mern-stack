@@ -85,25 +85,25 @@ const Products = () => {
               />
             </div>
           </div>
-
-          {resultPerPage < productsCount && (
-            <div className="paginationBox">
-              <Pagination
-                activePage={currentPage}
-                itemsCountPerPage={resultPerPage}
-                totalItemsCount={productsCount}
-                onChange={setCurrentPageNo}
-                nextPageText=">"
-                prevPageText="<"
-                firstPageText="<<"
-                lastPageText=">>"
-                itemClass="page-item"
-                linkClass="page-link"
-                activeClass="pageItemActive"
-                activeLinkClass="pageLinkActive"
-              />
-            </div>
-          )}
+          {products.length <= 0 ||
+            (resultPerPage < productsCount && (
+              <div className="paginationBox">
+                <Pagination
+                  activePage={currentPage}
+                  itemsCountPerPage={resultPerPage}
+                  totalItemsCount={productsCount}
+                  onChange={setCurrentPageNo}
+                  nextPageText=">"
+                  prevPageText="<"
+                  firstPageText="<<"
+                  lastPageText=">>"
+                  itemClass="page-item"
+                  linkClass="page-link"
+                  activeClass="pageItemActive"
+                  activeLinkClass="pageLinkActive"
+                />
+              </div>
+            ))}
         </Fragment>
       )}
     </Fragment>

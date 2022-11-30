@@ -59,7 +59,7 @@ const ForgotPassword = () => {
                   <InputField
                     inputType="email"
                     name="email"
-                    placeholder="Nhập email của bạn"
+                    placeholder="Vui lòng nhập email của bạn"
                     Icon={MdMailOutline}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}

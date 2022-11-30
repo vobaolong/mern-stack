@@ -34,7 +34,9 @@ const LoginSignUp = () => {
   const [show, setShow] = useState(false);
 
   const [avatar, setAvatar] = useState("/profile.png");
-  const [avatarPreview, setAvatarPreview] = useState("https://res.cloudinary.com/baolong317/image/upload/v1669743696/avatars/gbgy5z5ovkkl85tgydeu.png");
+  const [avatarPreview, setAvatarPreview] = useState(
+    "https://res.cloudinary.com/baolong317/image/upload/v1669743696/avatars/gbgy5z5ovkkl85tgydeu.png"
+  );
 
   const [registerName, setRegisterName] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -131,8 +133,8 @@ const LoginSignUp = () => {
   const iconCheckNumber = document.getElementById("iconCheckNumber");
   const iconCheckSpecial = document.getElementById("iconCheckSpecial");
   const iconCheckLength = document.getElementById("iconCheckLength");
-  const btnSignUp = document.getElementById('btn-signup');
-  
+  const btnSignUp = document.getElementById("btn-signup");
+
   const checkPassword = (data) => {
     const lower = new RegExp("(?=.*[a-z])");
     const upper = new RegExp("(?=.*[A-Z])");
@@ -210,10 +212,15 @@ const LoginSignUp = () => {
       iconCheckLength.classList.remove("inline");
     }
 
-    if(lower.test(data) && upper.test(data) && number.test(data) && special.test(data) && length.test(data)){
+    if (
+      lower.test(data) &&
+      upper.test(data) &&
+      number.test(data) &&
+      special.test(data) &&
+      length.test(data)
+    ) {
       btnSignUp.disabled = false;
-    }
-    else{
+    } else {
       btnSignUp.disabled = true;
     }
   };
@@ -223,7 +230,7 @@ const LoginSignUp = () => {
         <Loader />
       ) : (
         <div className=" px-8 py-24 bg-slate-200 md:px-24">
-          <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[90vh] rounded-lg  mx-auto py-5 overflow-hidden">
+          <div className="bg-white shadow-lg w-full lg:w-1/3 md:w-2/3 h-[90vh] rounded-lg mx-auto py-5 overflow-hidden">
             <div>
               <div className="flex justify-evenly">
                 <p
@@ -255,7 +262,7 @@ const LoginSignUp = () => {
                 <InputField
                   type="text"
                   name="email"
-                  placeholder="Email"
+                  placeholder="Vui lòng nhập Email của bạn *"
                   Icon={MdMailOutline}
                   value={loginEmail}
                   onChange={(e) => setLoginEmail(e.target.value)}
@@ -264,7 +271,7 @@ const LoginSignUp = () => {
                   <InputField
                     type={show ? "text" : "password"}
                     name="password"
-                    placeholder="Mật khẩu"
+                    placeholder="Vui lòng nhập mật khẩu *"
                     Icon={MdLockOpen}
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
@@ -289,7 +296,7 @@ const LoginSignUp = () => {
                 to="/password/forgot"
                 className="text-secondaryDark hover:text-primaryBlue transition-all duration-500"
               >
-                Quên mật khẩu 
+                Quên mật khẩu
               </Link>
               <Button label="Đăng nhập" />
             </form>
@@ -306,7 +313,7 @@ const LoginSignUp = () => {
                   <InputField
                     type="text"
                     name="name"
-                    placeholder="Tên của bạn"
+                    placeholder="Vui lòng nhập tên *"
                     Icon={MdPerson}
                     value={registerName}
                     onChange={(e) => setRegisterName(e.target.value)}
@@ -315,7 +322,7 @@ const LoginSignUp = () => {
                   <InputField
                     type="email"
                     name="email"
-                    placeholder="Email của bạn"
+                    placeholder="Vui lòng nhập Email của bạn *"
                     Icon={MdMailOutline}
                     value={registerEmail}
                     onChange={(e) => setRegisterEmail(e.target.value)}
@@ -324,7 +331,7 @@ const LoginSignUp = () => {
                     <InputField
                       type={show ? "text" : "password"}
                       name="password"
-                      placeholder="Nhập mật khẩu"
+                      placeholder="Vui lòng nhập mật khẩu *"
                       Icon={MdLockOpen}
                       value={registerPassword}
                       onKeyPress={(e) => checkPassword(e.target.value)}
@@ -348,7 +355,7 @@ const LoginSignUp = () => {
                     <InputField
                       type={show ? "text" : "password"}
                       name="cpassword"
-                      placeholder="Xác nhận lại mật khẩu"
+                      placeholder="Xác nhận lại mật khẩu *"
                       Icon={MdLockOpen}
                       value={cpassword}
                       onChange={(e) => setCpassword(e.target.value)}
