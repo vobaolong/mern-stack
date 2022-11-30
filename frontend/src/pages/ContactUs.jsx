@@ -1,8 +1,11 @@
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { AiOutlineHome, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
+import { FaMapMarkerAlt, FaPhoneAlt, FaMailBulk } from "react-icons/fa";
+import { useAlert } from "react-alert";
+
 const ContactUs = () => {
   const form = useRef();
+  const alert = useAlert();
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -22,6 +25,7 @@ const ContactUs = () => {
         }
       );
     e.target.reset();
+    alert.success("Gửi tin nhắn thành công");
   };
   return (
     <div className="">
@@ -36,7 +40,7 @@ const ContactUs = () => {
             {/* place */}
             <div className="py-4 sm:p-0 flex lg:flex-row sm:flex-wrap items-center">
               <div className="pr-2">
-                <AiOutlineHome className="w-10 h-12" />
+                <FaMapMarkerAlt className="h-8" />
               </div>
               <div>
                 01 đường Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức,
@@ -46,14 +50,14 @@ const ContactUs = () => {
             {/* phone */}
             <div className="py-4 sm:p-0 flex flex-wrap items-center">
               <div className="pr-2">
-                <AiOutlinePhone className="w-10 h-12" />
+                <FaPhoneAlt className="h-8" />
               </div>
               <div>0348073013</div>
             </div>
             {/* email */}
             <div className="py-4 sm:p-0 sm:pb-5 flex flex-wrap items-center">
               <div className="pr-2">
-                <AiOutlineMail className="w-10 h-12" />
+                <FaMailBulk className="h-8" />
               </div>
               <a href="mailto:groupcnpmmernstack@gmail.com">
                 groupcnpmmernstack@gmail.com

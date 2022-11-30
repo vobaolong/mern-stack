@@ -145,7 +145,7 @@ const UpdateProduct = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              UPDATE PRODUCT
+              CẬP NHẬT SẢN PHẨM
             </p>
           </div>
 
@@ -159,7 +159,7 @@ const UpdateProduct = () => {
                 <InputField
                   type="text"
                   name="productName"
-                  placeholder="Nhập tên sản phẩm"
+                  placeholder="Vui lòng nhập tên sản phẩm"
                   Icon={Spellcheck}
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
@@ -167,7 +167,7 @@ const UpdateProduct = () => {
                 <InputField
                   type="number"
                   name="price"
-                  placeholder="Nhập giá sản phẩm"
+                  placeholder="Vui lòng nhập giá sản phẩm"
                   Icon={AttachMoney}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
@@ -177,7 +177,7 @@ const UpdateProduct = () => {
 
                   <textarea
                     className="px-3 py-2 outline-none border-2 w-full"
-                    placeholder="Mô tả sản phẩm"
+                    placeholder="Vui lòng nhập mô tả sản phẩm"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     cols="30"
@@ -191,10 +191,8 @@ const UpdateProduct = () => {
                     className="px-3 py-2 outline-none border-2 w-full"
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option disabled value="">
-                      Chọn danh mục
-                    </option>
-                    {categories.map((category, index) => {
+                    <option value="">Vui lòng chọn danh mục</option>
+                    {categories?.map((category, index) => {
                       return (
                         <option key={index} value={category}>
                           {category}
@@ -206,7 +204,7 @@ const UpdateProduct = () => {
                 <InputField
                   type="number"
                   name="stock"
-                  placeholder="Vui lòng nhập số lượng sản phẩm *"
+                  placeholder="Vui lòng nhập số lượng sản phẩm"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}
@@ -240,7 +238,7 @@ const UpdateProduct = () => {
 
                 <div className="text-center">
                   <p className="font-medium text-gray-400 mt-5">
-                    Updated Images
+                    Cập nhật hình ảnh
                   </p>
                 </div>
                 <div className="w-full flex justify-center items-center my-5 gap-5 overflow-auto ">
@@ -256,7 +254,7 @@ const UpdateProduct = () => {
               </div>
             </div>
             <div className="w-fit mx-auto">
-              <Button disabled={loading ? true : false} label="Update" />
+              <Button disabled={loading ? true : false} label="Cập nhật" />
             </div>
           </form>
         </div>

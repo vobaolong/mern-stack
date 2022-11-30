@@ -108,8 +108,8 @@ const ProductDetails = () => {
           <MetaData title={`${product.name} | G10Store`} />
           <div className="w-full flex justify-center md:w-1/2 md:p-10 overflow-hidden ">
             <MgSlider
-              width="300px"
-              height="500px"
+              width="400px"
+              height="400px"
               slides={product.images && product.images}
             />
           </div>
@@ -135,7 +135,7 @@ const ProductDetails = () => {
             </div>
 
             <div>
-              <h1 className="text-2xl font-bold text-primaryDarkBlue text-center md:text-left">{`$ ${product.price}`}</h1>
+              <h1 className="text-2xl font-bold text-primaryDarkBlue text-center md:text-left">{`$${product.price}`}</h1>
 
               <div className="flex gap-5 my-5 flex-col md:flex-row justify-center md:justify-start">
                 <QuantityCardInput

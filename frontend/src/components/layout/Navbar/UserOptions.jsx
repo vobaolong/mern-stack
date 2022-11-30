@@ -36,7 +36,7 @@ const UserOptions = ({ user }) => {
   const logoutUser = () => {
     store.dispatch(logout());
     alert.success("Đăng xuất thành công");
-    navigate("/login");
+    navigate("/");
   };
 
   const options = [

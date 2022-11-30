@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TreeView, TreeItem } from "@material-ui/lab";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PostAddIcon from "@material-ui/icons/PostAdd";
-import AddIcon from "@material-ui/icons/Add";
+import { AiOutlineInbox } from "react-icons/ai";
+import { GrAddCircle } from "react-icons/gr";
 import ImportExportIcon from "@material-ui/icons/ImportExport";
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import DashboardIcon from "@material-ui/icons/Dashboard";
@@ -25,11 +25,11 @@ const Sidebar = () => {
         >
           <TreeItem nodeId="1" label="Sản phẩm">
             <Link className="sidebarLinkStyles border-b-2" to="/admin/products">
-              <TreeItem nodeId="2" label="Tất cả" icon={<PostAddIcon />} />
+              <TreeItem nodeId="2" label="Tất cả" icon={<AiOutlineInbox />} />
             </Link>
 
             <Link className="sidebarLinkStyles border-b-2" to="/admin/product">
-              <TreeItem nodeId="3" label="Tạo" icon={<AddIcon />} />
+              <TreeItem nodeId="3" label="Thêm" icon={<GrAddCircle />} />
             </Link>
           </TreeItem>
         </TreeView>

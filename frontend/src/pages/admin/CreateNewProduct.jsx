@@ -106,7 +106,7 @@ const CreateNewProduct = () => {
         <div className="dashboardRightBoxStyle">
           <div className="mb-5">
             <p className="upper text-center text-2xl font-bold text-gray-400">
-              Tạo sản phẩm
+              Thêm sản phẩm
             </p>
           </div>
 
@@ -151,9 +151,7 @@ const CreateNewProduct = () => {
                     className="px-3 py-2 outline-none border-2 w-full"
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option disabled value="">
-                      Chọn danh mục *
-                    </option>
+                    <option value="">Vui lòng chọn danh mục *</option>
                     {categories.map((category, index) => {
                       return (
                         <option key={index} value={category}>
@@ -197,7 +195,7 @@ const CreateNewProduct = () => {
               <Button
                 type="submit"
                 disabled={loading ? true : false}
-                label="Tạo"
+                label="Thêm"
               />
             </div>
           </form>
