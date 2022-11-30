@@ -1,6 +1,6 @@
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { AiOutlineHome, AiOutlinePhone, AiOutlineMail } from 'react-icons/ai';
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { AiOutlineHome, AiOutlinePhone, AiOutlineMail } from "react-icons/ai";
 const ContactUs = () => {
   const form = useRef();
   const sendEmail = (e) => {
@@ -8,10 +8,10 @@ const ContactUs = () => {
 
     emailjs
       .sendForm(
-        'service_jrrzssf',
-        'template_jmgmnuj',
+        "service_jrrzssf",
+        "template_jmgmnuj",
         form.current,
-        'wj1KVPLMC5fGuwGhv'
+        "wj1KVPLMC5fGuwGhv"
       )
       .then(
         (result) => {
@@ -39,8 +39,8 @@ const ContactUs = () => {
                 <AiOutlineHome className="w-10 h-12" />
               </div>
               <div>
-                01 đường Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức, thành phố Hồ Chí
-                Minh
+                01 đường Võ Văn Ngân, phường Linh Chiểu, thành phố Thủ Đức,
+                thành phố Hồ Chí Minh
               </div>
             </div>
             {/* phone */}
@@ -48,14 +48,16 @@ const ContactUs = () => {
               <div className="pr-2">
                 <AiOutlinePhone className="w-10 h-12" />
               </div>
-              <div> 0348073013</div>
+              <div>0348073013</div>
             </div>
             {/* email */}
             <div className="py-4 sm:p-0 sm:pb-5 flex flex-wrap items-center">
               <div className="pr-2">
                 <AiOutlineMail className="w-10 h-12" />
               </div>
-              <div>groupcnpmmernstack@gmail.com</div>
+              <a href="mailto:groupcnpmmernstack@gmail.com">
+                groupcnpmmernstack@gmail.com
+              </a>
             </div>
           </div>
           <div className="xl:w-[70%] sm:w-[100%]">
@@ -68,30 +70,30 @@ const ContactUs = () => {
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="user_name"
-                  placeholder="Họ và tên"
+                  placeholder="Họ và tên *"
                   type="text"
                   required
                 />
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="user_email"
-                  placeholder="Địa chỉ email"
+                  placeholder="Địa chỉ email *"
                   type="email"
                   required
                 />
                 <input
                   className="w-[100%] p-2 my-2 rounded-lg h-11"
                   name="subject"
-                  placeholder="Tiêu đề"
+                  placeholder="Tiêu đề *"
                   type="text"
                   required
                 />
               </div>
               <div className="lg:w-[60%] sm:w-[100%] px-3 flex flex-wrap justify-end">
                 <textarea
-                  className="w-[100%] p-2 my-2 rounded-lg h-40"
+                  className="w-[100%] p-2 my-2 rounded-lg h-40 resize-none"
                   name="message"
-                  placeholder="Nội dung"
+                  placeholder="Nội dung *"
                   type="text"
                 ></textarea>
                 <button

@@ -38,7 +38,7 @@ const CreateNewProduct = () => {
     "Bàn phím",
     "Tai nghe",
     "SSD",
-    "Thùng máy tính",
+    "Case PC",
   ];
 
   useEffect(() => {
@@ -120,7 +120,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="text"
                   name="productName"
-                  placeholder="Nhập tên sản phẩm"
+                  placeholder="Nhập tên sản phẩm *"
                   Icon={Spellcheck}
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
@@ -128,7 +128,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="number"
                   name="price"
-                  placeholder="Nhập giá sản phẩm"
+                  placeholder="Nhập giá sản phẩm *"
                   Icon={AttachMoney}
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
@@ -138,7 +138,7 @@ const CreateNewProduct = () => {
 
                   <textarea
                     className="px-3 py-2 outline-none border-2 w-full"
-                    placeholder="Mô tả sản phẩm"
+                    placeholder="Mô tả sản phẩm *"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     cols="30"
@@ -151,7 +151,9 @@ const CreateNewProduct = () => {
                     className="px-3 py-2 outline-none border-2 w-full"
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="">Chọn danh mục</option>
+                    <option disabled value="">
+                      Chọn danh mục *
+                    </option>
                     {categories.map((category, index) => {
                       return (
                         <option key={index} value={category}>
@@ -164,7 +166,7 @@ const CreateNewProduct = () => {
                 <InputField
                   inputType="number"
                   name="stock"
-                  placeholder="Nhập số lượng sản phẩm"
+                  placeholder="Nhập số lượng sản phẩm *"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}

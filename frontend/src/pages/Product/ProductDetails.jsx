@@ -124,7 +124,6 @@ const ProductDetails = () => {
               </p> */}
             </div>
 
-            {/* revies related div */}
             <div
               className="flex gap-3 my-5
             justify-center md:justify-start items-center border-t-2 border-b-2 py-3 border-slate-300"
@@ -161,14 +160,14 @@ const ProductDetails = () => {
                     product.stock < 1 ? "text-red-500" : "text-green-500"
                   }`}
                 >
-                  {product.stock < 1 ? "OutOfStock" : "Trong kho"} -{" "}
-                  {product.stock} 
+                  {product.stock < 1 ? "Hết hàng" : "Trong kho"} -
+                  {product.stock} sản phẩm
                 </b>
               </p>
             </div>
             <div className="py-5 font-semibold text-center md:text-left">
-              Mô tả:{" "}
-              <p className="font-normal text-slate-500 text-xs text-justify">
+              Mô tả:
+              <p className="font-normal text-slate-500 text-sm text-justify">
                 {product.description}
               </p>
             </div>
@@ -204,7 +203,7 @@ const ProductDetails = () => {
               name="hover-feedback"
             />
             <textarea
-              className="w-full border-2 p-1"
+              className="w-full border-2 p-1 rounded-lg max-h-max"
               cols="30"
               placeholder="Thêm đánh giá"
               rows="5"
@@ -214,18 +213,12 @@ const ProductDetails = () => {
             ></textarea>
           </DialogContent>
           <DialogActions>
-            <input
-              type="submit"
-              onClick={submitReviewToggle}
-              color="secondary"
-              value="Hủy"
-            />
-            <input
-              type="submit"
-              onClick={reviewSubmitHandler}
-              color="primary"
-              value="Gửi"
-            />
+            <Button onClick={submitReviewToggle} color="secondary">
+              Hủy
+            </Button>
+            <Button onClick={reviewSubmitHandler} color="primary">
+              Gửi
+            </Button>
           </DialogActions>
         </Dialog>
 

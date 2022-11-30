@@ -46,26 +46,26 @@ const UserList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Mã người dùng", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Mã người dùng", minWidth: 200, flex: 0.4 },
 
     {
       field: "email",
       headerName: "Email",
-      minWidth: 170,
+      minWidth: 180,
       flex: 0.5,
     },
     {
       field: "name",
       headerName: "Tên",
-      minWidth: 200,
+      minWidth: 180,
       flex: 0.4,
     },
 
     {
       field: "role",
-      headerName: "Quyền",
+      headerName: "Vai trò",
       minWidth: 150,
-      flex: 0.2,
+      flex: 0.3,
       cellClassName: (params) => {
         return params.getValue(params.id, "role") === "admin"
           ? "text-green-500"

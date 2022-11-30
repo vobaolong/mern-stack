@@ -23,7 +23,7 @@ const Shipping = () => {
     e.preventDefault();
 
     if (phoneNo.length < 10 || phoneNo.length > 10) {
-      alert.error("Phone number should be 10 digits");
+      alert.error("Số điện thoại phải là 10 số");
       return;
     }
 
@@ -58,7 +58,7 @@ const Shipping = () => {
                 <InputField
                   inputType="text"
                   name="fullname"
-                  placeholder="Full Name"
+                  placeholder="Họ và tên *"
                   Icon={Home}
                   value={fullname}
                   onChange={(e) => setFullname(e.target.value)}
@@ -67,7 +67,7 @@ const Shipping = () => {
                 <InputField
                   inputType="text"
                   name="address"
-                  placeholder="Address"
+                  placeholder="Số nhà, đường, phường (xã), quận (huyện) *"
                   Icon={Home}
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
@@ -76,16 +76,16 @@ const Shipping = () => {
                 <InputField
                   inputType="text"
                   name="city"
-                  placeholder="City"
+                  placeholder="Thành phố *"
                   Icon={LocationCity}
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                 />
 
                 <InputField
-                  inputType="number"
+                  inputType="tel"
                   name="phoneNO"
-                  placeholder="Phone Number"
+                  placeholder="Số điện thoại *"
                   Icon={Phone}
                   value={phoneNo}
                   size="10"

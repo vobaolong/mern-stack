@@ -84,7 +84,7 @@ const ProductReviews = () => {
       headerName: "Đánh giá",
       type: "number",
       minWidth: 100,
-      flex: 0.2,
+      flex: 0.3,
 
       cellClassName: (params) => {
         return params.getValue(params.id, "rating") >= 3
@@ -163,10 +163,7 @@ const ProductReviews = () => {
               </div>
             </div>
             <div className="w-fit mx-auto mt-5">
-              <Button
-                disabled={loading ? true : false}
-                label="Xem đánh giá"
-              />
+              <Button disabled={loading ? true : false} label="Xem đánh giá" />
             </div>
           </form>
 

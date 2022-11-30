@@ -89,7 +89,8 @@ const HeroSection = styled.div`
   border-radius: ${({ borderRadius }) => (borderRadius ? borderRadius : "5px")};
   background: lightgray;
   width: ${({ width }) => (width ? width : "250px")};
-  height: ${({ height }) => (height ? height : "400px")};
+  height: ${({ height }) => (height ? height : "300px")};
+  padding: 10px;
 `;
 
 const HeroWrapper = styled.div`
@@ -125,6 +126,7 @@ const HeroImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 8px;
 `;
 
 const HeroContent = styled.div`

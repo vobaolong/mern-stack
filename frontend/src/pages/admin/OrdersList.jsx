@@ -47,7 +47,7 @@ const OrdersList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Mã đơn hàng", minWidth: 200, flex: 0.7 },
+    { field: "id", headerName: "Mã đơn hàng", minWidth: 200, flex: 0.5 },
     {
       field: "status",
       headerName: "Trạng thái",
@@ -61,7 +61,7 @@ const OrdersList = () => {
     },
     {
       field: "itemsQty",
-      headerName: "Số lượng",
+      headerName: "Số lượng sản phẩm",
       type: "number",
       minWidth: 150,
       flex: 0.3,
@@ -113,7 +113,12 @@ const OrdersList = () => {
       rows.push({
         id: order._id,
         itemsQty: order.orderItems.length,
-        status: order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí",
+        status:
+          order.orderStatus && order.orderStatus === "Delivered"
+            ? "Đã giao hàng"
+            : order.orderStatus === "Shipped"
+            ? "Đang vận chuyển"
+            : "Đang xử lí",
         amount: order.totalPrice,
       });
     });

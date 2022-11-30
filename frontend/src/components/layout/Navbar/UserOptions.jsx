@@ -35,7 +35,7 @@ const UserOptions = ({ user }) => {
 
   const logoutUser = () => {
     store.dispatch(logout());
-    alert.success("Đăng nhập thành công");
+    alert.success("Đăng xuất thành công");
     navigate("/login");
   };
 
@@ -65,7 +65,7 @@ const UserOptions = ({ user }) => {
 
     {
       icon: <ExitToApp />,
-      name: "Đăng xuát",
+      name: "Đăng xuất",
       func: logoutUser,
     },
   ];

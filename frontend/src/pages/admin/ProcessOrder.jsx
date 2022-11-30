@@ -50,7 +50,7 @@ const ProcessOrder = () => {
     }
 
     if (isUpdated) {
-      alert.success("Order Updated Successfully");
+      alert.success("Cập nhật trạng thái đơn hàng thành công");
       dispatch({ type: UPDATE_ORDER_RESET });
     }
 
@@ -147,7 +147,12 @@ const ProcessOrder = () => {
                                 : "text-red-500"
                             }  `}
                           >
-                            {order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí"}
+                            {order.orderStatus &&
+                            order.orderStatus === "Delivered"
+                              ? "Đã giao hàng"
+                              : order.orderStatus === "Shipped"
+                              ? "Đang vận chuyển"
+                              : "Đang xử lí"}
                           </p>
                         </p>
                       </div>
@@ -198,7 +203,7 @@ const ProcessOrder = () => {
                     >
                       <div className="text-center mb-10">
                         <p className="text-xl font-medium text-gray-600 pb-3 border-b-2">
-                          Process Order
+                          Trạng thái đơn hàng
                         </p>
                       </div>
                       <div className="w-full mb-2">
@@ -210,16 +215,18 @@ const ProcessOrder = () => {
                               className="px-3 py-2 outline-none border-2 w-full"
                               onChange={(e) => setStatus(e.target.value)}
                             >
-                              <option value="">Choose Status</option>
-                              <option value="Shipped">Shipped</option>
-                              <option value="Delivered">Delivered</option>
+                              <option disabled value="">
+                                Chọn trạng thái
+                              </option>
+                              <option value="Shipped">Đang vận chuyển</option>
+                              <option value="Delivered">Đã giao hàng</option>
                             </select>
                           </div>
                         </div>
                       </div>
                       <div className="w-fit mx-auto">
                         <Button
-                          label="Process"
+                          label="Cập nhật trạng thái"
                           disabled={
                             loadingOrder
                               ? true

@@ -48,20 +48,20 @@ const ProductList = () => {
   };
 
   const columns = [
-    { field: "id", headerName: "Mã sản phẩm", minWidth: 180, flex: 0.3 },
+    { field: "id", headerName: "Mã sản phẩm", minWidth: 200, flex: 0.4 },
 
     {
       field: "name",
       headerName: "Tên sản phẩm",
-      minWidth: 300,
-      flex: 0.7,
+      minWidth: 280,
+      flex: 0.6,
     },
     {
       field: "stock",
       headerName: "Số lượng",
       type: "number",
-      minWidth: 120,
-      flex: 0.3,
+      minWidth: 100,
+      flex: 0.2,
     },
 
     {
@@ -74,7 +74,7 @@ const ProductList = () => {
 
     {
       field: "actions",
-      flex: 0.4,
+      flex: 0.3,
       headerName: "Hành động",
       minWidth: 150,
       type: "number",

@@ -1,24 +1,24 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { Fragment, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
   getProductDetails,
   updateProduct,
-} from '../../actions/productAction';
-import { useAlert } from 'react-alert';
-import Button from '../../components/user/Button';
-import MetaData from '../../components/layout/MetaData';
+} from "../../actions/productAction";
+import { useAlert } from "react-alert";
+import Button from "../../components/user/Button";
+import MetaData from "../../components/layout/MetaData";
 import {
   AccountTree,
   Description,
   Storage,
   Spellcheck,
   AttachMoney,
-} from '@material-ui/icons';
-import SideBar from '../../components/admin/Sidebar';
-import { UPDATE_PRODUCT_RESET } from '../../constants/productConstants';
-import InputField from '../../components/user/InputField';
-import { useParams, useNavigate } from 'react-router-dom';
+} from "@material-ui/icons";
+import SideBar from "../../components/admin/Sidebar";
+import { UPDATE_PRODUCT_RESET } from "../../constants/productConstants";
+import InputField from "../../components/user/InputField";
+import { useParams, useNavigate } from "react-router-dom";
 
 const UpdateProduct = () => {
   const dispatch = useDispatch();
@@ -35,23 +35,23 @@ const UpdateProduct = () => {
     isUpdated,
   } = useSelector((state) => state.product);
 
-  const [productName, setProductName] = useState('');
+  const [productName, setProductName] = useState("");
   const [price, setPrice] = useState(0);
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [oldImages, setOldImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
 
   const categories = [
-    'Laptop',
-    'PC',
-    'Chuột',
-    'Bàn phím',
-    'Tai nghe',
-    'SSD',
-    'Thùng máy tính',
+    "Laptop",
+    "PC",
+    "Chuột",
+    "Bàn phím",
+    "Tai nghe",
+    "SSD",
+    "Case PC",
   ];
 
   useEffect(() => {
@@ -77,8 +77,8 @@ const UpdateProduct = () => {
     }
 
     if (isUpdated) {
-      alert.success('Product is Updated Successfully');
-      navigate('/admin/products');
+      alert.success("Product is Updated Successfully");
+      navigate("/admin/products");
 
       dispatch({ type: UPDATE_PRODUCT_RESET });
     }
@@ -98,14 +98,14 @@ const UpdateProduct = () => {
 
     const myForm = new FormData();
 
-    myForm.set('name', productName);
-    myForm.set('price', price);
-    myForm.set('description', description);
-    myForm.set('category', category);
-    myForm.set('stock', Stock);
+    myForm.set("name", productName);
+    myForm.set("price", price);
+    myForm.set("description", description);
+    myForm.set("category", category);
+    myForm.set("stock", Stock);
 
     images.forEach((image) => {
-      myForm.append('images', image);
+      myForm.append("images", image);
     });
 
     dispatch(updateProduct(productId, myForm));
@@ -191,7 +191,9 @@ const UpdateProduct = () => {
                     className="px-3 py-2 outline-none border-2 w-full"
                     onChange={(e) => setCategory(e.target.value)}
                   >
-                    <option value="">Chọn danh mục</option>
+                    <option disabled value="">
+                      Chọn danh mục
+                    </option>
                     {categories.map((category, index) => {
                       return (
                         <option key={index} value={category}>

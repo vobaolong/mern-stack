@@ -1,23 +1,23 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { clearErrors, getProduct } from '../../actions/productAction';
-import Loader from '../../components/layout/Loader/Loader';
-import ProductCard from '../../components/home/OurProduct/ProductCard';
-import { useAlert } from 'react-alert';
-import { useParams } from 'react-router-dom';
-import Pagination from 'react-js-pagination';
-import { AiOutlineFrown } from 'react-icons/ai';
-import FilterSlide from '../../components/Products/FilterSlide';
-import MetaData from '../../components/layout/MetaData';
+import React, { Fragment, useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { clearErrors, getProduct } from "../../actions/productAction";
+import Loader from "../../components/layout/Loader/Loader";
+import ProductCard from "../../components/home/OurProduct/ProductCard";
+import { useAlert } from "react-alert";
+import { useParams } from "react-router-dom";
+import Pagination from "react-js-pagination";
+import { AiOutlineFrown } from "react-icons/ai";
+import FilterSlide from "../../components/Products/FilterSlide";
+import MetaData from "../../components/layout/MetaData";
 
 const categories = [
-  'Laptop',
-  'PC',
-  'Chuột',
-  'Bàn phím',
-  'Tai nghe',
-  'SSD',
-  'Thùng máy tính',
+  "Laptop",
+  "PC",
+  "Chuột",
+  "Bàn phím",
+  "Tai nghe",
+  "SSD",
+  "Case PC",
 ];
 
 const Products = () => {
@@ -28,7 +28,7 @@ const Products = () => {
     useSelector((state) => state.products);
 
   const [price, setPrice] = useState([0, 5000]);
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("");
   const [ratings, setRatings] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const keyword = params.keyword;
