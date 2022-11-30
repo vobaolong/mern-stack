@@ -38,6 +38,7 @@ const productSchema = mongoose.Schema({
     type: Number,
     required: [true, "Hãy nhập số lượng sản phẩm"],
     default: 1,
+    min: [0, "Số lượng sản phẩm không được bé hơn 0"],
   },
   numOfReviews: {
     type: Number,

@@ -77,7 +77,7 @@ const UpdateProduct = () => {
     }
 
     if (isUpdated) {
-      alert.success("Product is Updated Successfully");
+      alert.success("Cập nhật sản phẩm thành công");
       navigate("/admin/products");
 
       dispatch({ type: UPDATE_PRODUCT_RESET });
@@ -206,7 +206,7 @@ const UpdateProduct = () => {
                 <InputField
                   inputType="number"
                   name="stock"
-                  placeholder="Enter Product Stock"
+                  placeholder="Vui lòng nhập số lượng sản phẩm"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}
