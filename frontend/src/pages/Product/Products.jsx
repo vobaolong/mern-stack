@@ -66,8 +66,8 @@ const Products = () => {
 
             <div className="flex flex-row-reverse justify-center">
               <div className="productsLayoutStyle">
-                {products && products.length > 0 ? (
-                  products.map((product, index) => {
+                {products?.length > 0 ? (
+                  products?.map((product, index) => {
                     return <ProductCard key={index} product={product} />;
                   })
                 ) : (
@@ -86,25 +86,28 @@ const Products = () => {
               />
             </div>
           </div>
-          {products.length <= 0 ||
-            (resultPerPage < productsCount && (
-              <div className="paginationBox">
-                <Pagination
-                  activePage={currentPage}
-                  itemsCountPerPage={resultPerPage}
-                  totalItemsCount={productsCount}
-                  onChange={setCurrentPageNo}
-                  nextPageText=">"
-                  prevPageText="<"
-                  firstPageText="<<"
-                  lastPageText=">>"
-                  itemClass="page-item"
-                  linkClass="page-link"
-                  activeClass="pageItemActive"
-                  activeLinkClass="pageLinkActive"
-                />
-              </div>
-            ))}
+          {
+            (products.length =
+              0 ||
+              (resultPerPage < productsCount && (
+                <div className="paginationBox">
+                  <Pagination
+                    activePage={currentPage}
+                    itemsCountPerPage={resultPerPage}
+                    totalItemsCount={productsCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText=">"
+                    prevPageText="<"
+                    firstPageText="<<"
+                    lastPageText=">>"
+                    itemClass="page-item"
+                    linkClass="page-link"
+                    activeClass="pageItemActive"
+                    activeLinkClass="pageLinkActive"
+                  />
+                </div>
+              )))
+          }
         </Fragment>
       )}
     </Fragment>
