@@ -9,7 +9,6 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   let images = [];
 
   if (typeof req.body.images === "string") {
-    // if image is single then
     images.push(req.body.images);
   } else {
     images = req.body.images;
@@ -58,7 +57,7 @@ exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
   }
 
   if (images !== undefined) {
-    // Deleting Images From Cloudinary
+    // Delete Images From Cloudinary
     for (let i = 0; i < product.images.length; i++) {
       await cloudinary.v2.uploader.destroy(product.images[i].public_id);
     }
@@ -98,7 +97,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Không tìm thấy sản phẩm", 404));
   }
 
-  // deleting images from cloudinary
+  // delete images from cloudinary
   for (let i = 0; i < product.images.length; i++) {
     await cloudinary.v2.uploader.destroy(product.images[i].public_id);
   }
@@ -133,7 +132,6 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
     .filter();
 
   let products = await apiFeature.query;
-
   let filteredProductsCount = products.length;
 
   apiFeature.pagination(resultPerPage);
@@ -155,7 +153,7 @@ exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
   res.status(200).json({ success: true, products });
 });
 
-// create a new review or update the review
+// tạo mới review hoặc cập nhật review
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
   const { rating, comment, productId } = req.body;
 

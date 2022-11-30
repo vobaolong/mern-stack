@@ -16,7 +16,7 @@ const Banner = ({ jsonData }) => {
         <p className="text-4xl md:text-5xl uppercase mt-10 text-primaryBlue text-center leading-relaxed">
           TÌM SẢN PHẨM{" "}
           <span className="text-lightGray border-b-4 border-primaryBlue">
-          TUYỆT VỜI
+            TUYỆT VỜI
           </span>{" "}
           Ở BÊN DƯỚI
         </p>
@@ -27,7 +27,7 @@ const Banner = ({ jsonData }) => {
           className="transition-all duration-500 animate-bounce mt-36"
         >
           <button className="py-3 px-7 bg-primaryDarkBlue  rounded-lg border-2 border-borderGlowBlue text-primaryBlue hover:bg-transparent transition-all duration-500 flex justify-center items-center gap-3">
-            Đến của hàng
+            Mua ngay!
             <CustomIcon Icon={CgMouse} />
           </button>
         </a>

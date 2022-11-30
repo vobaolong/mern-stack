@@ -74,30 +74,32 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 
 // Forgot password
 exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
-  // first find user through email in database
+  // tìm người dùng trong DB bằng email
   const user = await User.findOne({ email: req.body.email });
 
   if (!user) {
-    return next(new ErrorHandler("User not found", 404));
+    return next(
+      new ErrorHandler("Không tìm thấy người dùng sử dụng Email này", 404)
+    );
   }
 
   // Get ResetPassword Token
   const resetToken = user.getResetPasswordToken();
 
-  // this is for saving the value in schema of passwordtoken and passwordexpire
+  // lưu giá trị trong schema của passwordtoken và passwordexpire
   await user.save({ validateBeforeSave: false });
 
-  //for localserver
+  // cho localserver
   // ${process.env.FRONTEND_URL}
   const resetPasswordUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
   const message = `Đường Link thay đổi mật khẩu của bạn :- \n\n ${resetPasswordUrl}\n\n Nếu bạn chưa yêu cầu email này thì hãy bỏ qua nó`;
 
   try {
-    // Send the email to user after generating token
+    // gửi email cho người dùng sau khi gửi mã thông báo
     await sendEmail({
       email: user.email,
-      subject: `Ecommerce Password Recovery`,
+      subject: `G10 Store Password Recovery`,
       message,
     });
 
@@ -119,7 +121,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 
 // Reset password
 exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
-  // creating token hash
+  // create token hash
   const resetPasswordToken = crypto
     .createHash("sha256")
     .update(req.params.token)
@@ -144,7 +146,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
   user.resetPasswordToken = undefined;
   user.resetPasswordExpire = undefined;
 
-  // so again save these upper values in schema
+  // lưu tất cả thông tin trên vào schema
   await user.save();
 
   sendToken(user, 200, res);

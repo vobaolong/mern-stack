@@ -51,7 +51,6 @@ const UpdateProfile = () => {
   };
 
   useEffect(() => {
-    // if user exists then set old name, email and avatar
     if (user) {
       setName(user.name);
       setEmail(user.email);
@@ -64,7 +63,7 @@ const UpdateProfile = () => {
     }
 
     if (isUpdated) {
-      alert.success("Profile Updated Successfully");
+      alert.success("Cập nhật thông tin thành công");
       dispatch(loadUser());
 
       navigate("/account", { replace: true });
@@ -81,10 +80,10 @@ const UpdateProfile = () => {
         <Loader />
       ) : (
         <div className="h-screen px-8 py-24 bg-slate-200 md:px-24">
-          <MetaData title={`Update Profile`} />
+          <MetaData title={`Cập nhật thông tin`} />
           <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[70vh] rounded-lg  mx-auto py-5 overflow-hidden">
             <h1 className="text-center text-xl text-slate-600 py-3 border-b-2 border-secondaryDark w-fit mx-auto">
-              Update Profile{" "}
+              Cập nhật thông tin
             </h1>
             <form
               className="h-[80%] transition-transform duration-500 flex flex-col px-5 py-2  justify-evenly items-center "
@@ -96,7 +95,7 @@ const UpdateProfile = () => {
                   <InputField
                     inputType="text"
                     name="name"
-                    placeholder="Nhập tên của bạn"
+                    placeholder="Vui lòng nhập tên của bạn *"
                     Icon={MdFace}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -105,7 +104,7 @@ const UpdateProfile = () => {
                   <InputField
                     inputType="text"
                     name="email"
-                    placeholder="Nhập email của bạn"
+                    placeholder="Vui lòng nhập Email của bạn *"
                     Icon={MdMailOutline}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -127,7 +126,7 @@ const UpdateProfile = () => {
                   </div>
                 </div>
               </div>
-              <Button label="Update" />
+              <Button label="Cập nhật" />
             </form>
           </div>
         </div>

@@ -98,7 +98,10 @@ export const logout = () => async (dispatch) => {
 
     dispatch({ type: LOGOUT_USER_SUCCESS });
   } catch (error) {
-    dispatch({ type: LOGOUT_USER_FAIL, payload: error.response.data.message });
+    dispatch({
+      type: LOGOUT_USER_FAIL,
+      payload: error.response.data.message,
+    });
   }
 };
 

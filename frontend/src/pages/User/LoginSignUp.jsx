@@ -42,7 +42,7 @@ const LoginSignUp = () => {
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerEmail, setRegisterEmail] = useState("");
 
-  const path = user?.role === "admin" ? "/" : "/account";
+  const path = user?.role === "admin" ? "/admin/dashboard" : "/account";
   const redirect = location.search ? location.search.split("=")[1] : path;
 
   const handleShowHide = () => {

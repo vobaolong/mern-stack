@@ -21,6 +21,7 @@ const categories = [
 ];
 
 const Products = () => {
+  window.scrollTo(0, 0);
   const dispatch = useDispatch();
   const params = useParams();
   const alert = useAlert();
