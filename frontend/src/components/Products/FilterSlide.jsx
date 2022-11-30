@@ -26,7 +26,7 @@ const FilterSlide = ({
     <div>
       {!toggleFilterSlider && (
         <div
-          className="cursor-pointer group rounded-r-lg z-10 text-white transition-all duration-500 bg-secondaryDark px-2 py-2 hover:px-5 absolute left-0 "
+          className="cursor-pointer group rounded-r-lg z-10 text-white transition-all duration-500 bg-secondaryDark px-2 py-2 hover:px-5 left-0 fixed top-1/4"
           onClick={filterSliderHandler}
           onMouseEnter={showFilterBtnHandler}
           onMouseLeave={() => setShowIcon(true)}
@@ -39,7 +39,7 @@ const FilterSlide = ({
         </div>
       )}
       <div
-        className={` w-full h-auto md:w-80 absolute left-0 top-32 shadow-xl border-r-2 py-5 rounded-r-lg px-5 z-20 transition-all duration-500 bg-primaryBlue ${
+        className={`w-full h-auto lg:w-1/4 md:w-1/3 sm:w-1/2 left-0 top-32 shadow-xl border-r-2 py-5 fixed rounded-r-lg px-5 z-20 transition-all duration-500 bg-primaryBlue ${
           toggleFilterSlider
             ? "animate-slide-in"
             : "-left-[100%] -translate-x-96"
