@@ -10,7 +10,7 @@ class ApiFeatures {
       ? {
           name: {
             $regex: this.queryStr.keyword,
-            $options: "i", // for case-in-sensitive
+            $options: "i", // phân biệt chữ hoa chữ thường
           },
         }
       : {};
@@ -22,12 +22,9 @@ class ApiFeatures {
   filter() {
     const queryCopy = { ...this.queryStr };
 
-    // Removing some fields for category
     const removeFields = ["keyword", "page", "limit"];
 
     removeFields.forEach((key) => delete queryCopy[key]);
-
-    // filtering through price and rating
 
     let queryStr = JSON.stringify(queryCopy);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, (key) => `$${key}`);

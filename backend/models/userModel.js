@@ -7,20 +7,19 @@ const crypto = require("crypto");
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Hãy nhập tên của bạn"],
-    maxLength: [30, "Name cannot exceed 30 characters"],
-    minLength: [4, "Name should have more than 4 characters"],
+    required: [true, "Vui lòng tên của bạn"],
+    maxLength: [30, "Tên không vượt quá 30 ký tự"],
+    minLength: [5, "Tên phải dài hơn 5 ký tự"],
   },
   email: {
     type: String,
-    required: [true, "Hãy nhập Email của bạn"],
+    required: [true, "Vui lòng nhập Email của bạn"],
     unique: true,
-    validate: [validator.isEmail, "Please Enter a valid Email"],
+    validate: [validator.isEmail, "Vui lòng nhập Email đúng định dạng"],
   },
   password: {
     type: String,
-    required: [true, "Hãy nhập mật khẩu"],
-    minLength: [8, "Password should be greater than 8 characters"],
+    required: [true, "Vui lòng nhập mật khẩu"],
     select: false,
   },
   avatar: {
@@ -34,7 +33,6 @@ const userSchema = new mongoose.Schema({
     },
   },
 
-  // Role is for identify weather it is user or admin
   role: {
     type: String,
     default: "user",

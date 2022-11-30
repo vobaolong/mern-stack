@@ -41,7 +41,9 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   );
 
   if (!order) {
-    return next(new ErrorHandler("Order not found with this id", 404));
+    return next(
+      new ErrorHandler("Không tìm thấy đơn hàng với mã đơn hàng này!", 404)
+    );
   }
 
   res.status(200).json({
@@ -81,11 +83,13 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
   if (!order) {
-    return next(new ErrorHandler("Order not found with this id", 404));
+    return next(
+      new ErrorHandler("Không tìm thấy đơn hàng với mã đơn hàng này!", 404)
+    );
   }
 
   if (order.orderStatus === "Delivered") {
-    return next(new ErrorHandler("You have already delivered this order", 400));
+    return next(new ErrorHandler("Đơn hàng đã được giao", 400));
   }
 
   if (req.body.status === "Shipped") {
@@ -119,13 +123,15 @@ exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
   const order = await Order.findById(req.params.id);
 
   if (!order) {
-    return next(new ErrorHandler("Order not found with this id", 404));
+    return next(
+      new ErrorHandler("Không tìm thấy đơn hàng với mã đơn hàng này!", 404)
+    );
   }
 
   await order.remove();
 
   res.status(200).json({
     success: true,
-    message: "Order deleted successfully",
+    message: "Xoá đơn hàng thành cống",
   });
 });
