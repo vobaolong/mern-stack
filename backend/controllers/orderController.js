@@ -54,7 +54,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
 
 // nhận đơn hàng của người dùng đã đăng nhập bằng id
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.find({ user: req.user._id });
+  const orders = await Order.find({ user: req.user._id }).sort({ createdAt: -1 });
 
   res.status(200).json({
     success: true,
@@ -64,7 +64,7 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
 
 // get all order -- admin
 exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
-  const orders = await Order.find();
+  const orders = await Order.find().sort({ createdAt: -1 });
 
   let totalAmount = 0;
   orders.forEach((order) => {
