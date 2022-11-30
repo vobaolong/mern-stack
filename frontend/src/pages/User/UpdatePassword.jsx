@@ -44,7 +44,7 @@ const UpdatePassword = () => {
     }
 
     if (isUpdated) {
-      alert.success("Password updated successfully");
+      alert.success("Cập nhật mật khẩu thành công");
 
       navigate("/account", { replace: true });
 

@@ -5,10 +5,7 @@ import Button from "../../components/user/Button";
 import InputField from "../../components/user/InputField";
 import Loader from "../../components/layout/Loader/Loader";
 import MetaData from "../../components/layout/MetaData";
-import {
-  AiOutlineCheckCircle,
-  AiOutlineCloseCircle,
-} from "react-icons/ai";
+import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, resetPassword } from "../../actions/userAction";
 import { useAlert } from "react-alert";
@@ -45,7 +42,7 @@ const ResetPassword = () => {
   const iconCheckNumber = document.getElementById("iconCheckNumber");
   const iconCheckSpecial = document.getElementById("iconCheckSpecial");
   const iconCheckLength = document.getElementById("iconCheckLength");
-  const btnResetPassword = document.getElementById('btn-resetPassword');
+  const btnResetPassword = document.getElementById("btn-resetPassword");
   //btnResetPassword.disabled = true;
   const checkPassword = (data) => {
     const lower = new RegExp("(?=.*[a-z])");
@@ -124,13 +121,18 @@ const ResetPassword = () => {
       iconCheckLength.classList.remove("inline");
     }
 
-    if (lower.test(data) && upper.test(data) && number.test(data) && special.test(data) && length.test(data)) {
+    if (
+      lower.test(data) &&
+      upper.test(data) &&
+      number.test(data) &&
+      special.test(data) &&
+      length.test(data)
+    ) {
       btnResetPassword.disabled = false;
-    }
-    else {
+    } else {
       btnResetPassword.disabled = true;
     }
-  }
+  };
 
   const updatePasswordSubmit = (e) => {
     e.preventDefault();
@@ -150,7 +152,7 @@ const ResetPassword = () => {
     }
 
     if (success) {
-      alert.success("Password updated successfully");
+      alert.success("Reset mật khẩu thành công");
 
       navigate("/login", { replace: true });
     }
