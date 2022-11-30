@@ -54,7 +54,7 @@ const UpdateUser = () => {
     }
 
     if (isUpdated) {
-      alert.success("User Updated Successfully");
+      alert.success("Cập nhật người dùng thành công");
       navigate("/admin/users");
 
       dispatch({ type: UPDATE_USER_RESET });
@@ -73,7 +73,7 @@ const UpdateUser = () => {
 
   return (
     <Fragment>
-      <MetaData title={`Update User - Admin`} />
+      <MetaData title={`Cập nhật người dùng - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -98,13 +98,13 @@ const UpdateUser = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-5 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="text"
+                    type="text"
                     name="username"
                     Icon={Person}
                     value={name}
                   />
                   <InputField
-                    inputType="email"
+                    type="email"
                     name="email"
                     Icon={MailOutline}
                     value={email}

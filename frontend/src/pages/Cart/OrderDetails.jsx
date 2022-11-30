@@ -28,8 +28,8 @@ const OrderDetails = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="Chi tiết đơn hàng" />
-          
+          <MetaData title={`Chi tiết đơn hàng`} />
+
           <div className="h-auto py-24">
             <div className="w-[90%] mx-auto">
               <div>
@@ -99,7 +99,11 @@ const OrderDetails = () => {
                             : "text-red-500"
                         }  `}
                       >
-                        {order.orderStatus && order.orderStatus === "Delivered"? "Đã giao hàng" : order.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí"}
+                        {order.orderStatus && order.orderStatus === "Delivered"
+                          ? "Đã giao hàng"
+                          : order.orderStatus === "Shipped"
+                          ? "Đang vận chuyển"
+                          : "Đang xử lí"}
                       </p>
                     </p>
                   </div>

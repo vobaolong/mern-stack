@@ -117,7 +117,7 @@ const UserList = () => {
 
   return (
     <Fragment>
-      <MetaData title={`All Users - Admin`} />
+      <MetaData title={`Tất cả người dùng - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">

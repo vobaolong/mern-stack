@@ -57,7 +57,7 @@ const ForgotPassword = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-5 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="email"
+                    type="email"
                     name="email"
                     placeholder="Vui lòng nhập email của bạn"
                     Icon={MdMailOutline}

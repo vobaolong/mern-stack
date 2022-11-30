@@ -157,7 +157,7 @@ const UpdateProduct = () => {
             <div className="w-full mb-2">
               <div className="flex gap-2 justify-evenly flex-col h-full ">
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="productName"
                   placeholder="Nhập tên sản phẩm"
                   Icon={Spellcheck}
@@ -165,7 +165,7 @@ const UpdateProduct = () => {
                   onChange={(e) => setProductName(e.target.value)}
                 />
                 <InputField
-                  inputType="number"
+                  type="number"
                   name="price"
                   placeholder="Nhập giá sản phẩm"
                   Icon={AttachMoney}
@@ -204,12 +204,13 @@ const UpdateProduct = () => {
                   </select>
                 </div>
                 <InputField
-                  inputType="number"
+                  type="number"
                   name="stock"
-                  placeholder="Vui lòng nhập số lượng sản phẩm"
+                  placeholder="Vui lòng nhập số lượng sản phẩm *"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}
+                  min={0}
                 />
                 <div className="w-full flex items-center gap-5">
                   <input

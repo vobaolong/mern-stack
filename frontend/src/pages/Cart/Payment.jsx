@@ -118,7 +118,7 @@ const Payment = () => {
   return (
     <Fragment>
       <div className="h-auto py-24 px-8 md:px-0">
-        <MetaData title="Payment" />
+        <MetaData title={`Thanh toán`} />
 
         <CheckoutSteps activeStep={2} />
         <div className="w-full md:w-[30%] mx-auto">

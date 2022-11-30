@@ -12,14 +12,14 @@ const OrderSuccess = () => {
         />
 
         <p className="text-2xl text-center text-white">
-          Your Order has been Placed Successfully
+          Đơn hàng của bạn đã được đặt thành công
         </p>
 
         <Link
           className="bg-secondaryColor text-primaryDarkBlue px-10 py-2 hover:scale-105 transition-all duration-500 rounded-md"
           to="/orders/me"
         >
-          View Orders
+          Xem đơn hàng
         </Link>
       </div>
     </div>

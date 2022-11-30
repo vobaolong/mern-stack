@@ -80,14 +80,19 @@ const MyOrders = () => {
       rows.push({
         itemsQty: item.orderItems.length,
         id: item._id,
-        status: item.orderStatus && item.orderStatus === "Delivered"? "Đã giao hàng" : item.orderStatus === "Shipped"? "Đang vận chuyển":"Đang xử lí",
+        status:
+          item.orderStatus && item.orderStatus === "Delivered"
+            ? "Đã giao hàng"
+            : item.orderStatus === "Shipped"
+            ? "Đang vận chuyển"
+            : "Đang xử lí",
         amount: item.totalPrice,
       });
     });
 
   return (
     <Fragment>
-      <MetaData title={`${user.name} - đơn hàng`} />
+      <MetaData title={`Đơn hàng của ${user.name}`} />
 
       {loading ? (
         <Loader />

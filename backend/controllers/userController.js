@@ -27,7 +27,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
     },
   });
 
-  sendToken(user, 201, res, "User registered successfully");
+  sendToken(user, 201, res, "Đăng ký thành công");
 });
 
 // login user
@@ -36,27 +36,27 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
   // check if user entered email or password or not
   if (!email || !password) {
-    return next(new ErrorHandler("Please Enter Email & Password", 400));
+    return next(new ErrorHandler("Vui lòng nhập Email và mật khẩu", 400));
   }
 
-  // now find the email and password in your data-base and
-  // select method is used because we marked false in schema so that no one can see it our user passwords
+  // kiểm tra email và password trong DB
+  // dùng select vì mật khẩu đã hash nên kh thể nhìn
   const user = await User.findOne({ email }).select("+password");
 
-  // if user is not found in our database then handle error
+  // nếu không tìm thấy user trong DB
   if (!user) {
     return next(new ErrorHandler("Email hoặc mật khẩu không chính xác", 401));
   }
 
-  // check that password is matched with our database by using own define comparePassword method
+  // kiểm tra password có khớp với DB không bằng comparePassword method
   const isPasswordMatched = await user.comparePassword(password);
 
-  // if password is incorrect than show the error
+  // nếu password hoặc email không khớp
   if (!isPasswordMatched) {
     return next(new ErrorHandler("Email hoặc mật khẩu không chính xác", 401));
   }
 
-  sendToken(user, 200, res, "User login successfully");
+  sendToken(user, 200, res, "Đăng nhập thành công");
 });
 
 // logout user

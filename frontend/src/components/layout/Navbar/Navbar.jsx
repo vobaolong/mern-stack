@@ -33,7 +33,7 @@ const Navbar = ({ menuOptions }) => {
           <div className="hidden md:block">
             {`${user?.role}` === "admin" ? null : (
               <div className="flex gap-10">
-                {menuOptions.map((menu, index) => {
+                {menuOptions?.map((menu, index) => {
                   return (
                     <NavLink
                       className={({ isActive }) =>

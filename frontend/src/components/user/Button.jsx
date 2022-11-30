@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({id, label, disabled, ref, onClick }) => {
+const Button = ({ id, label, disabled, ref, onClick }) => {
   return (
     <>
       {disabled === true ? (
@@ -14,7 +14,7 @@ const Button = ({id, label, disabled, ref, onClick }) => {
             className="w-5 h-5 mr-3 border-r-2 border-white rounded-full bg-transparent animate-spin"
             viewBox="0 0 24 24"
           ></svg>
-          Đang xử lí...
+          Đang xử lý...
         </button>
       ) : (
         <input

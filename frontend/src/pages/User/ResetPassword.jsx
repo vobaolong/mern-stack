@@ -175,7 +175,7 @@ const ResetPassword = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-5 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="password"
+                    type="password"
                     name="password"
                     placeholder="Mật khẩu mới"
                     Icon={MdLockOpen}
@@ -184,7 +184,7 @@ const ResetPassword = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                   <InputField
-                    inputType="password"
+                    type="password"
                     name="confirmPassword"
                     placeholder="Nhập lại mật khẩu"
                     Icon={MdLock}

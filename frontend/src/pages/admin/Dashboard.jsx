@@ -74,7 +74,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboardStyle mt-5">
-      <MetaData title="Bảng điều khiển - Admin" />
+      <MetaData title={`Bảng điều khiển - Admin`} />
       <div className="sidebarStyle sticky left-0">
         <Sidebar />
       </div>

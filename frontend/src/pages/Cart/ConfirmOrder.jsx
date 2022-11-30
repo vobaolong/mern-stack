@@ -36,12 +36,12 @@ const ConfirmOrder = () => {
   return (
     <Fragment>
       <div className="h-auto py-24 px-8 md:px-0">
-        <MetaData title="Thông tin vận chuyển" />
+        <MetaData title={`Thông tin vận chuyển`} />
 
         <CheckoutSteps activeStep={1} />
         <div className="w-full md:w-[85%] mx-auto">
           <h2 className="text-2xl mb-5 pb-5 border-b-2 border-secondaryDark font-semibold w-fit mx-auto">
-          Xác nhận đơn hàng
+            Xác nhận đơn hàng
           </h2>
           <div>
             <div className="grid grid-col-1 tall:grid-cols-6 divide-y-2 tall:divide-y-0 tall:divide-x-2 divide-secondaryDark">
@@ -130,10 +130,7 @@ const ConfirmOrder = () => {
                     </span>
                   </div>
 
-                  <SlideableBtn
-                    onClick={proceedToPayment}
-                    label="Tiếp tục"
-                  />
+                  <SlideableBtn onClick={proceedToPayment} label="Tiếp tục" />
                 </div>
               </div>
             </div>

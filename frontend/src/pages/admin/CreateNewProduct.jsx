@@ -48,8 +48,8 @@ const CreateNewProduct = () => {
     }
 
     if (success) {
-      alert.success("Product Created Successfully");
-      navigate("/admin/dashboard");
+      alert.success("Thêm sản phẩm thành công");
+      navigate("/admin/products");
 
       dispatch({ type: NEW_PRODUCT_RESET });
     }
@@ -118,7 +118,7 @@ const CreateNewProduct = () => {
             <div className="w-full mb-2">
               <div className="flex gap-2 justify-evenly flex-col h-full ">
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="productName"
                   placeholder="Nhập tên sản phẩm *"
                   Icon={Spellcheck}
@@ -126,7 +126,7 @@ const CreateNewProduct = () => {
                   onChange={(e) => setProductName(e.target.value)}
                 />
                 <InputField
-                  inputType="number"
+                  type="number"
                   name="price"
                   placeholder="Nhập giá sản phẩm *"
                   Icon={AttachMoney}
@@ -164,9 +164,9 @@ const CreateNewProduct = () => {
                   </select>
                 </div>
                 <InputField
-                  inputType="number"
+                  type="number"
                   name="stock"
-                  placeholder="Nhập số lượng sản phẩm *"
+                  placeholder="Vui lòng nhập số lượng sản phẩm *"
                   Icon={Storage}
                   value={Stock}
                   onChange={(e) => setStock(e.target.value)}

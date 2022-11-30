@@ -52,7 +52,7 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// getting order for logged in user order
+// nhận đơn hàng của người dùng đã đăng nhập bằng id
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
   const orders = await Order.find({ user: req.user._id });
 

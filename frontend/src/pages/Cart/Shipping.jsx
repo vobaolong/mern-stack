@@ -40,7 +40,7 @@ const Shipping = () => {
   return (
     <Fragment>
       <div className="h-auto py-24">
-        <MetaData title="Thông tin vận chuyển" />
+        <MetaData title={`Thông tin vận chuyển`} />
 
         <CheckoutSteps activeStep={0} />
         <div className="w-full sm:w-[80%] md:w-[60%] lg:w-[40%] mx-auto">
@@ -56,7 +56,7 @@ const Shipping = () => {
             <div className="w-full mb-5">
               <div className="flex gap-5 justify-evenly flex-col h-full ">
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="fullname"
                   placeholder="Họ và tên *"
                   Icon={Home}
@@ -65,7 +65,7 @@ const Shipping = () => {
                 />
 
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="address"
                   placeholder="Số nhà, đường, phường (xã), quận (huyện) *"
                   Icon={Home}
@@ -74,7 +74,7 @@ const Shipping = () => {
                 />
 
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="city"
                   placeholder="Thành phố *"
                   Icon={LocationCity}
@@ -83,7 +83,7 @@ const Shipping = () => {
                 />
 
                 <InputField
-                  inputType="tel"
+                  type="tel"
                   name="phoneNO"
                   placeholder="Số điện thoại *"
                   Icon={Phone}

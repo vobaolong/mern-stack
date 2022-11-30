@@ -47,7 +47,7 @@ const ProductReviews = () => {
     }
 
     if (isDeleted) {
-      alert.success("Review is Deleted Successfully");
+      alert.success("Xoá nhận xét thành công");
       navigate("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
@@ -131,7 +131,7 @@ const ProductReviews = () => {
 
   return (
     <Fragment>
-      <MetaData title={`All Reviews - Admin`} />
+      <MetaData title={`Tất cả đánh giá - Admin`} />
 
       {/* dashboard */}
       <div className="dashboardStyle">
@@ -153,7 +153,7 @@ const ProductReviews = () => {
             <div className="w-full mb-2">
               <div className="flex gap-5 justify-evenly flex-col h-full ">
                 <InputField
-                  inputType="text"
+                  type="text"
                   name="username"
                   Icon={Star}
                   placeholder="Nhập mã sản phẩm"

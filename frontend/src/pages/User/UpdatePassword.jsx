@@ -59,7 +59,7 @@ const UpdatePassword = () => {
         <Loader />
       ) : (
         <div className="h-screen px-8 py-24 bg-slate-200 md:px-24">
-          <MetaData title={`Update Password`} />
+          <MetaData title={`Cập nhật mật khẩu`} />
           <div className="bg-white shadow-lg w-full md:w-1/2 lg:w-1/3 h-[70vh] rounded-lg  mx-auto py-5 overflow-hidden">
             <h1 className="text-center text-xl text-slate-600 py-3 border-b-2 border-secondaryDark w-fit mx-auto">
               Đổi mật khẩu{" "}
@@ -71,32 +71,32 @@ const UpdatePassword = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-5 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="password"
+                    type="password"
                     name="oldPassword"
-                    placeholder="Mật khẩu cũ"
+                    placeholder="Vui lòng nhập mật khẩu cũ *"
                     Icon={MdVpnKey}
                     value={oldPassword}
                     onChange={(e) => setOldPassword(e.target.value)}
                   />
                   <InputField
-                    inputType="password"
+                    type="password"
                     name="newPassword"
-                    placeholder="Mật khẩu mới"
+                    placeholder="Vui lòng nhập mật khẩu mới *"
                     Icon={MdLockOpen}
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                   />
                   <InputField
-                    inputType="password"
+                    type="password"
                     name="confirmPassword"
-                    placeholder="Nhập lại mật khẩu mới"
+                    placeholder="Vui lòng nhập lại mật khẩu mới *"
                     Icon={MdLock}
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                   />
                 </div>
               </div>
-              <Button label="Thay đổi" />
+              <Button label="Cập nhật" />
             </form>
           </div>
         </div>

@@ -93,7 +93,7 @@ const UpdateProfile = () => {
               <div className="w-full mb-2">
                 <div className="flex gap-5 justify-evenly flex-col h-full ">
                   <InputField
-                    inputType="text"
+                    type="text"
                     name="name"
                     placeholder="Vui lòng nhập tên của bạn *"
                     Icon={MdFace}
@@ -102,7 +102,7 @@ const UpdateProfile = () => {
                   />
 
                   <InputField
-                    inputType="text"
+                    type="text"
                     name="email"
                     placeholder="Vui lòng nhập Email của bạn *"
                     Icon={MdMailOutline}

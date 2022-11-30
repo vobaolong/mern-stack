@@ -35,12 +35,12 @@ const ProductList = () => {
     }
 
     if (isDeleted) {
-      alert.success("Product is Deleted Successfully");
+      alert.success("Xoá sản phẩm thành công");
       navigate("/admin/products");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
 
-    dispatch(getAdminProducts()); // getting all the user products
+    dispatch(getAdminProducts());
   }, [dispatch, error, alert, deleteError, isDeleted, navigate]);
 
   const deleteProductHandler = (id) => {
